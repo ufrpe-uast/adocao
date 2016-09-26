@@ -10,6 +10,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import controller.ControllerMenu;
+
 public class Menu extends Tela {
 	private JMenuBar menu;
 	private JMenu sistema;
@@ -27,12 +29,12 @@ public class Menu extends Tela {
 	private JMenuItem visualizarAnimais;
 	private JMenuItem visualizarCandidatos;
 	private JMenuItem visualizarAdocoes;
+	private ControllerMenu cMenu;
 
 	public Menu() {
 		super("Bem Vindo", 1020, 600);
 		init();
 		addMenus();
-		actionMenuItem();
 		setJMenuBar(menu);
 		setLayout(null);
 		setVisible(true);
@@ -40,6 +42,7 @@ public class Menu extends Tela {
 	}
 
 	public void init() {
+		cMenu = new ControllerMenu(this);
 		menu = new JMenuBar();
 
 		sistema = new JMenu("Sistema");
@@ -50,11 +53,13 @@ public class Menu extends Tela {
 
 		conta = new JMenuItem("Seus Dados");
 		sair = new JMenuItem("Sair do Sistema");
-
+		sair.addActionListener(cMenu);
+		
 		editarAnimal = new JMenuItem("Alterar Animal");
 		editarCandidato = new JMenuItem("Alterar Candidato");
 
 		cadastrarAnimal = new JMenuItem("Cadastrar Animal");
+		cadastrarAnimal.addActionListener(cMenu);
 		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
 		cadastrarCandidato = new JMenuItem("Cadastrar Candidato");
 
@@ -84,15 +89,39 @@ public class Menu extends Tela {
 		menu.add(ajuda);
 	}
 
-	public void actionMenuItem() {
-		this.cadastrarAnimal.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == cadastrarAnimal) {
-					CadastroAnimal cadastrarAnimal = new CadastroAnimal();
-					cadastrarAnimal.setVisible(true);
-				}
-			}
-		});
+	public JMenuItem getSair() {
+		return sair;
+	}
+
+	public JMenuItem getEditarAnimal() {
+		return editarAnimal;
+	}
+
+	public JMenuItem getEditarCandidato() {
+		return editarCandidato;
+	}
+
+	public JMenuItem getCadastrarAnimal() {
+		return cadastrarAnimal;
+	}
+
+	public JMenuItem getCadastrarAdministrador() {
+		return cadastrarAdministrador;
+	}
+
+	public JMenuItem getCadastrarCandidato() {
+		return cadastrarCandidato;
+	}
+
+	public JMenuItem getVisualizarAnimais() {
+		return visualizarAnimais;
+	}
+
+	public JMenuItem getVisualizarCandidatos() {
+		return visualizarCandidatos;
+	}
+
+	public JMenuItem getVisualizarAdocoes() {
+		return visualizarAdocoes;
 	}
 }

@@ -35,12 +35,12 @@ public class CadastroAnimal extends Tela {
 	private JPanel painel, painel2, painel3;
 	private JTextArea imputDescricao;
 	private JButton cadastrar, limpar, adicionarFoto;
-	
+
 	private ControllerAnimal controllerAnimal;
 
 	public CadastroAnimal() {
 		super("Cadastrar Animal", 550, 270);
-		
+
 		controllerAnimal = new ControllerAnimal(this);
 
 		init();
@@ -70,9 +70,10 @@ public class CadastroAnimal extends Tela {
 		add(BorderLayout.EAST, adicionarFoto);
 		add(BorderLayout.CENTER, painel3);
 		add(BorderLayout.SOUTH, painel2);
-		
+
 		cadastrar.addActionListener(controllerAnimal);
 		limpar.addActionListener(controllerAnimal);
+		adicionarFoto.addActionListener(controllerAnimal);
 
 		setVisible(true);
 	}
@@ -94,7 +95,7 @@ public class CadastroAnimal extends Tela {
 		sexoOption = new JComboBox<>();
 		sexoOption.addItem("Fêmea");
 		sexoOption.addItem("Macho");
-		idade = new JLabel("Idade:");
+		idade = new JLabel("Idade:(Anos)");
 		imputIdade = new JTextField(20);
 		peso = new JLabel("Peso:");
 		imputPeso = new JTextField(20);
@@ -102,42 +103,12 @@ public class CadastroAnimal extends Tela {
 		imputDescricao = new JTextArea();
 		imagemAnimal = new ImageIcon();
 		adicionarFoto = new JButton("Adicionar Foto");
-		adicionarFoto.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == adicionarFoto) {
-					imagemAnimal = selectFile();
-				}
-			}
-		});
 		cadastrar = new JButton("Cadastrar");
-		cadastrar.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == cadastrar) {
-					JOptionPane.showMessageDialog(null, "Animal Cadastrado com Sucesso");
-				}
-			}
-		});
 		limpar = new JButton("Limpar Dados");
-		limpar.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				if (e.getSource() == limpar) {
-					imputNome.setText(null);
-					imputRaca.setText(null);
-					imputIdade.setText(null);
-					imputPeso.setText(null);
-				}
-			}
-		});
 
 	}
 
-	private ImageIcon selectFile() {
+	public ImageIcon selectFile() {
 		ImageIcon conteudo = null;
 		String caminho = null;
 		try {

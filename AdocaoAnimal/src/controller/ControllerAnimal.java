@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import model.Animal;
 import model.BancoDados;
 import view.CadastroAnimal;
@@ -31,6 +33,8 @@ public class ControllerAnimal implements ActionListener {
 			System.out.println(bd.getAnimais().get(0).getIdade());
 			System.out.println(bd.getAnimais().get(0).getPeso());
 			System.out.println(bd.getAnimais().get(0).getDescricao());
+			
+			JOptionPane.showMessageDialog(null, "Animal Cadastrado com Sucesso");
 		}
 		else if(e.getSource() == ca.getLimpar()) {
 			ca.getImputNome().setText(null);
@@ -38,7 +42,11 @@ public class ControllerAnimal implements ActionListener {
 			ca.getImputIdade().setText(null);
 			ca.getImputPeso().setText(null);
 			ca.getImputDescricao().setText(null);
-			System.out.println("Campos limpos");
+			
+		}
+		else if (e.getSource() == ca.getAdicionarFoto()) {
+			ca.setImagemAnimal(ca.selectFile());
+			JOptionPane.showMessageDialog(null, "Imagem Selecionada!");
 		}
 	}
 
