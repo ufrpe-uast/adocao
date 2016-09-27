@@ -12,7 +12,12 @@ public class Animal {
 	private ImageIcon imagemAnimal;
 	
 	public Animal(String nome, String raca, String sexo, int idade, float peso, String descricao) {
-		this.nome = nome;
+		if(nome.equalsIgnoreCase("")) {
+			this.nome = "Sem nome";
+		}
+		else {
+			this.nome = nome;
+		}
 		this.raca = raca;
 		this.sexo = sexo;
 		this.idade = idade;

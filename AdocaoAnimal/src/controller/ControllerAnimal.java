@@ -21,11 +21,22 @@ public class ControllerAnimal implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == ca.getCadastrar()) {
-			Animal anim = new Animal(ca.getImputNome().getText(), ca.getImputRaca().getText(),
-					ca.getSexoOption().getSelectedItem().toString(),
-					Integer.parseInt(ca.getImputIdade().getText()), 
-					Float.parseFloat(ca.getImputPeso().getText()), ca.getImputDescricao().getText());
-			bd.getAnimais().add(anim);
+			try {
+				
+				int idade = Integer.parseInt(ca.getImputIdade().getText());
+				float peso = Float.parseFloat(ca.getImputPeso().getText());
+				
+				Animal anim = new Animal(ca.getImputNome().getText(), ca.getImputRaca().getText(),
+						ca.getSexoOption().getSelectedItem().toString(),
+						idade, 
+						peso, ca.getImputDescricao().getText());
+				bd.getAnimais().add(anim);
+				
+			} catch (NumberFormatException e1) {
+				e1.printStackTrace();
+				JOptionPane.showMessageDialog(null, "O campo idade deve conter um número inteiro.\n"
+						+ "O campo peso deve conter um número inteiro ou real.");
+			}
 			
 			System.out.println(bd.getAnimais().get(0).getNome());
 			System.out.println(bd.getAnimais().get(0).getRaca());
@@ -42,7 +53,6 @@ public class ControllerAnimal implements ActionListener {
 			ca.getImputIdade().setText(null);
 			ca.getImputPeso().setText(null);
 			ca.getImputDescricao().setText(null);
-			
 		}
 		else if (e.getSource() == ca.getAdicionarFoto()) {
 			ca.setImagemAnimal(ca.selectFile());
