@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import view.CadastroAnimal;
+import view.CadastroCandidato;
 import view.Menu;
 
 public class ControllerMenu implements ActionListener {
@@ -22,6 +23,10 @@ public class ControllerMenu implements ActionListener {
 		}
 		else if (e.getSource()==menu.getSair()) {
 			System.exit(0);
+		}
+		else if (e.getSource()==menu.getCadastrarCandidato()) {
+			CadastroCandidato cadastrarCandidato = new CadastroCandidato();
+			cadastrarCandidato.setVisible(true);
 		}
 	}
 }

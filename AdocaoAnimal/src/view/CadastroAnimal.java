@@ -44,7 +44,7 @@ public class CadastroAnimal extends Tela {
 		controllerAnimal = new ControllerAnimal(this);
 
 		init();
-		setLayout(new BorderLayout(50, 30));
+		setLayout(new BorderLayout(10, 30));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		painel.setLayout(new GridLayout(6, 1));
 		painel3.setLayout(new GridLayout(6, 1));

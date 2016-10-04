@@ -62,6 +62,7 @@ public class Menu extends Tela {
 		cadastrarAnimal.addActionListener(cMenu);
 		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
 		cadastrarCandidato = new JMenuItem("Cadastrar Candidato");
+		cadastrarCandidato.addActionListener(cMenu);
 
 		visualizarAnimais = new JMenuItem("Animais");
 		visualizarCandidatos = new JMenuItem("Candidatos");
