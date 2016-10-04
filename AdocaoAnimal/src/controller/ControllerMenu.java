@@ -3,8 +3,10 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import model.BancoDados;
 import view.CadastroAnimal;
 import view.CadastroCandidato;
+import view.ListaAnimais;
 import view.Menu;
 
 public class ControllerMenu implements ActionListener {
@@ -27,6 +29,10 @@ public class ControllerMenu implements ActionListener {
 		else if (e.getSource()==menu.getCadastrarCandidato()) {
 			CadastroCandidato cadastrarCandidato = new CadastroCandidato();
 			cadastrarCandidato.setVisible(true);
+		}
+		else if(e.getSource() == menu.getVisualizarAnimais()) {
+			ListaAnimais la = new ListaAnimais();
+			la.setVisible(true);
 		}
 	}
 }
