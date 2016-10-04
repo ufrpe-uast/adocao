@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_riffIYnqEeaxJf0DYv6o4Q" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_riffIonqEeaxJf0DYv6o4Q" bindingContexts="_riffJInqEeaxJf0DYv6o4Q">
-  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ControllerCandidato.java&quot; tooltip=&quot;AdocaoAnimal/src/controller/ControllerCandidato.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/AdocaoAnimal/src/controller/ControllerCandidato.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;App.java&quot; tooltip=&quot;AdocaoAnimal/src/app/App.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/AdocaoAnimal/src/app/App.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ControllerCandidato.java&quot; tooltip=&quot;AdocaoAnimal/src/controller/ControllerCandidato.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/AdocaoAnimal/src/controller/ControllerCandidato.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_riffIonqEeaxJf0DYv6o4Q" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_tDTxoonqEeaxJf0DYv6o4Q" label="%trimmedwindow.label.eclipseSDK" x="0" y="484" width="455" height="242">
@@ -231,12 +231,19 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_uI5gsInqEeaxJf0DYv6o4Q" elementId="org.eclipse.ui.editorss" selectedElement="_uI5gsYnqEeaxJf0DYv6o4Q">
-      <children xsi:type="basic:PartStack" xmi:id="_uI5gsYnqEeaxJf0DYv6o4Q" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_SBWN4InvEeaxJf0DYv6o4Q">
+      <children xsi:type="basic:PartStack" xmi:id="_uI5gsYnqEeaxJf0DYv6o4Q" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_ZgB6cIpGEea9f9PbH_-4Rw">
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
+        <tags>noFocus</tags>
         <children xsi:type="basic:Part" xmi:id="_SBWN4InvEeaxJf0DYv6o4Q" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ControllerCandidato.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ControllerCandidato.java&quot; partName=&quot;ControllerCandidato.java&quot; title=&quot;ControllerCandidato.java&quot; tooltip=&quot;AdocaoAnimal/src/controller/ControllerCandidato.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/AdocaoAnimal/src/controller/ControllerCandidato.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;554&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ControllerCandidato.java&quot; partName=&quot;ControllerCandidato.java&quot; title=&quot;ControllerCandidato.java&quot; tooltip=&quot;AdocaoAnimal/src/controller/ControllerCandidato.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/AdocaoAnimal/src/controller/ControllerCandidato.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
+          <tags>removeOnHide</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_ZgB6cIpGEea9f9PbH_-4Rw" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="App.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.png" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;App.java&quot; partName=&quot;App.java&quot; title=&quot;App.java&quot; tooltip=&quot;AdocaoAnimal/src/app/App.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/AdocaoAnimal/src/app/App.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;0&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -393,7 +400,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_tas98InqEeaxJf0DYv6o4Q" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_tbJp4InqEeaxJf0DYv6o4Q" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_rm9JTonqEeaxJf0DYv6o4Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="__52KcIpFEea9f9PbH_-4Rw" elementId="print" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" command="_rm9JTonqEeaxJf0DYv6o4Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_tas98YnqEeaxJf0DYv6o4Q" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -426,7 +433,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_tas99YnqEeaxJf0DYv6o4Q" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_tbJp6onqEeaxJf0DYv6o4Q" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_rm9I9YnqEeaxJf0DYv6o4Q"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="__6KTgIpFEea9f9PbH_-4Rw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_rm9I9YnqEeaxJf0DYv6o4Q"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_tas99onqEeaxJf0DYv6o4Q" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
