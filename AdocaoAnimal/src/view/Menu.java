@@ -63,6 +63,9 @@ public class Menu extends Tela {
 		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
 		cadastrarCandidato = new JMenuItem("Cadastrar Candidato");
 		cadastrarCandidato.addActionListener(cMenu);
+		
+		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
+		cadastrarAdministrador.addActionListener(cMenu);
 
 		visualizarAnimais = new JMenuItem("Animais");
 		visualizarAnimais.addActionListener(cMenu);
@@ -83,6 +86,7 @@ public class Menu extends Tela {
 
 		cadastro.add(cadastrarAnimal);
 		cadastro.add(cadastrarCandidato);
+		cadastro.add(cadastrarAdministrador);
 
 		menu.add(sistema);
 		menu.add(editar);
