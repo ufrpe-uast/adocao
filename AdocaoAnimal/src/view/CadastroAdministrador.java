@@ -12,6 +12,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controller.ControllerAdministrador;
+
 public class CadastroAdministrador extends Tela {
 
 	private JLabel titulo;
@@ -33,8 +35,12 @@ public class CadastroAdministrador extends Tela {
 	private JPanel painelInput;
 	private JPanel painelBotoes;
 	
+	private ControllerAdministrador ctrlAdm;
+	
 	public CadastroAdministrador() {
 		super("Cadastro Administrador", 400, 350);
+		
+		ctrlAdm = new ControllerAdministrador(this);
 		
 		setLayout(new BorderLayout());
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -63,6 +69,9 @@ public class CadastroAdministrador extends Tela {
 		
 		cadastrar = new JButton("Cadastrar");
 		limpar = new JButton("Limpar");
+		
+		cadastrar.addActionListener(ctrlAdm);
+		limpar.addActionListener(ctrlAdm);
 		
 		painelTitulo = new JPanel();
 		painelLabels = new JPanel();
