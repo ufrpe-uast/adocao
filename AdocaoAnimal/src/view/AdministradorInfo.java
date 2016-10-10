@@ -28,7 +28,7 @@ public class AdministradorInfo extends Tela {
 		admLogado = buscarAdm(Sessao.usuario);
 		
 		setLayout(new GridLayout(4, 1));
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
 		titulo = new JLabel("Suas informações");
 		titulo.setFont(new Font("", Font.BOLD, 20));
