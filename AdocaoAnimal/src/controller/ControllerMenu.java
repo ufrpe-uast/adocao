@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import model.BancoDados;
+import view.AdministradorInfo;
 import view.CadastroAdministrador;
 import view.CadastroAnimal;
 import view.CadastroCandidato;
@@ -38,6 +39,10 @@ public class ControllerMenu implements ActionListener {
 		else if(e.getSource() == menu.getVisualizarAnimais()) {
 			ListaAnimais la = new ListaAnimais();
 			la.setVisible(true);
+		}
+		else if(e.getSource() == menu.getConta()) {
+			AdministradorInfo info = new AdministradorInfo();
+			info.setVisible(true);
 		}
 	}
 }

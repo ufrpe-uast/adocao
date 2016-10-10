@@ -52,6 +52,7 @@ public class Menu extends Tela {
 		ajuda = new JMenu("Ajuda");
 
 		conta = new JMenuItem("Seus Dados");
+		conta.addActionListener(cMenu);
 		sair = new JMenuItem("Sair do Sistema");
 		sair.addActionListener(cMenu);
 		
@@ -129,5 +130,105 @@ public class Menu extends Tela {
 
 	public JMenuItem getVisualizarAdocoes() {
 		return visualizarAdocoes;
+	}
+
+	public JMenuBar getMenu() {
+		return menu;
+	}
+
+	public void setMenu(JMenuBar menu) {
+		this.menu = menu;
+	}
+
+	public JMenu getSistema() {
+		return sistema;
+	}
+
+	public void setSistema(JMenu sistema) {
+		this.sistema = sistema;
+	}
+
+	public JMenu getEditar() {
+		return editar;
+	}
+
+	public void setEditar(JMenu editar) {
+		this.editar = editar;
+	}
+
+	public JMenu getCadastro() {
+		return cadastro;
+	}
+
+	public void setCadastro(JMenu cadastro) {
+		this.cadastro = cadastro;
+	}
+
+	public JMenu getVisualizar() {
+		return visualizar;
+	}
+
+	public void setVisualizar(JMenu visualizar) {
+		this.visualizar = visualizar;
+	}
+
+	public JMenu getAjuda() {
+		return ajuda;
+	}
+
+	public void setAjuda(JMenu ajuda) {
+		this.ajuda = ajuda;
+	}
+
+	public JMenuItem getConta() {
+		return conta;
+	}
+
+	public void setConta(JMenuItem conta) {
+		this.conta = conta;
+	}
+
+	public ControllerMenu getcMenu() {
+		return cMenu;
+	}
+
+	public void setcMenu(ControllerMenu cMenu) {
+		this.cMenu = cMenu;
+	}
+
+	public void setSair(JMenuItem sair) {
+		this.sair = sair;
+	}
+
+	public void setEditarAnimal(JMenuItem editarAnimal) {
+		this.editarAnimal = editarAnimal;
+	}
+
+	public void setEditarCandidato(JMenuItem editarCandidato) {
+		this.editarCandidato = editarCandidato;
+	}
+
+	public void setCadastrarAnimal(JMenuItem cadastrarAnimal) {
+		this.cadastrarAnimal = cadastrarAnimal;
+	}
+
+	public void setCadastrarAdministrador(JMenuItem cadastrarAdministrador) {
+		this.cadastrarAdministrador = cadastrarAdministrador;
+	}
+
+	public void setCadastrarCandidato(JMenuItem cadastrarCandidato) {
+		this.cadastrarCandidato = cadastrarCandidato;
+	}
+
+	public void setVisualizarAnimais(JMenuItem visualizarAnimais) {
+		this.visualizarAnimais = visualizarAnimais;
+	}
+
+	public void setVisualizarCandidatos(JMenuItem visualizarCandidatos) {
+		this.visualizarCandidatos = visualizarCandidatos;
+	}
+
+	public void setVisualizarAdocoes(JMenuItem visualizarAdocoes) {
+		this.visualizarAdocoes = visualizarAdocoes;
 	}
 }
