@@ -3,7 +3,7 @@ package model;
 import javax.swing.ImageIcon;
 
 public class Animal {
-	private int id;
+	private  int id;
 	private String nome;
 	private String raca;
 	private String sexo;
@@ -79,4 +79,5 @@ public class Animal {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
 }

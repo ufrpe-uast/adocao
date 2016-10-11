@@ -26,6 +26,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import controller.ControllerAnimal;
+import controller.ControllerMenu;
 
 public class CadastroAnimal extends TelaInterna {
 	private JLabel titulo, id, nome, raca, sexo, idade, peso, descricao;
@@ -34,8 +35,8 @@ public class CadastroAnimal extends TelaInterna {
 	private JComboBox<String> sexoOption;
 	private JPanel painel, painel2, painel3;
 	private JTextArea imputDescricao;
-	private JButton cadastrar, limpar, adicionarFoto;
-
+	private JButton cadastrar, limpar,alterar, adicionarFoto;
+	private int contatorCadastro=0;
 	private ControllerAnimal controllerAnimal;
 
 	public CadastroAnimal() {
@@ -47,7 +48,7 @@ public class CadastroAnimal extends TelaInterna {
 		setLayout(new BorderLayout(10, 30));
 		painel.setLayout(new GridLayout(7, 1));
 		painel3.setLayout(new GridLayout(7, 1));
-		painel2.setLayout(new GridLayout(1, 1));
+		painel2.setLayout(new GridLayout(1, 2));
 		painel.add(id);
 		painel3.add(imputId);
 		painel.add(nome);
@@ -63,6 +64,7 @@ public class CadastroAnimal extends TelaInterna {
 		painel.add(descricao);
 		painel3.add(imputDescricao);
 		painel2.add(cadastrar);
+		painel2.add(alterar);
 		painel2.add(limpar);
 
 		add(BorderLayout.NORTH, titulo);
@@ -73,6 +75,7 @@ public class CadastroAnimal extends TelaInterna {
 
 		cadastrar.addActionListener(controllerAnimal);
 		limpar.addActionListener(controllerAnimal);
+		alterar.addActionListener(controllerAnimal);
 		adicionarFoto.addActionListener(controllerAnimal);
 		setLocation(235, 160);
 		setVisible(true);
@@ -106,6 +109,7 @@ public class CadastroAnimal extends TelaInterna {
 		imagemAnimal = new ImageIcon();
 		adicionarFoto = new JButton("Adicionar Foto");
 		cadastrar = new JButton("Cadastrar");
+		alterar = new JButton("Alterar");
 		limpar = new JButton("Limpar Dados");
 
 	}
@@ -228,12 +232,28 @@ public class CadastroAnimal extends TelaInterna {
 		return sexoOption;
 	}
 
+	public int getContatorCadastro() {
+		return contatorCadastro;
+	}
+
+	public void setContatorCadastro(int contatorCadastro) {
+		this.contatorCadastro += contatorCadastro;
+	}
+
 	public void setSexoOption(JComboBox<String> sexoOption) {
 		this.sexoOption = sexoOption;
 	}
 
 	public JPanel getPainel() {
 		return painel;
+	}
+
+	public JButton getAlterar() {
+		return alterar;
+	}
+
+	public void setAlterar(JButton alterar) {
+		this.alterar = alterar;
 	}
 
 	public JLabel getId() {

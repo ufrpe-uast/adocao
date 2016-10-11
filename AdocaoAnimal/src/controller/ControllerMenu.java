@@ -8,6 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 import model.Administrador;
 import model.Animal;
@@ -33,18 +34,22 @@ public class ControllerMenu implements ActionListener {
 		if (e.getSource() == menu.getCadastrarAnimal()) {
 			if (menu.getTelaCadAnimal() == null) {
 				menu.setTelaCadAnimal(new CadastroAnimal());
-				menu.getTelaCadAnimal().getImputId().setText("0"+Integer.toString(BancoDados.animais.size()+1));
+				menu.getTelaCadAnimal().getAlterar().setEnabled(false);
+				menu.getTelaCadAnimal().setContatorCadastro(1);
+				menu.getTelaCadAnimal().getImputId()
+						.setText(Integer.toString(menu.getTelaCadAnimal().getContatorCadastro()));
 				menu.getTelaCadAnimal().setVisible(true);
 				menu.getDesktop().add(menu.getTelaCadAnimal());
 			} else {
-				menu.getTelaCadAnimal().getImputId().setText(Integer.toString(BancoDados.animais.size()+1));
+				menu.getTelaCadAnimal().getImputId()
+						.setText(Integer.toString(menu.getTelaCadAnimal().getContatorCadastro()));
 				menu.getTelaCadAnimal().setVisible(true);
 				menu.getDesktop().add(menu.getTelaCadAnimal());
 			}
 
 		} else if (e.getSource() == menu.getSair()) {
 			int sair = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?");
-			if(sair == 0) {
+			if (sair == 0) {
 				// salvamento de dados
 				salvarDados();
 				System.exit(0);
@@ -92,39 +97,56 @@ public class ControllerMenu implements ActionListener {
 		}
 
 		else if (e.getSource() == menu.getEditarAnimal()) {
-			String nome;
+			String identifica;
+			if (BancoDados.animais.size() == 0) {
+				JOptionPane.showMessageDialog(null, "Nenhum Animal foi Cadastrado.");
+				return;
+			} else {
 
-			nome = JOptionPane.showInputDialog("Digite o Nome do Animal:");
-			for (Animal anim : BancoDados.animais) {
+				identifica = JOptionPane.showInputDialog("Digite o ID do Animal:");
+				int cont = 0;
+				int id = Integer.parseInt(identifica);
 
-				if (anim.getNome().equalsIgnoreCase(nome)) {
-					menu.getTelaCadAnimal().getImputNome().setText(anim.getNome());
-					menu.getTelaCadAnimal().getImputRaca().setText(anim.getRaca());
-					menu.getTelaCadAnimal().getImputIdade().setText(String.valueOf(anim.getIdade()));
-					menu.getTelaCadAnimal().getImputDescricao().setText(anim.getDescricao());
-					menu.getTelaCadAnimal().getImputPeso().setText(String.valueOf(anim.getPeso()));
+				for (int i = 0; i < BancoDados.animais.size(); i++) {
+					Animal anim = BancoDados.animais.get(i);
+					if (anim.getId() == id) {
+						// Mostrar os Dados que foram cadastrados
+						menu.getTelaCadAnimal().getImputId().setText(identifica);
+						menu.getTelaCadAnimal().getImputNome().setText(anim.getNome());
+						menu.getTelaCadAnimal().getImputRaca().setText(anim.getRaca());
+						menu.getTelaCadAnimal().getImputIdade().setText(String.valueOf(anim.getIdade()));
+						menu.getTelaCadAnimal().getImputDescricao().setText(anim.getDescricao());
+						menu.getTelaCadAnimal().getImputPeso().setText(String.valueOf(anim.getPeso()));
 
-					if (anim.getSexo().equalsIgnoreCase("Macho")) {
-						menu.getTelaCadAnimal().getSexoOption().setSelectedIndex(1);
-					} else {
-						menu.getTelaCadAnimal().getSexoOption().setSelectedIndex(0);
+						if (anim.getSexo().equalsIgnoreCase("Macho")) {
+							menu.getTelaCadAnimal().getSexoOption().setSelectedIndex(1);
+						} else {
+							menu.getTelaCadAnimal().getSexoOption().setSelectedIndex(0);
+						}
+						menu.getTelaCadAnimal().getCadastrar().setEnabled(false);
+						menu.getTelaCadAnimal().getAlterar().setEnabled(true);
+						menu.getTelaCadAnimal().setVisible(true);
+						menu.getDesktop().add(menu.getTelaCadAnimal());
+						cont++;
 					}
 
-					menu.getTelaCadAnimal().setVisible(true);
-					menu.getDesktop().add(menu.getTelaCadAnimal());
+				}
+				if (cont == 0) {
+					JOptionPane.showMessageDialog(null,
+							"  Animal não Encontrado! \n Verifique se o Animal foi Cadastrado.");
 				}
 			}
 
-			JOptionPane.showMessageDialog(null, "  Animal não Encontrado! \n Verifique se o Animal foi Cadastrado.");
 		}
 	}
+
 	public void salvarDados() {
 		BufferedWriter out = null;
 		File adms = new File("administradores.txt");
 		File anim = new File("animais.txt");
 		File cand = new File("candidatos.txt");
-		
-		for(Administrador adm: BancoDados.adms) {	
+
+		for (Administrador adm : BancoDados.adms) {
 			try {
 				out = new BufferedWriter(new FileWriter(adms));
 				out.write(adm.getNome());
@@ -137,14 +159,14 @@ public class ControllerMenu implements ActionListener {
 				out.newLine();
 				out.write("------");
 				out.newLine();
-				
+
 				out.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		for(Animal an: BancoDados.animais) {
+
+		for (Animal an : BancoDados.animais) {
 			try {
 				out = new BufferedWriter(new FileWriter(anim));
 				out.write(an.getNome());
@@ -160,14 +182,14 @@ public class ControllerMenu implements ActionListener {
 				out.write(an.getDescricao());
 				out.write("------");
 				out.newLine();
-				
+
 				out.close();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-		
-		for(Candidato ca: BancoDados.candidatos) {
+
+		for (Candidato ca : BancoDados.candidatos) {
 			try {
 				out = new BufferedWriter(new FileWriter(cand));
 				out.write(ca.getNome());
@@ -179,10 +201,10 @@ public class ControllerMenu implements ActionListener {
 				out.write(ca.getSenha());
 				out.newLine();
 				out.write(ca.getTelefone());
-				out.newLine();				
+				out.newLine();
 				out.write("------");
 				out.newLine();
-				
+
 				out.close();
 			} catch (IOException e) {
 				e.printStackTrace();

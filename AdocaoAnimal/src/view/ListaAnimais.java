@@ -35,7 +35,7 @@ public class ListaAnimais extends TelaInterna {
 					+ "<p> Descrição: "+anim.getDescricao()+"</p>"
 					+ "</html>"));
 			pan.add(new JButton("Adotar"));
-						
+			
 			this.add(pan);
 		}
 	}
