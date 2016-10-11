@@ -3,6 +3,7 @@ package model;
 import javax.swing.ImageIcon;
 
 public class Animal {
+	private int id;
 	private String nome;
 	private String raca;
 	private String sexo;
@@ -11,13 +12,14 @@ public class Animal {
 	private String descricao;
 	private ImageIcon imagemAnimal;
 	
-	public Animal(String nome, String raca, String sexo, int idade, float peso, String descricao) {
+	public Animal(int id,String nome, String raca, String sexo, int idade, float peso, String descricao) {
 		if(nome.equalsIgnoreCase("")) {
 			this.nome = "Sem nome";
 		}
 		else {
 			this.nome = nome;
 		}
+		this.id = id;
 		this.raca = raca;
 		this.sexo = sexo;
 		this.idade = idade;
@@ -68,5 +70,13 @@ public class Animal {
 
 	public void setImagemAnimal(ImageIcon imagemAnimal) {
 		this.imagemAnimal = imagemAnimal;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 }

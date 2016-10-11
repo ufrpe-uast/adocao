@@ -27,10 +27,10 @@ import javax.swing.SwingConstants;
 
 import controller.ControllerAnimal;
 
-public class CadastroAnimal extends Tela {
-	private JLabel titulo, nome, raca, sexo, idade, peso, descricao;
+public class CadastroAnimal extends TelaInterna {
+	private JLabel titulo, id, nome, raca, sexo, idade, peso, descricao;
 	private ImageIcon imagemAnimal;
-	private JTextField imputNome, imputRaca, imputIdade, imputPeso;
+	private JTextField imputId,imputNome, imputRaca, imputIdade, imputPeso;
 	private JComboBox<String> sexoOption;
 	private JPanel painel, painel2, painel3;
 	private JTextArea imputDescricao;
@@ -45,11 +45,11 @@ public class CadastroAnimal extends Tela {
 
 		init();
 		setLayout(new BorderLayout(10, 30));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		painel.setLayout(new GridLayout(6, 1));
-		painel3.setLayout(new GridLayout(6, 1));
+		painel.setLayout(new GridLayout(7, 1));
+		painel3.setLayout(new GridLayout(7, 1));
 		painel2.setLayout(new GridLayout(1, 1));
-
+		painel.add(id);
+		painel3.add(imputId);
 		painel.add(nome);
 		painel3.add(imputNome);
 		painel.add(raca);
@@ -74,7 +74,7 @@ public class CadastroAnimal extends Tela {
 		cadastrar.addActionListener(controllerAnimal);
 		limpar.addActionListener(controllerAnimal);
 		adicionarFoto.addActionListener(controllerAnimal);
-
+		setLocation(235, 160);
 		setVisible(true);
 	}
 
@@ -86,7 +86,9 @@ public class CadastroAnimal extends Tela {
 		painel = new JPanel();
 		painel2 = new JPanel();
 		painel3 = new JPanel();
-
+		id = new JLabel("Id:");
+		imputId = new JTextField();
+		imputId.setEditable(false);
 		nome = new JLabel("Nome:");
 		imputNome = new JTextField(20);
 		raca = new JLabel("Raça:");
@@ -232,6 +234,22 @@ public class CadastroAnimal extends Tela {
 
 	public JPanel getPainel() {
 		return painel;
+	}
+
+	public JLabel getId() {
+		return id;
+	}
+
+	public void setId(JLabel id) {
+		this.id = id;
+	}
+
+	public JTextField getImputId() {
+		return imputId;
+	}
+
+	public void setImputId(JTextField imputId) {
+		this.imputId = imputId;
 	}
 
 	public void setPainel(JPanel painel) {

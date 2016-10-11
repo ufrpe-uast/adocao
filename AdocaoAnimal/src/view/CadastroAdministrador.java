@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 import controller.ControllerAdministrador;
 
-public class CadastroAdministrador extends Tela {
+public class CadastroAdministrador extends TelaInterna {
 
 	private JLabel titulo;
 	private JLabel nomeLabel;
@@ -38,12 +38,12 @@ public class CadastroAdministrador extends Tela {
 	private ControllerAdministrador ctrlAdm;
 	
 	public CadastroAdministrador() {
-		super("Cadastro Administrador", 400, 350);
+		super("Cadastrar Administrador", 400, 350);
 		
 		ctrlAdm = new ControllerAdministrador(this);
 		
 		setLayout(new BorderLayout());
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		
 		
 		init();
 		
@@ -51,11 +51,12 @@ public class CadastroAdministrador extends Tela {
 		add(BorderLayout.WEST, painelLabels);
 		add(BorderLayout.CENTER, painelInput);
 		add(BorderLayout.SOUTH, painelBotoes);
+		setLocation(310, 120);
 	}
 	
 	public void init() {
-		titulo = new JLabel("Cadastro de Administradores");
-		titulo.setFont(new Font("", Font.BOLD, 20)); // fonte Times causando lentidao
+		titulo = new JLabel("Cadastro de Administrador");
+		titulo.setFont(new Font("Serif", Font.BOLD, 20)); // fonte Times causando lentidao
 		
 		nomeLabel = new JLabel("Nome: ");
 		usuarioLabel = new JLabel("Usuario: ");

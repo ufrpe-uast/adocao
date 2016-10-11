@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -30,12 +31,18 @@ public class Menu extends Tela {
 	private JMenuItem visualizarCandidatos;
 	private JMenuItem visualizarAdocoes;
 	private ControllerMenu cMenu;
-
+	private CadastroAnimal telaCadAnimal;
+	private CadastroCandidato telaCadCandidato;
+	private CadastroAdministrador telaCadAdm;
+	private ListaAnimais telaListarAnimal;
+	private ListaCandidato telaListarCandidato;
+	private JDesktopPane desktop;
 	public Menu() {
 		super("Bem Vindo", 1020, 600);
 		init();
 		addMenus();
 		setJMenuBar(menu);
+		setContentPane(desktop);
 		setLayout(null);
 		setVisible(true);
 
@@ -44,6 +51,7 @@ public class Menu extends Tela {
 	public void init() {
 		cMenu = new ControllerMenu(this);
 		menu = new JMenuBar();
+		desktop = new JDesktopPane();
 
 		sistema = new JMenu("Sistema");
 		editar = new JMenu("Editar");
@@ -57,6 +65,7 @@ public class Menu extends Tela {
 		sair.addActionListener(cMenu);
 		
 		editarAnimal = new JMenuItem("Alterar Animal");
+		editarAnimal.addActionListener(cMenu);
 		editarCandidato = new JMenuItem("Alterar Candidato");
 
 		cadastrarAnimal = new JMenuItem("Cadastrar Animal");
@@ -71,6 +80,7 @@ public class Menu extends Tela {
 		visualizarAnimais = new JMenuItem("Animais");
 		visualizarAnimais.addActionListener(cMenu);
 		visualizarCandidatos = new JMenuItem("Candidatos");
+		visualizarCandidatos.addActionListener(cMenu);
 		visualizarAdocoes = new JMenuItem("Adoções");
 	}
 
@@ -230,5 +240,53 @@ public class Menu extends Tela {
 
 	public void setVisualizarAdocoes(JMenuItem visualizarAdocoes) {
 		this.visualizarAdocoes = visualizarAdocoes;
+	}
+
+	public CadastroAnimal getTelaCadAnimal() {
+		return telaCadAnimal;
+	}
+
+	public void setTelaCadAnimal(CadastroAnimal telaCadAnimal) {
+		this.telaCadAnimal = telaCadAnimal;
+	}
+
+	public CadastroCandidato getTelaCadCandidato() {
+		return telaCadCandidato;
+	}
+
+	public void setTelaCadCandidato(CadastroCandidato telaCadCandidato) {
+		this.telaCadCandidato = telaCadCandidato;
+	}
+
+	public CadastroAdministrador getTelaCadAdm() {
+		return telaCadAdm;
+	}
+
+	public void setTelaCadAdm(CadastroAdministrador telaCadAdm) {
+		this.telaCadAdm = telaCadAdm;
+	}
+
+	public ListaAnimais getTelaListarAnimal() {
+		return telaListarAnimal;
+	}
+
+	public void setTelaListarAnimal(ListaAnimais telaListarAnimal) {
+		this.telaListarAnimal = telaListarAnimal;
+	}
+
+	public ListaCandidato getTelaListarCandidato() {
+		return telaListarCandidato;
+	}
+
+	public void setTelaListarCandidato(ListaCandidato telaListarCandidato) {
+		this.telaListarCandidato = telaListarCandidato;
+	}
+
+	public JDesktopPane getDesktop() {
+		return desktop;
+	}
+
+	public void setDesktop(JDesktopPane desktop) {
+		this.desktop = desktop;
 	}
 }

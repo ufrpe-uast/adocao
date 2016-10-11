@@ -13,20 +13,20 @@ import javax.swing.JPanel;
 import model.Animal;
 import model.BancoDados;
 
-public class ListaAnimais extends Tela {
+public class ListaAnimais extends TelaInterna {
 	
 	public ListaAnimais() {
-		super("Lista de Animais", 1020, 600);
+		super("Animais", 900, 500);
 		
 		setLayout(new FlowLayout());
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-	
+		setLocation(60, 25);
 		for(Animal anim: BancoDados.animais) {
 			JPanel pan = new JPanel();
-//			pan.setSize(100, 100);
+			pan.setSize(100, 100);
 			pan.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 
 			pan.add(new JLabel("<html>"
+					+ "<p> ID: "+anim.getId()+"</p>"
 					+ "<p> Nome: "+anim.getNome()+"</p>"
 					+ "<p> Raça: "+anim.getRaca()+"</p>"
 					+ "<p> Sexo: "+anim.getSexo()+"</p>"
@@ -35,9 +35,8 @@ public class ListaAnimais extends Tela {
 					+ "<p> Descrição: "+anim.getDescricao()+"</p>"
 					+ "</html>"));
 			pan.add(new JButton("Adotar"));
-			
+						
 			this.add(pan);
 		}
 	}
-
 }

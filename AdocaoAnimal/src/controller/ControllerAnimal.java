@@ -22,11 +22,14 @@ public class ControllerAnimal implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == ca.getCadastrar()) {
 			try {
-				
+				int contador = BancoDados.animais.size()+1;
+				System.out.println(contador);
+				String id = "0" + BancoDados.animais.size()+1;
+				System.out.println(id);
 				int idade = Integer.parseInt(ca.getImputIdade().getText());
 				float peso = Float.parseFloat(ca.getImputPeso().getText());
 				
-				Animal anim = new Animal(ca.getImputNome().getText(), ca.getImputRaca().getText(),
+				Animal anim = new Animal(Integer.parseInt(id)+1,ca.getImputNome().getText(), ca.getImputRaca().getText(),
 						ca.getSexoOption().getSelectedItem().toString(),
 						idade, 
 						peso, ca.getImputDescricao().getText());
@@ -46,18 +49,23 @@ public class ControllerAnimal implements ActionListener {
 			System.out.println(bd.getAnimais().get(0).getDescricao());
 			
 			JOptionPane.showMessageDialog(null, "Animal Cadastrado com Sucesso");
+			limparDados();
+			ca.getImputId().setText("0"+Integer.toString(BancoDados.animais.size()+1));
 		}
 		else if(e.getSource() == ca.getLimpar()) {
-			ca.getImputNome().setText(null);
-			ca.getImputRaca().setText(null);
-			ca.getImputIdade().setText(null);
-			ca.getImputPeso().setText(null);
-			ca.getImputDescricao().setText(null);
+			limparDados();
 		}
 		else if (e.getSource() == ca.getAdicionarFoto()) {
 			ca.setImagemAnimal(ca.selectFile());
 			JOptionPane.showMessageDialog(null, "Imagem Selecionada!");
 		}
+	}
+	public void limparDados(){
+		ca.getImputNome().setText(null);
+		ca.getImputRaca().setText(null);
+		ca.getImputIdade().setText(null);
+		ca.getImputPeso().setText(null);
+		ca.getImputDescricao().setText(null);
 	}
 
 }

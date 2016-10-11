@@ -18,7 +18,7 @@ import javax.swing.text.MaskFormatter;
 
 import controller.ControllerCandidato;
 
-public class CadastroCandidato extends Tela {
+public class CadastroCandidato extends TelaInterna {
 	private JLabel titulo, nome, email, fone, username, senha;
 	private JLabel cep, estado, cidade, bairro, rua, numero, complemento;
 	private JTextField imputNome, imputEmail, imputUsername;
@@ -37,7 +37,6 @@ public class CadastroCandidato extends Tela {
 		super("Enviar Formulário", 400, 350);
 
 		setLayout(new BorderLayout(50, 10));
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		controllerCandidato = new ControllerCandidato(this);
 		init();
 		addComponents();
@@ -45,12 +44,12 @@ public class CadastroCandidato extends Tela {
 		add(BorderLayout.WEST, painelLabels);
 		add(BorderLayout.CENTER, painelImputs);
 		add(BorderLayout.SOUTH, painelBotoes);
-
+		setLocation(310,120);
 	}
 
 	public void init() {
 		titulo = new JLabel("Formulário para Adoção");
-		titulo.setFont(new Font("Times", Font.BOLD, 20));
+		titulo.setFont(new Font("Serif", Font.BOLD, 20));
 		titulo.setHorizontalAlignment(SwingConstants.CENTER);
 		nome = new JLabel("Nome:");
 		email = new JLabel("Email:");

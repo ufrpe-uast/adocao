@@ -13,11 +13,11 @@ import model.Administrador;
 import model.Animal;
 import model.BancoDados;
 import model.Candidato;
-import view.AdministradorInfo;
 import view.CadastroAdministrador;
 import view.CadastroAnimal;
 import view.CadastroCandidato;
 import view.ListaAnimais;
+import view.ListaCandidato;
 import view.Menu;
 
 public class ControllerMenu implements ActionListener {
@@ -31,35 +31,93 @@ public class ControllerMenu implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == menu.getCadastrarAnimal()) {
-			CadastroAnimal cadastrarAnimal = new CadastroAnimal();
-			cadastrarAnimal.setVisible(true);
-		}
-		else if (e.getSource()==menu.getSair()) {
+			if (menu.getTelaCadAnimal() == null) {
+				menu.setTelaCadAnimal(new CadastroAnimal());
+				menu.getTelaCadAnimal().getImputId().setText("0"+Integer.toString(BancoDados.animais.size()+1));
+				menu.getTelaCadAnimal().setVisible(true);
+				menu.getDesktop().add(menu.getTelaCadAnimal());
+			} else {
+				menu.getTelaCadAnimal().getImputId().setText(Integer.toString(BancoDados.animais.size()+1));
+				menu.getTelaCadAnimal().setVisible(true);
+				menu.getDesktop().add(menu.getTelaCadAnimal());
+			}
+
+		} else if (e.getSource() == menu.getSair()) {
 			int sair = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?");
 			if(sair == 0) {
 				// salvamento de dados
 				salvarDados();
 				System.exit(0);
 			}
+
+		} else if (e.getSource() == menu.getCadastrarCandidato()) {
+			if (menu.getTelaCadCandidato() == null) {
+				menu.setTelaCadCandidato(new CadastroCandidato());
+				menu.getTelaCadCandidato().setVisible(true);
+				menu.getDesktop().add(menu.getTelaCadCandidato());
+			} else {
+				menu.getTelaCadCandidato().setVisible(true);
+				menu.getDesktop().add(menu.getTelaCadCandidato());
+			}
+
+		} else if (e.getSource() == menu.getCadastrarAdministrador()) {
+			if (menu.getTelaCadAdm() == null) {
+				menu.setTelaCadAdm(new CadastroAdministrador());
+				menu.getTelaCadAdm().setVisible(true);
+				menu.getDesktop().add(menu.getTelaCadAdm());
+			} else {
+				menu.getTelaCadAdm().setVisible(true);
+				menu.getDesktop().add(menu.getTelaCadAdm());
+			}
+
+		} else if (e.getSource() == menu.getVisualizarAnimais()) {
+			if (menu.getTelaListarAnimal() == null) {
+				menu.setTelaListarAnimal(new ListaAnimais());
+				menu.getTelaListarAnimal().setVisible(true);
+				menu.getDesktop().add(menu.getTelaListarAnimal());
+			} else {
+				menu.getTelaListarAnimal().setVisible(true);
+				menu.getDesktop().add(menu.getTelaListarAnimal());
+			}
+
+		} else if (e.getSource() == menu.getVisualizarCandidatos()) {
+			if (menu.getTelaListarCandidato() == null) {
+				menu.setTelaListarCandidato(new ListaCandidato());
+				menu.getTelaListarCandidato().setVisible(true);
+				menu.getDesktop().add(menu.getTelaListarCandidato());
+			} else {
+				menu.getTelaListarCandidato().setVisible(true);
+				menu.getDesktop().add(menu.getTelaListarCandidato());
+			}
 		}
-		else if (e.getSource()==menu.getCadastrarCandidato()) {
-			CadastroCandidato cadastrarCandidato = new CadastroCandidato();
-			cadastrarCandidato.setVisible(true);
-		}
-		else if (e.getSource()==menu.getCadastrarAdministrador()) {
-			CadastroAdministrador ca = new CadastroAdministrador();
-			ca.setVisible(true);
-		}
-		else if(e.getSource() == menu.getVisualizarAnimais()) {
-			ListaAnimais la = new ListaAnimais();
-			la.setVisible(true);
-		}
-		else if(e.getSource() == menu.getConta()) {
-			AdministradorInfo info = new AdministradorInfo();
-			info.setVisible(true);
+
+		else if (e.getSource() == menu.getEditarAnimal()) {
+			String nome;
+
+			nome = JOptionPane.showInputDialog("Digite o Nome do Animal:");
+			for (Animal anim : BancoDados.animais) {
+
+				if (anim.getNome().equalsIgnoreCase(nome)) {
+					menu.getTelaCadAnimal().getImputNome().setText(anim.getNome());
+					menu.getTelaCadAnimal().getImputRaca().setText(anim.getRaca());
+					menu.getTelaCadAnimal().getImputIdade().setText(String.valueOf(anim.getIdade()));
+					menu.getTelaCadAnimal().getImputDescricao().setText(anim.getDescricao());
+					menu.getTelaCadAnimal().getImputPeso().setText(String.valueOf(anim.getPeso()));
+
+					if (anim.getSexo().equalsIgnoreCase("Macho")) {
+						menu.getTelaCadAnimal().getSexoOption().setSelectedIndex(1);
+					} else {
+						menu.getTelaCadAnimal().getSexoOption().setSelectedIndex(0);
+					}
+
+					menu.getTelaCadAnimal().setVisible(true);
+					menu.getDesktop().add(menu.getTelaCadAnimal());
+				}
+			}
+
+			JOptionPane.showMessageDialog(null, "  Animal não Encontrado! \n Verifique se o Animal foi Cadastrado.");
 		}
 	}
-	
 	public void salvarDados() {
 		BufferedWriter out = null;
 		File adms = new File("administradores.txt");
