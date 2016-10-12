@@ -14,6 +14,7 @@ import model.Administrador;
 import model.Animal;
 import model.BancoDados;
 import model.Candidato;
+import view.AdministradorInfo;
 import view.CadastroAdministrador;
 import view.CadastroAnimal;
 import view.CadastroCandidato;
@@ -55,6 +56,10 @@ public class ControllerMenu implements ActionListener {
 				System.exit(0);
 			}
 
+		} else if (e.getSource() == menu.getConta()) {
+			AdministradorInfo info = new AdministradorInfo();
+			info.setVisible(true);
+
 		} else if (e.getSource() == menu.getCadastrarCandidato()) {
 			if (menu.getTelaCadCandidato() == null) {
 				menu.setTelaCadCandidato(new CadastroCandidato());
@@ -76,14 +81,10 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getVisualizarAnimais()) {
-			if (menu.getTelaListarAnimal() == null) {
-				menu.setTelaListarAnimal(new ListaAnimais());
-				menu.getTelaListarAnimal().setVisible(true);
-				menu.getDesktop().add(menu.getTelaListarAnimal());
-			} else {
-				menu.getTelaListarAnimal().setVisible(true);
-				menu.getDesktop().add(menu.getTelaListarAnimal());
-			}
+
+			menu.setTelaListarAnimal(new ListaAnimais());
+			menu.getTelaListarAnimal().setVisible(true);
+			menu.getDesktop().add(menu.getTelaListarAnimal());
 
 		} else if (e.getSource() == menu.getVisualizarCandidatos()) {
 			if (menu.getTelaListarCandidato() == null) {
