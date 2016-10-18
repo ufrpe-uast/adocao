@@ -3,6 +3,7 @@ package view;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Label;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -10,10 +11,13 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controller.ControllerAdocao;
 import model.Animal;
 import model.BancoDados;
 
 public class ListaAnimais extends TelaInterna {
+	
+	private ControllerAdocao ca;
 	
 	public ListaAnimais() {
 		super("Animais", 900, 500);
@@ -24,6 +28,11 @@ public class ListaAnimais extends TelaInterna {
 			JPanel pan = new JPanel();
 			pan.setSize(100, 100);
 			pan.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+			JButton adotar = new JButton("Adotar");
+			
+			ca = new ControllerAdocao(anim, adotar);
+			
+			adotar.addActionListener(ca);
 
 			pan.add(new JLabel("<html>"
 					+ "<p> ID: "+anim.getId()+"</p>"
@@ -34,8 +43,8 @@ public class ListaAnimais extends TelaInterna {
 					+ "<p> Peso: "+anim.getPeso()+" kg </p>"
 					+ "<p> Descrição: "+anim.getDescricao()+"</p>"
 					+ "</html>"));
-			pan.add(new JButton("Adotar"));
-			
+			pan.add(adotar);
+						
 			this.add(pan);
 		}
 	}
