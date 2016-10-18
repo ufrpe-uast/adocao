@@ -44,31 +44,37 @@ public class ControllerCandidato implements ActionListener {
 		} else if (e.getSource() == cCandidato.getLimparDados()) {
 			cCandidato.limparDados();
 		}
-		if (e.getSource()== cCandidato.getAlterar()) {
-			/*int index = Integer.parseInt(ca.getImputId().getText());
-			Animal anim = BancoDados.animais.get(index - 1);
-			try {
-				int idade = Integer.parseInt(ca.getImputIdade().getText());
-				float peso = Float.parseFloat(ca.getImputPeso().getText());
-				// Alteração dos Dados
-				anim.setNome(ca.getImputNome().getText());
-				anim.setRaca(ca.getImputRaca().getText());
-				anim.setSexo(ca.getSexoOption().getSelectedItem().toString());
-				anim.setIdade(idade);
-				anim.setPeso(peso);
-				anim.setDescricao(ca.getImputDescricao().getText());
-				anim.setId(Integer.parseInt(ca.getImputId().getText()));
+		if (e.getSource() == cCandidato.getAlterar()) {
+			for (int i = 0; i < BancoDados.candidatos.size(); i++) {
+				Candidato cand = BancoDados.candidatos.get(i);
+				if (cCandidato.getImputCpf().getText().equalsIgnoreCase(cand.getCPF())) {
 
-				// Alterando e Limpando os dados da Tela
-				JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
-				ca.limparDados();
-			} catch (NumberFormatException e2) {
-				e2.printStackTrace();
-				JOptionPane.showMessageDialog(null,
-						"                    Para Realizar a Alteração\n"
-								+ "O campo IDADE deve conter um número inteiro.\n"
-								+ "O campo PESO deve conter um número inteiro ou real.");*/
+					try {
+						int num = Integer.parseInt(cCandidato.getImputNumero().getText());
+						cand.setCPF(cCandidato.getImputCpf().getText());
+						cand.setNome(cCandidato.getImputNome().getText());
+						cand.setUsername(cCandidato.getImputUsername().getText());
+						cand.setEmail(cCandidato.getImputEmail().getText());
+						cand.setSenha(cCandidato.getImputSenha().getText());
+						cand.setTelefone(cCandidato.getImputFone().getText());
+						Endereco end = new Endereco(cCandidato.getImputRua().getText(),
+								cCandidato.getImputComplemento().getText(), cCandidato.getImputBairro().getText(),
+								cCandidato.getImputCidade().getText(), cCandidato.getImputCep().getText(),
+								cCandidato.getEstados().getName(), num);
+						cand.setEndereco(end);
+
+						// Alterando e Limpando os dados da Tela
+						JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
+						cCandidato.limparDados();
+					} catch (NumberFormatException e2) {
+						e2.printStackTrace();
+						JOptionPane.showMessageDialog(null, "                    Para Realizar a Alteração\n"
+								+ "O campo NUMERO deve conter um número inteiro.\n");
+					}
+
+				}
+			}
 		}
-	}
 
+	}
 }

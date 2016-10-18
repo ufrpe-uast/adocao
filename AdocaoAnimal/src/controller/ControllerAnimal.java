@@ -65,9 +65,6 @@ public class ControllerAnimal implements ActionListener {
 				anim.setDescricao(ca.getImputDescricao().getText());
 				anim.setId(Integer.parseInt(ca.getImputId().getText()));
 
-				// Alterando e Limpando os dados da Tela
-				JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
-				ca.limparDados();
 			} catch (NumberFormatException e2) {
 				e2.printStackTrace();
 				JOptionPane.showMessageDialog(null,

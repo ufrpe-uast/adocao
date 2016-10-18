@@ -158,7 +158,7 @@ public class ControllerMenu implements ActionListener {
 						menu.getTelaCadCandidato().getImputFone().setText(cand.getTelefone());
 						menu.getTelaCadCandidato().getImputUsername().setText(cand.getUsername());
 						menu.getTelaCadCandidato().getImputSenha().setText(cand.getSenha());
-						menu.getTelaCadCandidato().getEstados().setToolTipText(cand.getEndereco().getEstado());
+						menu.getTelaCadCandidato().getEstados().setSelectedItem(cand.getEndereco().getEstado());
 						menu.getTelaCadCandidato().getImputCidade().setText(cand.getEndereco().getCidade());
 						menu.getTelaCadCandidato().getImputBairro().setText(cand.getEndereco().getBairro());
 						menu.getTelaCadCandidato().getImputCep().setText(cand.getEndereco().getCep());
