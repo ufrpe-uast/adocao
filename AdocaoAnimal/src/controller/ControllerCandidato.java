@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
+import model.Animal;
 import model.BancoDados;
 import model.Candidato;
 import model.Endereco;
@@ -27,14 +28,13 @@ public class ControllerCandidato implements ActionListener {
 				String estado = (cCandidato.getEstados().getSelectedItem().toString());
 				Endereco endereco = new Endereco(cCandidato.getImputRua().getText(),
 						cCandidato.getImputComplemento().getText(), cCandidato.getImputBairro().getText(),
-						cCandidato.getImputCidade().getText(), cCandidato.getImputCep().getText(),
-						estado, num);
-				Candidato c = new Candidato(cCandidato.getImputNome().getText(), cCandidato.getImputEmail().getText(),
-						cCandidato.getImputUsername().getText(), cCandidato.getImputSenha().getText(),
-						cCandidato.getImputFone().getText(), endereco);
+						cCandidato.getImputCidade().getText(), cCandidato.getImputCep().getText(), estado, num);
+				Candidato c = new Candidato(cCandidato.getImputNome().getText(), cCandidato.getImputCpf().getText(),
+						cCandidato.getImputEmail().getText(), cCandidato.getImputUsername().getText(),
+						cCandidato.getImputSenha().getText(), cCandidato.getImputFone().getText(), endereco);
 				bd.getCandidatos().add(c);
 				JOptionPane.showMessageDialog(null, "Enviado com Sucesso");
-				limparDados();
+				cCandidato.limparDados();
 			} catch (Exception e2) {
 				JOptionPane.showMessageDialog(null, "O campo número deve conter um número inteiro.");
 			}
@@ -42,23 +42,33 @@ public class ControllerCandidato implements ActionListener {
 			System.out.println(bd.getCandidatos().get(0).getEndereco().getEstado());
 
 		} else if (e.getSource() == cCandidato.getLimparDados()) {
-			limparDados();
+			cCandidato.limparDados();
 		}
-	}
+		if (e.getSource()== cCandidato.getAlterar()) {
+			/*int index = Integer.parseInt(ca.getImputId().getText());
+			Animal anim = BancoDados.animais.get(index - 1);
+			try {
+				int idade = Integer.parseInt(ca.getImputIdade().getText());
+				float peso = Float.parseFloat(ca.getImputPeso().getText());
+				// Alteração dos Dados
+				anim.setNome(ca.getImputNome().getText());
+				anim.setRaca(ca.getImputRaca().getText());
+				anim.setSexo(ca.getSexoOption().getSelectedItem().toString());
+				anim.setIdade(idade);
+				anim.setPeso(peso);
+				anim.setDescricao(ca.getImputDescricao().getText());
+				anim.setId(Integer.parseInt(ca.getImputId().getText()));
 
-	public void limparDados() {
-		cCandidato.getImputBairro().setText(null);
-		cCandidato.getImputCep().setText(null);
-		cCandidato.getImputCidade().setText(null);
-		cCandidato.getImputComplemento().setText(null);
-		cCandidato.getImputEmail().setText(null);
-		cCandidato.getEstados().setSelectedIndex(0);
-		cCandidato.getImputNome().setText(null);
-		cCandidato.getImputNumero().setText(null);
-		cCandidato.getImputRua().setText(null);
-		cCandidato.getImputSenha().setText(null);
-		cCandidato.getImputUsername().setText(null);
-		cCandidato.getImputFone().setText(null);
+				// Alterando e Limpando os dados da Tela
+				JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
+				ca.limparDados();
+			} catch (NumberFormatException e2) {
+				e2.printStackTrace();
+				JOptionPane.showMessageDialog(null,
+						"                    Para Realizar a Alteração\n"
+								+ "O campo IDADE deve conter um número inteiro.\n"
+								+ "O campo PESO deve conter um número inteiro ou real.");*/
+		}
 	}
 
 }

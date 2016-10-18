@@ -42,6 +42,7 @@ public class ControllerMenu implements ActionListener {
 				menu.getTelaCadAnimal().setVisible(true);
 				menu.getDesktop().add(menu.getTelaCadAnimal());
 			} else {
+				menu.getTelaCadAnimal().limparDados();
 				menu.getTelaCadAnimal().getImputId()
 						.setText(Integer.toString(menu.getTelaCadAnimal().getContatorCadastro()));
 				menu.getTelaCadAnimal().setVisible(true);
@@ -63,9 +64,11 @@ public class ControllerMenu implements ActionListener {
 		} else if (e.getSource() == menu.getCadastrarCandidato()) {
 			if (menu.getTelaCadCandidato() == null) {
 				menu.setTelaCadCandidato(new CadastroCandidato());
+				menu.getTelaCadCandidato().getAlterar().setEnabled(false);
 				menu.getTelaCadCandidato().setVisible(true);
 				menu.getDesktop().add(menu.getTelaCadCandidato());
 			} else {
+				menu.getTelaCadCandidato().limparDados();
 				menu.getTelaCadCandidato().setVisible(true);
 				menu.getDesktop().add(menu.getTelaCadCandidato());
 			}
@@ -87,14 +90,10 @@ public class ControllerMenu implements ActionListener {
 			menu.getDesktop().add(menu.getTelaListarAnimal());
 
 		} else if (e.getSource() == menu.getVisualizarCandidatos()) {
-			if (menu.getTelaListarCandidato() == null) {
-				menu.setTelaListarCandidato(new ListaCandidato());
-				menu.getTelaListarCandidato().setVisible(true);
-				menu.getDesktop().add(menu.getTelaListarCandidato());
-			} else {
-				menu.getTelaListarCandidato().setVisible(true);
-				menu.getDesktop().add(menu.getTelaListarCandidato());
-			}
+			menu.setTelaListarCandidato(new ListaCandidato());
+			menu.getTelaListarCandidato().setVisible(true);
+			menu.getDesktop().add(menu.getTelaListarCandidato());
+
 		}
 
 		else if (e.getSource() == menu.getEditarAnimal()) {
@@ -137,6 +136,60 @@ public class ControllerMenu implements ActionListener {
 							"  Animal não Encontrado! \n Verifique se o Animal foi Cadastrado.");
 				}
 			}
+
+		} else if (e.getSource() == menu.getEditarCandidato()) {
+			String identifica;
+			if (BancoDados.candidatos.size() == 0) {
+				JOptionPane.showMessageDialog(null, "Nenhum Candidato foi Cadastrado.");
+				return;
+			} else {
+
+				identifica = JOptionPane.showInputDialog("Digite o CPF do Candidato:");
+				int cont = 0;
+
+				for (int i = 0; i < BancoDados.candidatos.size(); i++) {
+					Candidato cand = BancoDados.candidatos.get(i);
+					String cpf = retiraCaracteres(cand.getCPF());
+					if (cpf.equalsIgnoreCase(identifica)) {
+						// Mostrar os Dados que foram cadastrados
+						menu.getTelaCadCandidato().getImputNome().setText(cand.getNome());
+						menu.getTelaCadCandidato().getImputCpf().setText(identifica);
+						menu.getTelaCadCandidato().getImputEmail().setText(cand.getEmail());
+						menu.getTelaCadCandidato().getImputFone().setText(cand.getTelefone());
+						menu.getTelaCadCandidato().getImputUsername().setText(cand.getUsername());
+						menu.getTelaCadCandidato().getImputSenha().setText(cand.getSenha());
+						menu.getTelaCadCandidato().getEstados().setToolTipText(cand.getEndereco().getEstado());
+						menu.getTelaCadCandidato().getImputCidade().setText(cand.getEndereco().getCidade());
+						menu.getTelaCadCandidato().getImputBairro().setText(cand.getEndereco().getBairro());
+						menu.getTelaCadCandidato().getImputCep().setText(cand.getEndereco().getCep());
+						menu.getTelaCadCandidato().getImputComplemento().setText(cand.getEndereco().getComplemento());
+						menu.getTelaCadCandidato().getImputNumero()
+								.setText(Integer.toString(cand.getEndereco().getNumero()));
+						menu.getTelaCadCandidato().getImputRua().setText(cand.getEndereco().getRua());
+						menu.getTelaCadCandidato().getAlterar().setEnabled(true);
+						menu.getTelaCadCandidato().getEnviarForm().setEnabled(false);
+						menu.getTelaCadCandidato().setVisible(true);
+						menu.getDesktop().add(menu.getTelaCadCandidato());
+						cont++;
+					}
+
+				}
+				if (cont == 0) {
+					JOptionPane.showMessageDialog(null,
+							"  Candidato não Encontrado! \n Verifique se o Candidato foi Cadastrado.");
+				}
+			}
+		}
+	}
+
+	public String retiraCaracteres(String str) {
+		if (str != null) {
+
+			return str.replaceAll("[^0123456789]", "");
+
+		} else {
+
+			return "";
 
 		}
 	}

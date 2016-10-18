@@ -31,12 +31,12 @@ import controller.ControllerMenu;
 public class CadastroAnimal extends TelaInterna {
 	private JLabel titulo, id, nome, raca, sexo, idade, peso, descricao;
 	private ImageIcon imagemAnimal;
-	private JTextField imputId,imputNome, imputRaca, imputIdade, imputPeso;
+	private JTextField imputId, imputNome, imputRaca, imputIdade, imputPeso;
 	private JComboBox<String> sexoOption;
 	private JPanel painel, painel2, painel3;
 	private JTextArea imputDescricao;
-	private JButton cadastrar, limpar,alterar, adicionarFoto;
-	private int contatorCadastro=0;
+	private JButton cadastrar, limpar, alterar, adicionarFoto;
+	private int contatorCadastro = 0;
 	private ControllerAnimal controllerAnimal;
 
 	public CadastroAnimal() {
@@ -130,6 +130,15 @@ public class CadastroAnimal extends TelaInterna {
 			e.printStackTrace();
 		}
 		return conteudo;
+	}
+
+	public void limparDados() {
+		imputId.setText(null);
+		imputNome.setText(null);
+		imputRaca.setText(null);
+		imputIdade.setText(null);
+		imputPeso.setText(null);
+		imputDescricao.setText(null);
 	}
 
 	public JLabel getTitulo() {

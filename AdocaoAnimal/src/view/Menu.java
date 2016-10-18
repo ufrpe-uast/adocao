@@ -37,6 +37,7 @@ public class Menu extends Tela {
 	private ListaAnimais telaListarAnimal;
 	private ListaCandidato telaListarCandidato;
 	private JDesktopPane desktop;
+
 	public Menu() {
 		super("Bem Vindo", 1020, 600);
 		init();
@@ -63,17 +64,18 @@ public class Menu extends Tela {
 		conta.addActionListener(cMenu);
 		sair = new JMenuItem("Sair do Sistema");
 		sair.addActionListener(cMenu);
-		
+
 		editarAnimal = new JMenuItem("Alterar Animal");
 		editarAnimal.addActionListener(cMenu);
 		editarCandidato = new JMenuItem("Alterar Candidato");
+		editarCandidato.addActionListener(cMenu);
 
 		cadastrarAnimal = new JMenuItem("Cadastrar Animal");
 		cadastrarAnimal.addActionListener(cMenu);
 		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
 		cadastrarCandidato = new JMenuItem("Cadastrar Candidato");
 		cadastrarCandidato.addActionListener(cMenu);
-		
+
 		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
 		cadastrarAdministrador.addActionListener(cMenu);
 

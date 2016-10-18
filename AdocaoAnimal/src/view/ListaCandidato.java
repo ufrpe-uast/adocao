@@ -25,6 +25,7 @@ public class ListaCandidato extends TelaInterna{
 
 			pan.add(new JLabel("<html>"
 					+ "<p> Nome: "+cand.getNome()+"</p>"
+					+ "<p> CPF: "+cand.getCPF() + "</p>"
 					+ "<p> Email: "+cand.getEmail()+"</p>"
 					+ "<p> Fone: "+cand.getTelefone()+"</p>"
 					+ "<p> Endereço: "+cand.getEndereco().getRua()+","

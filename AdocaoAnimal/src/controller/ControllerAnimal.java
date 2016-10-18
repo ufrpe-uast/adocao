@@ -45,7 +45,7 @@ public class ControllerAnimal implements ActionListener {
 			System.out.println(bd.getAnimais().get(0).getDescricao());
 
 			JOptionPane.showMessageDialog(null, "Animal Cadastrado com Sucesso");
-			limparDados();
+			ca.limparDados();
 			ca.setContatorCadastro(1);
 			ca.getImputId().setText(Integer.toString(ca.getContatorCadastro()));
 
@@ -67,30 +67,21 @@ public class ControllerAnimal implements ActionListener {
 
 				// Alterando e Limpando os dados da Tela
 				JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
-				limparDados();
+				ca.limparDados();
 			} catch (NumberFormatException e2) {
 				e2.printStackTrace();
 				JOptionPane.showMessageDialog(null,
 						"                    Para Realizar a Alteração\n"
-								+    "O campo IDADE deve conter um número inteiro.\n"
+								+ "O campo IDADE deve conter um número inteiro.\n"
 								+ "O campo PESO deve conter um número inteiro ou real.");
 			}
 
 		} else if (e.getSource() == ca.getLimpar()) {
-			limparDados();
+			ca.limparDados();
 
 		} else if (e.getSource() == ca.getAdicionarFoto()) {
 			ca.setImagemAnimal(ca.selectFile());
 		}
-	}
-
-	public void limparDados() {
-		ca.getImputId().setText(null);
-		ca.getImputNome().setText(null);
-		ca.getImputRaca().setText(null);
-		ca.getImputIdade().setText(null);
-		ca.getImputPeso().setText(null);
-		ca.getImputDescricao().setText(null);
 	}
 
 }
