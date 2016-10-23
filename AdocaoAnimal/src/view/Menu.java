@@ -41,10 +41,11 @@ public class Menu extends Tela {
 	private ListaAnimais telaListarAnimal;
 	private ListaCandidato telaListarCandidato;
 	private JDesktopPane desktop;
-	
+	private TelaInicial telaInicial;
 
-	public Menu() {
+	public Menu(TelaInicial telaInicial ) {
 		super("Bem Vindo", 1020, 600);
+		this.telaInicial = telaInicial;
 		init();
 		addMenus();
 		setJMenuBar(menu);
@@ -223,6 +224,14 @@ public class Menu extends Tela {
 
 	public void setEditarCandidato(JMenuItem editarCandidato) {
 		this.editarCandidato = editarCandidato;
+	}
+
+	public TelaInicial getTelaInicial() {
+		return telaInicial;
+	}
+
+	public void setTelaInicial(TelaInicial telaInicial) {
+		this.telaInicial = telaInicial;
 	}
 
 	public void setCadastrarAnimal(JMenuItem cadastrarAnimal) {

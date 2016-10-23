@@ -50,10 +50,31 @@ public class ControllerInicial implements MouseListener, ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource()==telaInicial.getEntrar()) {
-			System.out.println("entrar");
+			if (telaInicial.getImputLogin().getText().equalsIgnoreCase("admin")&&
+					(telaInicial.getImputSenha().getText().equalsIgnoreCase("admin"))) {
+					if (telaInicial.getAdm().isSelected()) {
+						view.Menu menu = new view.Menu(telaInicial);
+						telaInicial.getImputLogin().setText(null);
+						telaInicial.getImputSenha().setText(null);
+						telaInicial.getAdm().setSelected(false);
+						telaInicial.setVisible(false);
+						JOptionPane.showMessageDialog(menu, "Bem Vindo, Login Efetuado com Sucesso");
+					}
+					else if (telaInicial.getUsuario().isSelected()) {
+						JOptionPane.showMessageDialog(telaInicial, "Login de Administrador, Insira um Login de Usuário Válido.");
+					}
+					else{
+						JOptionPane.showMessageDialog(telaInicial, "Selecione um Tipo de Acesso");
+					}
+			}
+			else {
+				JOptionPane.showMessageDialog(telaInicial, "Login ou Senha Incorretos");
+				telaInicial.getImputLogin().setText(null);
+				telaInicial.getImputSenha().setText(null);
+			}
 		}
 		if (e.getSource()==telaInicial.getConsultarAnimais()) {
-			view.Menu menu = new view.Menu();
+			view.Menu menu = new view.Menu(telaInicial);
 			menu.setTelaListarAnimal(new ListaAnimais());
 			menu.getTelaListarAnimal().setVisible(true);
 			menu.getDesktop().add(menu.getTelaListarAnimal());

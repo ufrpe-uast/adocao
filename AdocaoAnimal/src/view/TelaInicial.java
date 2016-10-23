@@ -17,37 +17,37 @@ import javax.swing.JTextField;
 import controller.ControllerInicial;
 
 public class TelaInicial extends Tela {
-	private JLabel labelLogo, login, senha ,recuperar;
+	private JLabel labelLogo, login, senha, recuperar;
 	private JTextField imputLogin;
 	private JPasswordField imputSenha;
-	private JRadioButton adm,usuario;
+	private JRadioButton adm, usuario;
 	private ButtonGroup group;
 	private JButton entrar, consultarAnimais;
 	private JPanel painel1;
 	private ControllerInicial cInicial;
 
-	public TelaInicial(String titulo, int Largura, int Altura) {
-		super(titulo, Largura, Altura);
+	public TelaInicial() {
+		super("AdotDog 1.0", 1020, 600);
 		setLayout(null);
 
 		cInicial = new ControllerInicial(this);
-		
+
 		labelLogo = new JLabel(new ImageIcon("resource/logoInicioSistema.png"));
 		labelLogo.setBounds(395, 100, 250, 175);
-		
+
 		recuperar = new JLabel("Esqueceu sua Senha ?");
 		recuperar.setBounds(350, 375, 150, 50);
-		recuperar.setToolTipText("Clic Recuperar Senha");
+		recuperar.setToolTipText("Click para Recuperar sua Senha");
 		recuperar.addMouseListener(cInicial);
-		
+
 		consultarAnimais = new JButton(new ImageIcon("resource/botaoAnimais.png"));
 		consultarAnimais.setBounds(750, 500, 250, 50);
 		consultarAnimais.addActionListener(cInicial);
-		
+
 		painel1 = new JPanel();
 		painel1.setLayout(new GridLayout(3, 3));
 		painel1.setBounds(350, 280, 350, 70);
-		
+
 		group = new ButtonGroup();
 		adm = new JRadioButton("Administrador");
 		usuario = new JRadioButton("Usuário");
@@ -68,7 +68,7 @@ public class TelaInicial extends Tela {
 		painel1.add(imputSenha);
 		painel1.add(adm);
 		painel1.add(usuario);
-		
+
 		getContentPane().setBackground(Color.WHITE);
 		add(consultarAnimais);
 		add(labelLogo);
@@ -76,10 +76,6 @@ public class TelaInicial extends Tela {
 		add(entrar);
 		add(recuperar);
 		setVisible(true);
-	}
-
-	public static void main(String[] args) {
-		new TelaInicial("Inicial", 1020, 600);
 	}
 
 	public JLabel getRecuperar() {
@@ -96,6 +92,38 @@ public class TelaInicial extends Tela {
 
 	public JButton getConsultarAnimais() {
 		return consultarAnimais;
+	}
+
+	public JTextField getImputLogin() {
+		return imputLogin;
+	}
+
+	public void setImputLogin(JTextField imputLogin) {
+		this.imputLogin = imputLogin;
+	}
+
+	public JPasswordField getImputSenha() {
+		return imputSenha;
+	}
+
+	public void setImputSenha(JPasswordField imputSenha) {
+		this.imputSenha = imputSenha;
+	}
+
+	public JRadioButton getAdm() {
+		return adm;
+	}
+
+	public void setAdm(JRadioButton adm) {
+		this.adm = adm;
+	}
+
+	public JRadioButton getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(JRadioButton usuario) {
+		this.usuario = usuario;
 	}
 
 }

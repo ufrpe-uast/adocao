@@ -54,7 +54,9 @@ public class ControllerMenu implements ActionListener {
 			if (sair == 0) {
 				// salvamento de dados
 				salvarDados();
-				System.exit(0);
+				menu.getTelaInicial().setVisible(true);
+				menu.dispose();
+				setMenu(null);
 			}
 
 		} else if (e.getSource() == menu.getConta()) {
@@ -264,5 +266,9 @@ public class ControllerMenu implements ActionListener {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	public void setMenu(Menu menu) {
+		this.menu = menu;
 	}
 }
