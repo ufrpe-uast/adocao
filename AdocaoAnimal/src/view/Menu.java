@@ -1,12 +1,16 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -37,6 +41,7 @@ public class Menu extends Tela {
 	private ListaAnimais telaListarAnimal;
 	private ListaCandidato telaListarCandidato;
 	private JDesktopPane desktop;
+	
 
 	public Menu() {
 		super("Bem Vindo", 1020, 600);
@@ -53,7 +58,6 @@ public class Menu extends Tela {
 		cMenu = new ControllerMenu(this);
 		menu = new JMenuBar();
 		desktop = new JDesktopPane();
-
 		sistema = new JMenu("Sistema");
 		editar = new JMenu("Editar");
 		cadastro = new JMenu("Cadastrar");
@@ -106,6 +110,7 @@ public class Menu extends Tela {
 		menu.add(cadastro);
 		menu.add(visualizar);
 		menu.add(ajuda);
+		
 	}
 
 	public JMenuItem getSair() {

@@ -54,6 +54,7 @@ public class ControllerAnimal implements ActionListener {
 			int index = Integer.parseInt(ca.getImputId().getText());
 			Animal anim = BancoDados.animais.get(index - 1);
 			try {
+				
 				int idade = Integer.parseInt(ca.getImputIdade().getText());
 				float peso = Float.parseFloat(ca.getImputPeso().getText());
 				// Alteração dos Dados
@@ -64,7 +65,9 @@ public class ControllerAnimal implements ActionListener {
 				anim.setPeso(peso);
 				anim.setDescricao(ca.getImputDescricao().getText());
 				anim.setId(Integer.parseInt(ca.getImputId().getText()));
-
+				JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
+				ca.limparDados();
+				
 			} catch (NumberFormatException e2) {
 				e2.printStackTrace();
 				JOptionPane.showMessageDialog(null,

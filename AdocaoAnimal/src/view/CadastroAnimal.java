@@ -43,6 +43,7 @@ public class CadastroAnimal extends TelaInterna {
 		super("Cadastrar Animal", 550, 270);
 
 		controllerAnimal = new ControllerAnimal(this);
+		
 
 		init();
 		setLayout(new BorderLayout(10, 30));
