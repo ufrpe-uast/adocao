@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import model.Administrador;
 import model.Candidato;
 import view.ListaAnimais;
+import view.ListaAnimaisExterna;
 import view.TelaInicial;
 
 public class ControllerInicial implements MouseListener, ActionListener{
@@ -84,8 +85,8 @@ public class ControllerInicial implements MouseListener, ActionListener{
 			
 			// login usuario
 			if(adm == null) {
-				if (telaInicial.getImputLogin().getText().equalsIgnoreCase(adm.getUsuario())&&
-						(telaInicial.getImputSenha().getText().equalsIgnoreCase(adm.getUsuario()))) {
+				if (telaInicial.getImputLogin().getText().equalsIgnoreCase(usr.getUsername())&&
+						(telaInicial.getImputSenha().getText().equalsIgnoreCase(usr.getUsername()))) {
 						if (telaInicial.getAdm().isSelected()) {
 							view.Menu menu = new view.Menu(telaInicial);
 							telaInicial.getImputLogin().setText(null);
@@ -109,10 +110,12 @@ public class ControllerInicial implements MouseListener, ActionListener{
 			}
 		}
 		if (e.getSource()==telaInicial.getConsultarAnimais()) {
-			view.Menu menu = new view.Menu(telaInicial);
-			menu.setTelaListarAnimal(new ListaAnimais());
-			menu.getTelaListarAnimal().setVisible(true);
-			menu.getDesktop().add(menu.getTelaListarAnimal());
+//			view.Menu menu = new view.Menu(telaInicial);
+//			menu.setTelaListarAnimal(new ListaAnimais());
+//			menu.getTelaListarAnimal().setVisible(true);
+//			menu.getDesktop().add(menu.getTelaListarAnimal());
+			ListaAnimaisExterna lae = new ListaAnimaisExterna();
+			lae.setVisible(true);
 		}
 	}
 

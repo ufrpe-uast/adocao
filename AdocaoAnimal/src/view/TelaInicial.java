@@ -35,7 +35,7 @@ public class TelaInicial extends Tela {
 		super("AdotDog 1.0", 1020, 600);
 		setLayout(null);
 		
-		admin = BancoDados.adms.get(1);
+		admin = BancoDados.adms.get(0);
 		usr = null;
 
 		cInicial = new ControllerInicial(this, admin, usr);

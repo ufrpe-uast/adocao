@@ -19,5 +19,11 @@ public class BancoDados {
 	public static void addAdm(Administrador adm) {
 		adms.add(adm);
 	}
+	public static void addAnims(Animal anim) {
+		animais.add(anim);
+	}
+	public static void addCand(Candidato cand) {
+		candidatos.add(cand);
+	}
 	
 }
