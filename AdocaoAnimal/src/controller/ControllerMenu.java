@@ -60,7 +60,7 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getConta()) {
-			AdministradorInfo info = new AdministradorInfo();
+			AdministradorInfo info = new AdministradorInfo(menu.getSessao());
 			info.setVisible(true);
 
 		} else if (e.getSource() == menu.getCadastrarCandidato()) {

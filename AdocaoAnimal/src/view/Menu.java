@@ -15,7 +15,10 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import controller.ControllerInicial;
 import controller.ControllerMenu;
+import model.Administrador;
+import model.Sessao;
 
 public class Menu extends Tela {
 	private JMenuBar menu;
@@ -42,8 +45,10 @@ public class Menu extends Tela {
 	private ListaCandidato telaListarCandidato;
 	private JDesktopPane desktop;
 	private TelaInicial telaInicial;
+	public static Administrador adm = ControllerInicial.adm;
+	public static Sessao sessao = new Sessao(adm);
 
-	public Menu(TelaInicial telaInicial ) {
+	public Menu(TelaInicial telaInicial) {
 		super("Bem Vindo", 1020, 600);
 		this.telaInicial = telaInicial;
 		init();
@@ -52,7 +57,6 @@ public class Menu extends Tela {
 		setContentPane(desktop);
 		setLayout(null);
 		setVisible(true);
-
 	}
 
 	public void init() {
@@ -304,5 +308,13 @@ public class Menu extends Tela {
 
 	public void setDesktop(JDesktopPane desktop) {
 		this.desktop = desktop;
+	}
+
+	public Sessao getSessao() {
+		return sessao;
+	}
+
+	public void setSessao(Sessao sessao) {
+		this.sessao = sessao;
 	}
 }

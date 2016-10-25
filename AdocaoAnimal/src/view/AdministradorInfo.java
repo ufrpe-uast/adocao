@@ -22,10 +22,10 @@ public class AdministradorInfo extends Tela {
 	private JLabel usuario;
 	private JLabel email;
 	
-	public AdministradorInfo() {
+	public AdministradorInfo(Sessao sess) {
 		super("Minhas informações", 400, 300);
 		
-		admLogado = buscarAdm(Sessao.usuario);
+		admLogado = buscarAdm(sess.getUsuarioLogado());
 		
 		setLayout(new GridLayout(4, 1));
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

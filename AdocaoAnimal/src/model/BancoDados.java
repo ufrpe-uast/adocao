@@ -16,4 +16,8 @@ public class BancoDados {
 		return candidatos;
 	}
 	
+	public static void addAdm(Administrador adm) {
+		adms.add(adm);
+	}
+	
 }

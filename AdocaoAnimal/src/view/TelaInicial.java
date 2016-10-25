@@ -15,6 +15,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import controller.ControllerInicial;
+import model.Administrador;
+import model.BancoDados;
+import model.Candidato;
 
 public class TelaInicial extends Tela {
 	private JLabel labelLogo, login, senha, recuperar;
@@ -25,12 +28,17 @@ public class TelaInicial extends Tela {
 	private JButton entrar, consultarAnimais;
 	private JPanel painel1;
 	private ControllerInicial cInicial;
+	private Administrador admin;
+	private Candidato usr;
 
 	public TelaInicial() {
 		super("AdotDog 1.0", 1020, 600);
 		setLayout(null);
+		
+		admin = BancoDados.adms.get(1);
+		usr = null;
 
-		cInicial = new ControllerInicial(this);
+		cInicial = new ControllerInicial(this, admin, usr);
 
 		labelLogo = new JLabel(new ImageIcon("resource/logoInicioSistema.png"));
 		labelLogo.setBounds(395, 100, 250, 175);
