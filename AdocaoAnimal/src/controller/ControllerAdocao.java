@@ -7,6 +7,8 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import model.Animal;
+import model.BancoDados;
+import view.CadastroCandidatoExterno;
 import view.ListaAnimais;
 
 public class ControllerAdocao implements ActionListener {
@@ -22,7 +24,9 @@ public class ControllerAdocao implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(e.getSource() == adotar) {
-			JOptionPane.showMessageDialog(null, "Adotado: "+animal.getNome());
+			new CadastroCandidatoExterno(animal).setVisible(true);
+//			JOptionPane.showMessageDialog(null, "Adotado: "+animal.getNome());
+			System.out.println(BancoDados.adocoes);
 		}
 	}
 

@@ -10,14 +10,20 @@ import model.BancoDados;
 import model.Candidato;
 import model.Endereco;
 import view.CadastroCandidato;
+import view.CadastroCandidatoExterno;
 
 public class ControllerCandidato implements ActionListener {
 	private CadastroCandidato cCandidato;
+	private CadastroCandidatoExterno cCandidatoExt;
 	private BancoDados bd = new BancoDados();
 
 	public ControllerCandidato(CadastroCandidato cCandidato) {
 		super();
 		this.cCandidato = cCandidato;
+	}
+	public ControllerCandidato(CadastroCandidatoExterno cCandidato) {
+		super();
+		this.cCandidatoExt = cCandidato;
 	}
 
 	@Override

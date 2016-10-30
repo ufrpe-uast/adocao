@@ -7,6 +7,7 @@ public class BancoDados {
 	public static ArrayList<Animal> animais = new ArrayList<Animal>();
 	public static ArrayList<Candidato> candidatos = new ArrayList<Candidato>();
 	public static ArrayList<Administrador> adms = new ArrayList<Administrador>();
+	public static ArrayList<Adocao> adocoes = new ArrayList<Adocao>();
 
 	public ArrayList<Animal> getAnimais() {
 		return animais;
@@ -24,6 +25,10 @@ public class BancoDados {
 	}
 	public static void addCand(Candidato cand) {
 		candidatos.add(cand);
+	}
+	
+	public static void addAdocao(Adocao adocao) {
+		adocoes.add(adocao);
 	}
 	
 }
