@@ -26,7 +26,8 @@ private ControllerAdocao ca;
 		for(Animal anim: BancoDados.animais) {
 			JPanel pan = new JPanel();
 			pan.setSize(100, 100);
-			pan.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+			pan.setBackground(Color.WHITE);
+			pan.setBorder(BorderFactory.createLineBorder(Color.GREEN));
 			JButton adotar = new JButton("Adotar");
 			
 			ca = new ControllerAdocao(anim, adotar);

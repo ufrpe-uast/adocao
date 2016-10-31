@@ -14,10 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 
 import controller.ControllerInicial;
 import controller.ControllerMenu;
 import model.Administrador;
+import model.Adocao;
+import model.BancoDados;
 import model.Sessao;
 
 public class Menu extends Tela {
@@ -47,6 +50,7 @@ public class Menu extends Tela {
 	private TelaInicial telaInicial;
 	public static Administrador adm = ControllerInicial.adm;
 	public static Sessao sessao = new Sessao(adm);
+	private TelaAdocoes ta;
 
 	public Menu(TelaInicial telaInicial) {
 		super("Bem Vindo", 1020, 600);
@@ -93,6 +97,7 @@ public class Menu extends Tela {
 		visualizarCandidatos = new JMenuItem("Candidatos");
 		visualizarCandidatos.addActionListener(cMenu);
 		visualizarAdocoes = new JMenuItem("Adoções");
+		visualizarAdocoes.addActionListener(cMenu);
 	}
 
 	public void addMenus() {
@@ -316,5 +321,21 @@ public class Menu extends Tela {
 
 	public void setSessao(Sessao sessao) {
 		this.sessao = sessao;
+	}
+
+	public static Administrador getAdm() {
+		return adm;
+	}
+
+	public static void setAdm(Administrador adm) {
+		Menu.adm = adm;
+	}
+
+	public TelaAdocoes getTa() {
+		return ta;
+	}
+
+	public void setTa(TelaAdocoes ta) {
+		this.ta = ta;
 	}
 }

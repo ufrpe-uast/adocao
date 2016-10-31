@@ -26,7 +26,6 @@ public class ControllerAdocao implements ActionListener {
 		if(e.getSource() == adotar) {
 			new CadastroCandidatoExterno(animal).setVisible(true);
 //			JOptionPane.showMessageDialog(null, "Adotado: "+animal.getNome());
-			System.out.println(BancoDados.adocoes);
 		}
 	}
 

@@ -21,6 +21,7 @@ import view.CadastroCandidato;
 import view.ListaAnimais;
 import view.ListaCandidato;
 import view.Menu;
+import view.TelaAdocoes;
 
 public class ControllerMenu implements ActionListener {
 	private Menu menu;
@@ -95,9 +96,14 @@ public class ControllerMenu implements ActionListener {
 			menu.setTelaListarCandidato(new ListaCandidato());
 			menu.getTelaListarCandidato().setVisible(true);
 			menu.getDesktop().add(menu.getTelaListarCandidato());
-
 		}
-
+		
+		else if (e.getSource() == menu.getVisualizarAdocoes()) {
+			menu.setTa(new TelaAdocoes("Adoções", 800, 500));
+			menu.getTa().setVisible(true);
+			menu.getDesktop().add(menu.getTa());
+		}
+		
 		else if (e.getSource() == menu.getEditarAnimal()) {
 			String identifica;
 			if (BancoDados.animais.size() == 0) {

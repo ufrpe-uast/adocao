@@ -3,6 +3,8 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import model.Adocao;
 import model.Animal;
 import model.BancoDados;
@@ -31,12 +33,11 @@ public class ControllerForm implements ActionListener {
 							cce.getImputBairro().getText(),	cce.getImputCidade().getText(), 
 							cce.getImputCep().getText(), "PE", Integer.parseInt(cce.getImputNumero().getText())))));
 			
-			for(Adocao ad : BancoDados.adocoes)
-				System.out.println(ad.getAnimal().getNome()+" "+ad.getCandidato().getNome());
-		}
-		if(e.getSource() == cce.getLimparDados()) {
+			JOptionPane.showMessageDialog(null, "Proposta enviada com sucesso");
 			cce.limparDados();
 		}
+		if(e.getSource() == cce.getLimparDados())
+			cce.limparDados();
 	}
 
 }
