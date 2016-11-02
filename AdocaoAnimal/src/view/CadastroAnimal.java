@@ -8,6 +8,10 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.channels.FileChannel;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -27,6 +31,7 @@ import javax.swing.SwingConstants;
 
 import controller.ControllerAnimal;
 import controller.ControllerMenu;
+import model.BancoDados;
 
 public class CadastroAnimal extends TelaInterna {
 	private JLabel titulo, id, nome, raca, sexo, idade, peso, descricao;
@@ -38,12 +43,12 @@ public class CadastroAnimal extends TelaInterna {
 	private JButton cadastrar, limpar, alterar, adicionarFoto;
 	private int contatorCadastro = 0;
 	private ControllerAnimal controllerAnimal;
+	private String nomeImagem;
 
 	public CadastroAnimal() {
 		super("Cadastrar Animal", 550, 270);
 
 		controllerAnimal = new ControllerAnimal(this);
-		
 
 		init();
 		setLayout(new BorderLayout(10, 30));
@@ -122,8 +127,20 @@ public class CadastroAnimal extends TelaInterna {
 			JFileChooser jFileChooser = new JFileChooser();
 			int ok = jFileChooser.showOpenDialog(null);
 			if (ok == JFileChooser.APPROVE_OPTION) {
-				caminho = jFileChooser.getCurrentDirectory().getPath() + jFileChooser.getSelectedFile().getName();
+				caminho = jFileChooser.getCurrentDirectory().getPath() + "\\"
+						+ jFileChooser.getSelectedFile().getName();
 				conteudo = new ImageIcon(caminho);
+
+				try {
+					File destino = new File("resource" + "//" + jFileChooser.getSelectedFile().getName());
+					String caminho2 = caminho.replace("\\", "/");
+					this.nomeImagem = jFileChooser.getSelectedFile().getName();
+					File partida = new File(caminho2);
+					copyFile(partida, destino);
+				} catch (Exception e) {
+					System.out.println("Falha ao Renomear Arquivo de Imagem");
+				}
+
 			} else {
 				jFileChooser.cancelSelection();
 			}
@@ -131,6 +148,21 @@ public class CadastroAnimal extends TelaInterna {
 			e.printStackTrace();
 		}
 		return conteudo;
+	}
+
+	public void copyFile(File source, File destination) throws IOException {
+		FileChannel sourceChannel = null;
+		FileChannel destinationChannel = null;
+		try {
+			sourceChannel = new FileInputStream(source).getChannel();
+			destinationChannel = new FileOutputStream(destination).getChannel();
+			sourceChannel.transferTo(0, sourceChannel.size(), destinationChannel);
+		} finally {
+			if (sourceChannel != null && sourceChannel.isOpen())
+				sourceChannel.close();
+			if (destinationChannel != null && destinationChannel.isOpen())
+				destinationChannel.close();
+		}
 	}
 
 	public void limparDados() {
@@ -236,6 +268,14 @@ public class CadastroAnimal extends TelaInterna {
 
 	public void setImputPeso(JTextField imputPeso) {
 		this.imputPeso = imputPeso;
+	}
+
+	public String getNomeImagem() {
+		return nomeImagem;
+	}
+
+	public void setNomeImagem(String nomeImagem) {
+		this.nomeImagem = nomeImagem;
 	}
 
 	public JComboBox<String> getSexoOption() {

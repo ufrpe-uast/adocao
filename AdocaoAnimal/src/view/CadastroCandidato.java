@@ -18,13 +18,12 @@ import javax.swing.text.MaskFormatter;
 
 import controller.ControllerCandidato;
 
-public class CadastroCandidato extends TelaInterna {
-	private JLabel titulo, nome, cpf, email, fone, username, senha;
+public class CadastroCandidato extends Tela {
+	private JLabel titulo, nome, cpf, email, fone;
 	private JLabel cep, estado, cidade, bairro, rua, numero, complemento;
-	private JTextField imputNome, imputEmail, imputUsername;
+	private JTextField imputNome, imputEmail;
 	private JFormattedTextField imputFone, imputCpf, imputCep;
 	private MaskFormatter maskCPF, maskFone, maskCEP;
-	private JPasswordField imputSenha;
 	private JTextField imputCidade, imputBairro, imputRua, imputNumero, imputComplemento;
 	private JComboBox<String> estados;
 	private JPanel painelLabels;
@@ -44,7 +43,7 @@ public class CadastroCandidato extends TelaInterna {
 		add(BorderLayout.WEST, painelLabels);
 		add(BorderLayout.CENTER, painelImputs);
 		add(BorderLayout.SOUTH, painelBotoes);
-		setLocation(310, 120);
+		setVisible(true);
 	}
 
 	public void init() {
@@ -54,9 +53,7 @@ public class CadastroCandidato extends TelaInterna {
 		nome = new JLabel("Nome:");
 		cpf = new JLabel("CPF:");
 		email = new JLabel("Email:");
-		fone = new JLabel("Fone:");
-		username = new JLabel("Username:");
-		senha = new JLabel("Senha:");
+		fone = new JLabel("Telefone:");
 		cep = new JLabel("CEP:");
 		estado = new JLabel("Estado:");
 		cidade = new JLabel("Cidade:");
@@ -82,8 +79,7 @@ public class CadastroCandidato extends TelaInterna {
 			e.printStackTrace();
 			System.out.println("Erro Máscara de Fone!!!");
 		}
-		imputUsername = new JTextField();
-		imputSenha = new JPasswordField();
+
 		try {
 			maskCEP = new MaskFormatter("#####-###");
 			imputCep = new JFormattedTextField();
@@ -116,14 +112,13 @@ public class CadastroCandidato extends TelaInterna {
 	}
 
 	public void addComponents() {
-		painelLabels.setLayout(new GridLayout(13, 1));
+		painelLabels.setLayout(new GridLayout(11, 1));
 
 		painelLabels.add(nome);
 		painelLabels.add(cpf);
 		painelLabels.add(email);
 		painelLabels.add(fone);
-		painelLabels.add(username);
-		painelLabels.add(senha);
+
 		painelLabels.add(cep);
 		painelLabels.add(estado);
 		painelLabels.add(cidade);
@@ -132,13 +127,11 @@ public class CadastroCandidato extends TelaInterna {
 		painelLabels.add(numero);
 		painelLabels.add(complemento);
 
-		painelImputs.setLayout(new GridLayout(13, 1));
+		painelImputs.setLayout(new GridLayout(11, 1));
 		painelImputs.add(imputNome);
 		painelImputs.add(imputCpf);
 		painelImputs.add(imputEmail);
 		painelImputs.add(imputFone);
-		painelImputs.add(imputUsername);
-		painelImputs.add(imputSenha);
 		painelImputs.add(imputCep);
 		painelImputs.add(estados);
 		painelImputs.add(imputCidade);
@@ -195,9 +188,19 @@ public class CadastroCandidato extends TelaInterna {
 		imputNome.setText(null);
 		imputNumero.setText(null);
 		imputRua.setText(null);
-		imputSenha.setText(null);
-		imputUsername.setText(null);
 		imputFone.setText(null);
+	}
+
+	public String retiraCaracteres(String str) {
+		if (str != null) {
+
+			return str.replaceAll("[^0123456789]", "");
+
+		} else {
+
+			return "";
+
+		}
 	}
 
 	public JButton getEnviarForm() {
@@ -222,22 +225,6 @@ public class CadastroCandidato extends TelaInterna {
 
 	public void setImputEmail(JTextField imputEmail) {
 		this.imputEmail = imputEmail;
-	}
-
-	public JTextField getImputUsername() {
-		return imputUsername;
-	}
-
-	public void setImputUsername(JTextField imputUsername) {
-		this.imputUsername = imputUsername;
-	}
-
-	public JPasswordField getImputSenha() {
-		return imputSenha;
-	}
-
-	public void setImputSenha(JPasswordField imputSenha) {
-		this.imputSenha = imputSenha;
 	}
 
 	public JComboBox<String> getEstados() {
@@ -323,5 +310,4 @@ public class CadastroCandidato extends TelaInterna {
 	public void setImputCpf(JFormattedTextField imputCpf) {
 		this.imputCpf = imputCpf;
 	}
-
 }

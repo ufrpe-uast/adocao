@@ -16,27 +16,26 @@ public class ControllerForm implements ActionListener {
 
 	private CadastroCandidatoExterno cce;
 	private Animal animal;
-	
+
 	public ControllerForm(CadastroCandidatoExterno cce, Animal animal) {
 		this.cce = cce;
 		this.animal = animal;
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == cce.getEnviarForm()) {
-			BancoDados.addAdocao(new Adocao(animal, new Candidato(cce.getImputNome().getText(), 
-					cce.getImputCpf().getText(), cce.getImputEmail().getText(), 
-					cce.getImputUsername().getText(), cce.getImputSenha().getText(), 
-					cce.getImputFone().getText(), 
-					new Endereco(cce.getImputRua().getText(), cce.getImputComplemento().getText(), 
-							cce.getImputBairro().getText(),	cce.getImputCidade().getText(), 
-							cce.getImputCep().getText(), "PE", Integer.parseInt(cce.getImputNumero().getText())))));
-			
+		if (e.getSource() == cce.getEnviarForm()) {
+			BancoDados.addAdocao(new Adocao(animal, new Candidato(cce.getImputNome().getText(),
+					cce.getImputCpf().getText(), cce.getImputEmail().getText(), cce.getImputFone().getText(),
+					new Endereco(cce.getImputRua().getText(), cce.getImputComplemento().getText(),
+							cce.getImputBairro().getText(), cce.getImputCidade().getText(), cce.getImputCep().getText(),
+							"PE", Integer.parseInt(cce.getImputNumero().getText())))));
+
 			JOptionPane.showMessageDialog(null, "Proposta enviada com sucesso");
 			cce.limparDados();
+			cce.setVisible(false);
 		}
-		if(e.getSource() == cce.getLimparDados())
+		if (e.getSource() == cce.getLimparDados())
 			cce.limparDados();
 	}
 

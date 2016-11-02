@@ -19,6 +19,7 @@ import view.CadastroAdministrador;
 import view.CadastroAnimal;
 import view.CadastroCandidato;
 import view.ListaAnimais;
+import view.ListaAnimais;
 import view.ListaCandidato;
 import view.Menu;
 import view.TelaAdocoes;
@@ -37,7 +38,7 @@ public class ControllerMenu implements ActionListener {
 			if (menu.getTelaCadAnimal() == null) {
 				menu.setTelaCadAnimal(new CadastroAnimal());
 				menu.getTelaCadAnimal().getAlterar().setEnabled(false);
-				menu.getTelaCadAnimal().setContatorCadastro(1);
+				menu.getTelaCadAnimal().setContatorCadastro(BancoDados.animais.size() + 1);
 				menu.getTelaCadAnimal().getImputId()
 						.setText(Integer.toString(menu.getTelaCadAnimal().getContatorCadastro()));
 				menu.getTelaCadAnimal().setVisible(true);
@@ -61,20 +62,7 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getConta()) {
-			AdministradorInfo info = new AdministradorInfo(menu.getSessao());
-			info.setVisible(true);
-
-		} else if (e.getSource() == menu.getCadastrarCandidato()) {
-			if (menu.getTelaCadCandidato() == null) {
-				menu.setTelaCadCandidato(new CadastroCandidato());
-				menu.getTelaCadCandidato().getAlterar().setEnabled(false);
-				menu.getTelaCadCandidato().setVisible(true);
-				menu.getDesktop().add(menu.getTelaCadCandidato());
-			} else {
-				menu.getTelaCadCandidato().limparDados();
-				menu.getTelaCadCandidato().setVisible(true);
-				menu.getDesktop().add(menu.getTelaCadCandidato());
-			}
+			System.out.println("Login: admin\n"+"Senha:admin");
 
 		} else if (e.getSource() == menu.getCadastrarAdministrador()) {
 			if (menu.getTelaCadAdm() == null) {
@@ -87,25 +75,25 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getVisualizarAnimais()) {
-
-			menu.setTelaListarAnimal(new ListaAnimais());
-			menu.getTelaListarAnimal().setVisible(true);
-			menu.getDesktop().add(menu.getTelaListarAnimal());
+			menu.setListaAnimalExterno(new ListaAnimais());
+			menu.getListaAnimalExterno().setVisible(true);
+			menu.getListaAnimalExterno().getAdotarAnimal().setEnabled(false);
 
 		} else if (e.getSource() == menu.getVisualizarCandidatos()) {
 			menu.setTelaListarCandidato(new ListaCandidato());
 			menu.getTelaListarCandidato().setVisible(true);
 			menu.getDesktop().add(menu.getTelaListarCandidato());
 		}
-		
+
 		else if (e.getSource() == menu.getVisualizarAdocoes()) {
-			menu.setTa(new TelaAdocoes("Adoções", 800, 500));
+			menu.setTa(new TelaAdocoes("Adoções", 550, 500));
 			menu.getTa().setVisible(true);
 			menu.getDesktop().add(menu.getTa());
 		}
-		
+
 		else if (e.getSource() == menu.getEditarAnimal()) {
 			String identifica;
+			menu.setTelaCadAnimal(new CadastroAnimal());
 			if (BancoDados.animais.size() == 0) {
 				JOptionPane.showMessageDialog(null, "Nenhum Animal foi Cadastrado.");
 				return;
@@ -114,7 +102,7 @@ public class ControllerMenu implements ActionListener {
 				identifica = JOptionPane.showInputDialog("Digite o ID do Animal:");
 				int cont = 0;
 				int id = Integer.parseInt(identifica);
-
+				
 				for (int i = 0; i < BancoDados.animais.size(); i++) {
 					Animal anim = BancoDados.animais.get(i);
 					if (anim.getId() == id) {
@@ -147,6 +135,7 @@ public class ControllerMenu implements ActionListener {
 
 		} else if (e.getSource() == menu.getEditarCandidato()) {
 			String identifica;
+			menu.setTelaCadCandidato(new CadastroCandidato());
 			if (BancoDados.candidatos.size() == 0) {
 				JOptionPane.showMessageDialog(null, "Nenhum Candidato foi Cadastrado.");
 				return;
@@ -154,18 +143,16 @@ public class ControllerMenu implements ActionListener {
 
 				identifica = JOptionPane.showInputDialog("Digite o CPF do Candidato:");
 				int cont = 0;
-
 				for (int i = 0; i < BancoDados.candidatos.size(); i++) {
 					Candidato cand = BancoDados.candidatos.get(i);
-					String cpf = retiraCaracteres(cand.getCPF());
+					String cpf = menu.getTelaCadCandidato().retiraCaracteres(cand.getCPF());
 					if (cpf.equalsIgnoreCase(identifica)) {
 						// Mostrar os Dados que foram cadastrados
+						
 						menu.getTelaCadCandidato().getImputNome().setText(cand.getNome());
 						menu.getTelaCadCandidato().getImputCpf().setText(identifica);
 						menu.getTelaCadCandidato().getImputEmail().setText(cand.getEmail());
 						menu.getTelaCadCandidato().getImputFone().setText(cand.getTelefone());
-						menu.getTelaCadCandidato().getImputUsername().setText(cand.getUsername());
-						menu.getTelaCadCandidato().getImputSenha().setText(cand.getSenha());
 						menu.getTelaCadCandidato().getEstados().setSelectedItem(cand.getEndereco().getEstado());
 						menu.getTelaCadCandidato().getImputCidade().setText(cand.getEndereco().getCidade());
 						menu.getTelaCadCandidato().getImputBairro().setText(cand.getEndereco().getBairro());
@@ -187,18 +174,6 @@ public class ControllerMenu implements ActionListener {
 							"  Candidato não Encontrado! \n Verifique se o Candidato foi Cadastrado.");
 				}
 			}
-		}
-	}
-
-	public String retiraCaracteres(String str) {
-		if (str != null) {
-
-			return str.replaceAll("[^0123456789]", "");
-
-		} else {
-
-			return "";
-
 		}
 	}
 

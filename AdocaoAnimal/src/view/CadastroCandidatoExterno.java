@@ -21,12 +21,11 @@ import controller.ControllerForm;
 import model.Animal;
 
 public class CadastroCandidatoExterno extends Tela {
-	private JLabel titulo, nome, cpf, email, fone, username, senha;
+	private JLabel titulo, nome, cpf, email, fone;
 	private JLabel cep, estado, cidade, bairro, rua, numero, complemento;
-	private JTextField imputNome, imputEmail, imputUsername;
+	private JTextField imputNome, imputEmail;
 	private JFormattedTextField imputFone, imputCpf, imputCep;
 	private MaskFormatter maskCPF, maskFone, maskCEP;
-	private JPasswordField imputSenha;
 	private JTextField imputCidade, imputBairro, imputRua, imputNumero, imputComplemento;
 	private JComboBox<String> estados;
 	private JPanel painelLabels;
@@ -34,14 +33,14 @@ public class CadastroCandidatoExterno extends Tela {
 	private JPanel painelBotoes;
 	private JButton enviarForm, alterar, limparDados;
 	private ControllerForm controllerCandidato;
-	
+
 	private Animal animal;
 
 	public CadastroCandidatoExterno(Animal animal) {
 		super("Enviar Proposta", 400, 400);
-		
+
 		this.animal = animal;
-		
+
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout(50, 10));
 		controllerCandidato = new ControllerForm(this, animal);
@@ -62,8 +61,6 @@ public class CadastroCandidatoExterno extends Tela {
 		cpf = new JLabel("CPF:");
 		email = new JLabel("Email:");
 		fone = new JLabel("Fone:");
-		username = new JLabel("Username:");
-		senha = new JLabel("Senha:");
 		cep = new JLabel("CEP:");
 		estado = new JLabel("Estado:");
 		cidade = new JLabel("Cidade:");
@@ -89,8 +86,6 @@ public class CadastroCandidatoExterno extends Tela {
 			e.printStackTrace();
 			System.out.println("Erro Máscara de Fone!!!");
 		}
-		imputUsername = new JTextField();
-		imputSenha = new JPasswordField();
 		try {
 			maskCEP = new MaskFormatter("#####-###");
 			imputCep = new JFormattedTextField();
@@ -124,14 +119,12 @@ public class CadastroCandidatoExterno extends Tela {
 	}
 
 	public void addComponents() {
-		painelLabels.setLayout(new GridLayout(13, 1));
+		painelLabels.setLayout(new GridLayout(11, 1));
 
 		painelLabels.add(nome);
 		painelLabels.add(cpf);
 		painelLabels.add(email);
 		painelLabels.add(fone);
-		painelLabels.add(username);
-		painelLabels.add(senha);
 		painelLabels.add(cep);
 		painelLabels.add(estado);
 		painelLabels.add(cidade);
@@ -140,13 +133,11 @@ public class CadastroCandidatoExterno extends Tela {
 		painelLabels.add(numero);
 		painelLabels.add(complemento);
 
-		painelImputs.setLayout(new GridLayout(13, 1));
+		painelImputs.setLayout(new GridLayout(11, 1));
 		painelImputs.add(imputNome);
 		painelImputs.add(imputCpf);
 		painelImputs.add(imputEmail);
 		painelImputs.add(imputFone);
-		painelImputs.add(imputUsername);
-		painelImputs.add(imputSenha);
 		painelImputs.add(imputCep);
 		painelImputs.add(estados);
 		painelImputs.add(imputCidade);
@@ -203,8 +194,6 @@ public class CadastroCandidatoExterno extends Tela {
 		imputNome.setText(null);
 		imputNumero.setText(null);
 		imputRua.setText(null);
-		imputSenha.setText(null);
-		imputUsername.setText(null);
 		imputFone.setText(null);
 	}
 
@@ -230,22 +219,6 @@ public class CadastroCandidatoExterno extends Tela {
 
 	public void setImputEmail(JTextField imputEmail) {
 		this.imputEmail = imputEmail;
-	}
-
-	public JTextField getImputUsername() {
-		return imputUsername;
-	}
-
-	public void setImputUsername(JTextField imputUsername) {
-		this.imputUsername = imputUsername;
-	}
-
-	public JPasswordField getImputSenha() {
-		return imputSenha;
-	}
-
-	public void setImputSenha(JPasswordField imputSenha) {
-		this.imputSenha = imputSenha;
 	}
 
 	public JComboBox<String> getEstados() {
@@ -331,5 +304,4 @@ public class CadastroCandidatoExterno extends Tela {
 	public void setImputCpf(JFormattedTextField imputCpf) {
 		this.imputCpf = imputCpf;
 	}
-
 }

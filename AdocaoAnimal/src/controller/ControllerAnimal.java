@@ -27,7 +27,7 @@ public class ControllerAnimal implements ActionListener {
 
 				Animal anim = new Animal(Integer.parseInt(ca.getImputId().getText()), ca.getImputNome().getText(),
 						ca.getImputRaca().getText(), ca.getSexoOption().getSelectedItem().toString(), idade, peso,
-						ca.getImputDescricao().getText());
+						ca.getImputDescricao().getText(),ca.getNomeImagem());
 				System.out.println(anim.getId());
 				bd.getAnimais().add(anim);
 
@@ -64,6 +64,7 @@ public class ControllerAnimal implements ActionListener {
 				anim.setIdade(idade);
 				anim.setPeso(peso);
 				anim.setDescricao(ca.getImputDescricao().getText());
+				anim.setNomeImagem(ca.getNomeImagem());
 				anim.setId(Integer.parseInt(ca.getImputId().getText()));
 				JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
 				ca.limparDados();

@@ -39,14 +39,11 @@ public class ControllerAdministrador implements ActionListener {
 			else {
 				BancoDados.adms.add(adm);
 				JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!");
-				System.out.println("Usuario cadastrado");
+				limpar();
 			}
 		}
 		else if(e.getSource() == ca.getLimpar()) {
-			ca.getNomeTF().setText(null);
-			ca.getUsuarioTF().setText(null);
-			ca.getEmailTF().setText(null);
-			ca.getSenhaTF().setText(null);
+			limpar();
 		}
 	}
 	
@@ -55,6 +52,12 @@ public class ControllerAdministrador implements ActionListener {
 			return (a.getUsuario().equalsIgnoreCase(adm.getUsuario())) ? true : false;
 		}
 		return false;
+	}
+	public void limpar(){
+		ca.getNomeTF().setText(null);
+		ca.getUsuarioTF().setText(null);
+		ca.getEmailTF().setText(null);
+		ca.getSenhaTF().setText(null);
 	}
 
 }

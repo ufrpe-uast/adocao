@@ -9,7 +9,7 @@ public class Candidato {
 	private Endereco endereco;
 	private String telefone;
 
-	public Candidato(String nome, String CPF, String email, String username, String senha, String telefone,
+	public Candidato(String nome, String CPF, String email, String telefone,
 			Endereco endereco) {
 		super();
 		this.nome = nome;

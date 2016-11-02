@@ -46,10 +46,10 @@ public class Menu extends Tela {
 	private CadastroAdministrador telaCadAdm;
 	private ListaAnimais telaListarAnimal;
 	private ListaCandidato telaListarCandidato;
+	private ListaAnimais listaAnimalExterno;
 	private JDesktopPane desktop;
 	private TelaInicial telaInicial;
-	public static Administrador adm = ControllerInicial.adm;
-	public static Sessao sessao = new Sessao(adm);
+	// public static Sessao sessao = new Sessao(adm);
 	private TelaAdocoes ta;
 
 	public Menu(TelaInicial telaInicial) {
@@ -71,7 +71,7 @@ public class Menu extends Tela {
 		editar = new JMenu("Editar");
 		cadastro = new JMenu("Cadastrar");
 		visualizar = new JMenu("Visualizar");
-		ajuda = new JMenu("Ajuda");
+		// ajuda = new JMenu("Ajuda");
 
 		conta = new JMenuItem("Seus Dados");
 		conta.addActionListener(cMenu);
@@ -86,8 +86,6 @@ public class Menu extends Tela {
 		cadastrarAnimal = new JMenuItem("Cadastrar Animal");
 		cadastrarAnimal.addActionListener(cMenu);
 		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
-		cadastrarCandidato = new JMenuItem("Cadastrar Candidato");
-		cadastrarCandidato.addActionListener(cMenu);
 
 		cadastrarAdministrador = new JMenuItem("Cadastrar Administrador");
 		cadastrarAdministrador.addActionListener(cMenu);
@@ -112,15 +110,14 @@ public class Menu extends Tela {
 		visualizar.add(visualizarAdocoes);
 
 		cadastro.add(cadastrarAnimal);
-		cadastro.add(cadastrarCandidato);
 		cadastro.add(cadastrarAdministrador);
 
 		menu.add(sistema);
 		menu.add(editar);
 		menu.add(cadastro);
 		menu.add(visualizar);
-		menu.add(ajuda);
-		
+		// menu.add(ajuda);
+
 	}
 
 	public JMenuItem getSair() {
@@ -205,6 +202,14 @@ public class Menu extends Tela {
 
 	public void setAjuda(JMenu ajuda) {
 		this.ajuda = ajuda;
+	}
+
+	public void setListaAnimalExterno(ListaAnimais listaAnimalExterno) {
+		this.listaAnimalExterno = listaAnimalExterno;
+	}
+
+	public ListaAnimais getListaAnimalExterno() {
+		return listaAnimalExterno;
 	}
 
 	public JMenuItem getConta() {
@@ -313,22 +318,6 @@ public class Menu extends Tela {
 
 	public void setDesktop(JDesktopPane desktop) {
 		this.desktop = desktop;
-	}
-
-	public Sessao getSessao() {
-		return sessao;
-	}
-
-	public void setSessao(Sessao sessao) {
-		this.sessao = sessao;
-	}
-
-	public static Administrador getAdm() {
-		return adm;
-	}
-
-	public static void setAdm(Administrador adm) {
-		Menu.adm = adm;
 	}
 
 	public TelaAdocoes getTa() {

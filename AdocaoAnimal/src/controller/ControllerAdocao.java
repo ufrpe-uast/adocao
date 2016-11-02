@@ -4,31 +4,36 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JList;
 import javax.swing.JOptionPane;
 
 import model.Animal;
 import model.BancoDados;
 import view.CadastroCandidatoExterno;
 import view.ListaAnimais;
+import view.ListaAnimais;
 
 public class ControllerAdocao implements ActionListener {
+	private ListaAnimais listAnimais;
+	private JList<Animal> animais;
 
-	private Animal animal;
-	private JButton adotar;
-	
-	public ControllerAdocao(Animal animal, JButton adotar) {
-		this.animal = animal;
-		this.adotar = adotar;
+	public ControllerAdocao(ListaAnimais listAnimais) {
+		this.listAnimais = listAnimais;
+
 	}
-	
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == adotar) {
-			new CadastroCandidatoExterno(animal).setVisible(true);
-//			JOptionPane.showMessageDialog(null, "Adotado: "+animal.getNome());
+		if (e.getSource() == listAnimais.getAdotarAnimal()) {
+			if (listAnimais.getAnimalRenderer().isCondition()) {
+				CadastroCandidatoExterno cadastroCandExterno = new CadastroCandidatoExterno(
+						listAnimais.getAnimalRenderer().getAnimalSelecionado());
+				cadastroCandExterno.setVisible(true);
+				listAnimais.setVisible(false);
+			} else {
+				JOptionPane.showMessageDialog(listAnimais, "Error Nenhum Animal Selecionado!");
+			}
 		}
 	}
 
-	
-	
 }

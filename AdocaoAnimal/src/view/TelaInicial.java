@@ -23,22 +23,16 @@ public class TelaInicial extends Tela {
 	private JLabel labelLogo, login, senha, recuperar;
 	private JTextField imputLogin;
 	private JPasswordField imputSenha;
-	private JRadioButton adm, usuario;
-	private ButtonGroup group;
 	private JButton entrar, consultarAnimais;
 	private JPanel painel1;
 	private ControllerInicial cInicial;
-	private Administrador admin;
-	private Candidato usr;
+	private ListaAnimais listaAnimais;
 
 	public TelaInicial() {
 		super("AdotDog 1.0", 1020, 600);
 		setLayout(null);
-		
-		admin = BancoDados.adms.get(0);
-		usr = null;
 
-		cInicial = new ControllerInicial(this, admin, usr);
+		cInicial = new ControllerInicial(this);
 
 		labelLogo = new JLabel(new ImageIcon("resource/logoInicioSistema.png"));
 		labelLogo.setBounds(395, 100, 250, 175);
@@ -56,33 +50,25 @@ public class TelaInicial extends Tela {
 		painel1.setLayout(new GridLayout(3, 3));
 		painel1.setBounds(350, 280, 350, 70);
 
-		group = new ButtonGroup();
-		adm = new JRadioButton("Administrador");
-		usuario = new JRadioButton("Usuário");
-		group.add(adm);
-		group.add(usuario);
-
 		login = new JLabel("Login:");
 		imputLogin = new JTextField();
 		senha = new JLabel("Senha:");
 		imputSenha = new JPasswordField();
 		entrar = new JButton(new ImageIcon("resource/botaoLogin.png"));
-		entrar.setBounds(350, 355, 350, 30);
+		entrar.setBounds(350, 350, 350, 30);
 		entrar.addActionListener(cInicial);
 
 		painel1.add(login);
 		painel1.add(senha);
 		painel1.add(imputLogin);
 		painel1.add(imputSenha);
-		painel1.add(adm);
-		painel1.add(usuario);
-
+		painel1.add(recuperar);
 		getContentPane().setBackground(Color.WHITE);
 		add(consultarAnimais);
 		add(labelLogo);
 		add(painel1);
 		add(entrar);
-		add(recuperar);
+		// add(recuperar);
 		setVisible(true);
 	}
 
@@ -118,20 +104,12 @@ public class TelaInicial extends Tela {
 		this.imputSenha = imputSenha;
 	}
 
-	public JRadioButton getAdm() {
-		return adm;
+	public ListaAnimais getListaAnimais() {
+		return listaAnimais;
 	}
 
-	public void setAdm(JRadioButton adm) {
-		this.adm = adm;
-	}
-
-	public JRadioButton getUsuario() {
-		return usuario;
-	}
-
-	public void setUsuario(JRadioButton usuario) {
-		this.usuario = usuario;
+	public void setListaAnimais(ListaAnimais listaAnimais) {
+		this.listaAnimais = listaAnimais;
 	}
 
 }

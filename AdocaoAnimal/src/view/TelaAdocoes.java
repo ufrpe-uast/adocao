@@ -30,7 +30,7 @@ public class TelaAdocoes extends TelaInterna {
 		super(titulo, largura, altura);
 		
 		setLayout(new FlowLayout());
-		
+		setLocation(250, 50);
 		for(Adocao a : BancoDados.adocoes) {			
 			JPanel painel = new JPanel();
 			painel.setLayout(new BorderLayout());
