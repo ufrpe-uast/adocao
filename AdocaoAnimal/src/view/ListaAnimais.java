@@ -15,14 +15,14 @@ import controller.ControllerAdocao;
 import model.Animal;
 import model.BancoDados;
 
-public class ListaAnimais extends Tela {
+public class ListaAnimais extends TelaInterna {
 	private JList<Animal> listAnimal;
 	private JButton adotarAnimal;
 	private ControllerAdocao ca;
 	private AnimalRenderer animalRenderer;
 	
 	public ListaAnimais() {
-		super("Animais Cadastrados", 550, 600);
+		super("Animais Cadastrados", 320, 470);
 		animalRenderer = new AnimalRenderer();
 		setLayout(new BorderLayout());
 		add(createMainPanel(), BorderLayout.CENTER);
@@ -30,7 +30,7 @@ public class ListaAnimais extends Tela {
 		adotarAnimal = new JButton("Adotar Animal");
 		adotarAnimal.addActionListener(ca);
 		add(adotarAnimal, BorderLayout.SOUTH);
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocation(700, 20);
 		setVisible(true);
 	}
 

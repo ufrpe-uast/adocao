@@ -46,7 +46,6 @@ public class Menu extends Tela {
 	private CadastroAdministrador telaCadAdm;
 	private ListaAnimais telaListarAnimal;
 	private ListaCandidato telaListarCandidato;
-	private ListaAnimais listaAnimalExterno;
 	private JDesktopPane desktop;
 	private TelaInicial telaInicial;
 	// public static Sessao sessao = new Sessao(adm);
@@ -202,14 +201,6 @@ public class Menu extends Tela {
 
 	public void setAjuda(JMenu ajuda) {
 		this.ajuda = ajuda;
-	}
-
-	public void setListaAnimalExterno(ListaAnimais listaAnimalExterno) {
-		this.listaAnimalExterno = listaAnimalExterno;
-	}
-
-	public ListaAnimais getListaAnimalExterno() {
-		return listaAnimalExterno;
 	}
 
 	public JMenuItem getConta() {

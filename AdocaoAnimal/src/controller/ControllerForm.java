@@ -10,14 +10,14 @@ import model.Animal;
 import model.BancoDados;
 import model.Candidato;
 import model.Endereco;
-import view.CadastroCandidatoExterno;
+import view.CadastroCandidato;
 
 public class ControllerForm implements ActionListener {
 
-	private CadastroCandidatoExterno cce;
+	private CadastroCandidato cce;
 	private Animal animal;
 
-	public ControllerForm(CadastroCandidatoExterno cce, Animal animal) {
+	public ControllerForm(CadastroCandidato cce) {
 		this.cce = cce;
 		this.animal = animal;
 	}
@@ -25,12 +25,16 @@ public class ControllerForm implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == cce.getEnviarForm()) {
-			BancoDados.addAdocao(new Adocao(animal, new Candidato(cce.getImputNome().getText(),
-					cce.getImputCpf().getText(), cce.getImputEmail().getText(), cce.getImputFone().getText(),
+			//Adicionando os valores da tela ao objeto.
+			Candidato cand = new Candidato(cce.getImputNome().getText(), cce.getImputCpf().getText(),
+					cce.getImputEmail().getText(), cce.getImputFone().getText(),
 					new Endereco(cce.getImputRua().getText(), cce.getImputComplemento().getText(),
 							cce.getImputBairro().getText(), cce.getImputCidade().getText(), cce.getImputCep().getText(),
-							"PE", Integer.parseInt(cce.getImputNumero().getText())))));
-
+							cce.getEstados().getSelectedItem().toString(),
+							Integer.parseInt(cce.getImputNumero().getText())));
+			//Add novo candidato , e adocao.
+			BancoDados.addCand(cand);
+			BancoDados.addAdocao(new Adocao(cce.getAnimal(), cand));
 			JOptionPane.showMessageDialog(null, "Proposta enviada com sucesso");
 			cce.limparDados();
 			cce.setVisible(false);

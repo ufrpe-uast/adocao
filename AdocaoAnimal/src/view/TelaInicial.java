@@ -8,6 +8,7 @@ import javax.swing.GroupLayout.Group;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JDesktopPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -27,11 +28,13 @@ public class TelaInicial extends Tela {
 	private JPanel painel1;
 	private ControllerInicial cInicial;
 	private ListaAnimais listaAnimais;
+	private JDesktopPane desktop;
 
 	public TelaInicial() {
 		super("AdotDog 1.0", 1020, 600);
 		setLayout(null);
-
+		desktop = new JDesktopPane();
+		setContentPane(desktop);
 		cInicial = new ControllerInicial(this);
 
 		labelLogo = new JLabel(new ImageIcon("resource/logoInicioSistema.png"));
@@ -110,6 +113,10 @@ public class TelaInicial extends Tela {
 
 	public void setListaAnimais(ListaAnimais listaAnimais) {
 		this.listaAnimais = listaAnimais;
+	}
+
+	public JDesktopPane getDesktop() {
+		return desktop;
 	}
 
 }

@@ -15,8 +15,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
-
-import controller.ControllerCandidato;
+import controller.ControllerForm;
+import model.Animal;
 
 public class CadastroCandidato extends Tela {
 	private JLabel titulo, nome, cpf, email, fone;
@@ -30,19 +30,23 @@ public class CadastroCandidato extends Tela {
 	private JPanel painelImputs;
 	private JPanel painelBotoes;
 	private JButton enviarForm, alterar, limparDados;
-	private ControllerCandidato controllerCandidato;
+	private ControllerForm controllerForm;
+
+	private Animal animal;
 
 	public CadastroCandidato() {
-		super("Enviar Formulário", 400, 350);
+		super("Enviar Proposta", 400, 400);
 
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout(50, 10));
-		controllerCandidato = new ControllerCandidato(this);
+		controllerForm = new ControllerForm(this);
 		init();
 		addComponents();
 		add(BorderLayout.NORTH, titulo);
 		add(BorderLayout.WEST, painelLabels);
 		add(BorderLayout.CENTER, painelImputs);
 		add(BorderLayout.SOUTH, painelBotoes);
+		setLocationRelativeTo(null);
 		setVisible(true);
 	}
 
@@ -53,7 +57,7 @@ public class CadastroCandidato extends Tela {
 		nome = new JLabel("Nome:");
 		cpf = new JLabel("CPF:");
 		email = new JLabel("Email:");
-		fone = new JLabel("Telefone:");
+		fone = new JLabel("Fone:");
 		cep = new JLabel("CEP:");
 		estado = new JLabel("Estado:");
 		cidade = new JLabel("Cidade:");
@@ -79,7 +83,6 @@ public class CadastroCandidato extends Tela {
 			e.printStackTrace();
 			System.out.println("Erro Máscara de Fone!!!");
 		}
-
 		try {
 			maskCEP = new MaskFormatter("#####-###");
 			imputCep = new JFormattedTextField();
@@ -99,11 +102,12 @@ public class CadastroCandidato extends Tela {
 		imputComplemento = new JTextField();
 
 		enviarForm = new JButton("Enviar");
-		enviarForm.addActionListener(controllerCandidato);
+		enviarForm.addActionListener(controllerForm);
 		alterar = new JButton("Alterar");
-		alterar.addActionListener(controllerCandidato);
+		alterar.addActionListener(controllerForm);
+		alterar.setEnabled(false);
 		limparDados = new JButton("Limpar Dados");
-		limparDados.addActionListener(controllerCandidato);
+		limparDados.addActionListener(controllerForm);
 
 		painelBotoes = new JPanel();
 		painelLabels = new JPanel();
@@ -118,7 +122,6 @@ public class CadastroCandidato extends Tela {
 		painelLabels.add(cpf);
 		painelLabels.add(email);
 		painelLabels.add(fone);
-
 		painelLabels.add(cep);
 		painelLabels.add(estado);
 		painelLabels.add(cidade);
@@ -297,6 +300,14 @@ public class CadastroCandidato extends Tela {
 
 	public void setEnviarForm(JButton enviarForm) {
 		this.enviarForm = enviarForm;
+	}
+
+	public Animal getAnimal() {
+		return animal;
+	}
+
+	public void setAnimal(Animal animal) {
+		this.animal = animal;
 	}
 
 	public JButton getAlterar() {

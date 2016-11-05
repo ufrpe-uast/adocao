@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 import model.Animal;
 import model.BancoDados;
-import view.CadastroCandidatoExterno;
+import view.CadastroCandidato;
 import view.ListaAnimais;
 import view.ListaAnimais;
 
@@ -26,7 +26,8 @@ public class ControllerAdocao implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == listAnimais.getAdotarAnimal()) {
 			if (listAnimais.getAnimalRenderer().isCondition()) {
-				CadastroCandidatoExterno cadastroCandExterno = new CadastroCandidatoExterno(
+				CadastroCandidato cadastroCandExterno = new CadastroCandidato();
+				cadastroCandExterno.setAnimal(
 						listAnimais.getAnimalRenderer().getAnimalSelecionado());
 				cadastroCandExterno.setVisible(true);
 				listAnimais.setVisible(false);

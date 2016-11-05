@@ -62,7 +62,7 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getConta()) {
-			System.out.println("Login: admin\n"+"Senha:admin");
+			System.out.println("Login: admin\n" + "Senha:admin");
 
 		} else if (e.getSource() == menu.getCadastrarAdministrador()) {
 			if (menu.getTelaCadAdm() == null) {
@@ -75,9 +75,11 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getVisualizarAnimais()) {
-			menu.setListaAnimalExterno(new ListaAnimais());
-			menu.getListaAnimalExterno().setVisible(true);
-			menu.getListaAnimalExterno().getAdotarAnimal().setEnabled(false);
+			menu.setTelaListarAnimal(new ListaAnimais());
+			menu.getTelaListarAnimal().setLocation(350, 20);
+			menu.getTelaListarAnimal().setSize(400, 500);
+			menu.getTelaListarAnimal().setVisible(true);
+			menu.getDesktop().add(menu.getTelaListarAnimal());
 
 		} else if (e.getSource() == menu.getVisualizarCandidatos()) {
 			menu.setTelaListarCandidato(new ListaCandidato());
@@ -102,7 +104,7 @@ public class ControllerMenu implements ActionListener {
 				identifica = JOptionPane.showInputDialog("Digite o ID do Animal:");
 				int cont = 0;
 				int id = Integer.parseInt(identifica);
-				
+
 				for (int i = 0; i < BancoDados.animais.size(); i++) {
 					Animal anim = BancoDados.animais.get(i);
 					if (anim.getId() == id) {
@@ -148,7 +150,7 @@ public class ControllerMenu implements ActionListener {
 					String cpf = menu.getTelaCadCandidato().retiraCaracteres(cand.getCPF());
 					if (cpf.equalsIgnoreCase(identifica)) {
 						// Mostrar os Dados que foram cadastrados
-						
+
 						menu.getTelaCadCandidato().getImputNome().setText(cand.getNome());
 						menu.getTelaCadCandidato().getImputCpf().setText(identifica);
 						menu.getTelaCadCandidato().getImputEmail().setText(cand.getEmail());

@@ -28,6 +28,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import controller.ControllerAnimal;
 import controller.ControllerMenu;
@@ -124,23 +126,35 @@ public class CadastroAnimal extends TelaInterna {
 		ImageIcon conteudo = null;
 		String caminho = null;
 		try {
-			JFileChooser jFileChooser = new JFileChooser();
+			JFileChooser jFileChooser = new JFileChooser("C:/Users/seven/Pictures");
+			jFileChooser.setFileFilter(new FileNameExtensionFilter("Apenas Arquivos de Imagem","png"));
+			jFileChooser.setFileFilter(new FileFilter() {
+				
+				@Override
+				public String getDescription() {
+					// TODO Auto-generated method stub
+					return null;
+				}
+				
+				@Override
+				public boolean accept(File f) {
+					// TODO Auto-generated method stub
+					return false;
+				}
+			});
 			int ok = jFileChooser.showOpenDialog(null);
 			if (ok == JFileChooser.APPROVE_OPTION) {
-				caminho = jFileChooser.getCurrentDirectory().getPath() + "\\"
-						+ jFileChooser.getSelectedFile().getName();
+				caminho = jFileChooser.getCurrentDirectory().getPath() + "\\" +  jFileChooser.getSelectedFile().getName();
 				conteudo = new ImageIcon(caminho);
-
-				try {
-					File destino = new File("resource" + "//" + jFileChooser.getSelectedFile().getName());
-					String caminho2 = caminho.replace("\\", "/");
-					this.nomeImagem = jFileChooser.getSelectedFile().getName();
-					File partida = new File(caminho2);
-					copyFile(partida, destino);
-				} catch (Exception e) {
-					System.out.println("Falha ao Renomear Arquivo de Imagem");
-				}
-
+				System.out.println(caminho);
+				File destino = new File("D:/workspace_java/adocao/AdocaoAnimal/photos" + "//" + jFileChooser.getSelectedFile().getName());
+				System.out.println(destino);
+				String caminho2 = caminho.replace("\\", "/");
+				System.out.println(caminho2);
+				File partida = new File(caminho2);
+				System.out.println("passou1");
+				copyFile(partida, destino);
+				System.out.println("passou2");
 			} else {
 				jFileChooser.cancelSelection();
 			}
