@@ -10,22 +10,31 @@ public class Animal {
 	private int idade;
 	private float peso;
 	private String descricao;
-	private String nomeImagem;
+	private ImageIcon nomeImagem;
 
 	public Animal(int id, String nome, String raca, String sexo, int idade, float peso, String descricao,
-			String nomeImagem) {
+			ImageIcon nomeImagem) {
 		if (nome.equalsIgnoreCase("")) {
 			this.nome = "Sem nome";
 		} else {
 			this.nome = nome;
 		}
-		this.id = id;
-		this.raca = raca;
+		if (raca.equalsIgnoreCase("")) {
+			this.raca = "Vira-Lata";
+		} else {
+			this.raca = raca;
+		}
+
+		if (descricao.equalsIgnoreCase("")) {
+			this.descricao = "Sem descrição";
+		} else {
+			this.descricao = descricao;
+		}
+		this.nomeImagem = nomeImagem;
 		this.sexo = sexo;
 		this.idade = idade;
 		this.peso = peso;
-		this.descricao = descricao;
-		this.nomeImagem = nomeImagem;
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -90,11 +99,11 @@ public class Animal {
 				+ " kg </p>" + "<p> Descrição: " + descricao + "</p>" + "</html>");
 	}
 
-	public String getNomeImagem() {
+	public ImageIcon getNomeImagem() {
 		return nomeImagem;
 	}
 
-	public void setNomeImagem(String nomeImagem) {
+	public void setNomeImagem(ImageIcon nomeImagem) {
 		this.nomeImagem = nomeImagem;
 	}
 }

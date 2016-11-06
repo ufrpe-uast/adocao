@@ -12,41 +12,63 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ListSelectionModel;
 import javax.swing.border.Border;
+import javax.swing.border.EmptyBorder;
 
-import controller.ControllerInfoAdocao;
+import controller.ControllerAdocao;
 import model.Adocao;
+import model.Animal;
 import model.BancoDados;
 
 public class TelaAdocoes extends TelaInterna {
-	
-	private ControllerInfoAdocao cia;
+	private JList<Adocao> adocoes;
+	private ControllerAdocao cia;
+	private JButton verCadastro;
 
-	public TelaAdocoes(String titulo, int largura, int altura) {
-		super(titulo, largura, altura);
-		
-		setLayout(new FlowLayout());
-		setLocation(250, 50);
-		for(Adocao a : BancoDados.adocoes) {			
-			JPanel painel = new JPanel();
-			painel.setLayout(new BorderLayout());
-			painel.setBackground(Color.WHITE);
-			painel.setBorder(BorderFactory.createLineBorder(Color.GREEN));
-			painel.add(BorderLayout.CENTER, new JLabel("<html>"+
-					"<h3>Animal: "+a.getAnimal().getNome()+"</h3>"+
-					"<h3>Candidato: "+a.getCandidato().getNome()+"</h3>"
-					+ "</html>"));
-			JButton mais = new JButton("Ver Mais");
-			
-			cia = new ControllerInfoAdocao(a, mais);
-			mais.addActionListener(cia);
-			painel.add(BorderLayout.SOUTH, mais);
-			
-			add(painel);
+	public TelaAdocoes() {
+		super("Adoções", 550, 400);
+		setLayout(new BorderLayout());
+		cia = new ControllerAdocao(this);
+		verCadastro = new JButton("Visualizar Todas as Informações");
+		verCadastro.addActionListener(cia);
+		add(createMainPanel(), BorderLayout.CENTER);
+		add(verCadastro, BorderLayout.SOUTH);
+		setLocation(230, 20);
+	}
+
+	private JPanel createMainPanel() {
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.setBorder(new EmptyBorder(20, 20, 20, 20));
+		panel.add(new JScrollPane(adocoes = createListAdocoes()), BorderLayout.CENTER);
+		return panel;
+	}
+
+	public JList<Adocao> createListAdocoes() {
+		DefaultListModel<Adocao> model = new DefaultListModel<>();
+		for (Adocao adocao : BancoDados.adocoes) {
+			model.addElement(adocao);
 		}
+		JList<Adocao> list = new JList<Adocao>(model);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		return list;
+	}
+
+	public JButton getVerCadastro() {
+		return verCadastro;
+	}
+
+	public void setVerCadastro(JButton verCadastro) {
+		this.verCadastro = verCadastro;
+	}
+
+	public JList<Adocao> getAdocoes() {
+		return adocoes;
 	}
 }

@@ -46,6 +46,7 @@ public class CadastroAnimal extends TelaInterna {
 	private int contatorCadastro = 0;
 	private ControllerAnimal controllerAnimal;
 	private String nomeImagem;
+	private boolean addFoto;
 
 	public CadastroAnimal() {
 		super("Cadastrar Animal", 550, 270);
@@ -126,37 +127,29 @@ public class CadastroAnimal extends TelaInterna {
 		ImageIcon conteudo = null;
 		String caminho = null;
 		try {
-			JFileChooser jFileChooser = new JFileChooser("C:/Users/seven/Pictures");
-			jFileChooser.setFileFilter(new FileNameExtensionFilter("Apenas Arquivos de Imagem","png"));
-			jFileChooser.setFileFilter(new FileFilter() {
-				
-				@Override
-				public String getDescription() {
-					// TODO Auto-generated method stub
-					return null;
-				}
-				
-				@Override
-				public boolean accept(File f) {
-					// TODO Auto-generated method stub
-					return false;
-				}
-			});
+			JFileChooser jFileChooser = new JFileChooser();
+			jFileChooser.setFileFilter(new FileNameExtensionFilter("Apenas Arquivos de Imagem", "png"));
+			jFileChooser.setFileFilter(new FileNameExtensionFilter("Imagem", "jpeg", "jpg", "png"));
 			int ok = jFileChooser.showOpenDialog(null);
+
 			if (ok == JFileChooser.APPROVE_OPTION) {
-				caminho = jFileChooser.getCurrentDirectory().getPath() + "\\" +  jFileChooser.getSelectedFile().getName();
-				conteudo = new ImageIcon(caminho);
-				System.out.println(caminho);
-				File destino = new File("D:/workspace_java/adocao/AdocaoAnimal/photos" + "//" + jFileChooser.getSelectedFile().getName());
-				System.out.println(destino);
-				String caminho2 = caminho.replace("\\", "/");
-				System.out.println(caminho2);
-				File partida = new File(caminho2);
-				System.out.println("passou1");
-				copyFile(partida, destino);
-				System.out.println("passou2");
+				try {
+					// Pega o nome do arquivo que foi selecionado
+					caminho = jFileChooser.getCurrentDirectory().getPath() + "\\"
+							+ jFileChooser.getSelectedFile().getName();
+					conteudo = new ImageIcon(caminho);
+					File destino = new File("resource/" + jFileChooser.getSelectedFile().getName());
+					String caminho2 = caminho.replace("\\", "/");
+					File partida = new File(caminho2);
+					copyFile(partida, destino);
+					setAddFoto(true);
+				} catch (Exception e) {
+					System.out.println("Falha Na Cópia do Arquivo Selecionado");
+				}
+
 			} else {
 				jFileChooser.cancelSelection();
+				setAddFoto(false);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -284,12 +277,12 @@ public class CadastroAnimal extends TelaInterna {
 		this.imputPeso = imputPeso;
 	}
 
-	public String getNomeImagem() {
-		return nomeImagem;
+	public boolean isAddFoto() {
+		return addFoto;
 	}
 
-	public void setNomeImagem(String nomeImagem) {
-		this.nomeImagem = nomeImagem;
+	public void setAddFoto(boolean addFoto) {
+		this.addFoto = addFoto;
 	}
 
 	public JComboBox<String> getSexoOption() {

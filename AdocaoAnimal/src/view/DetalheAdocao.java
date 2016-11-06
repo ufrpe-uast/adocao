@@ -16,11 +16,11 @@ import javax.swing.SwingConstants;
 
 import model.Adocao;
 
-public class DetalheAdocao extends Tela {
+public class DetalheAdocao extends TelaPadrao {
 	private Adocao adocao;
 
 	public DetalheAdocao(Adocao adocao) {
-		super("Detalhes da Adoção", 550, 500);
+		super("Detalhes da Adoção", 560, 500);
 
 		this.adocao = adocao;
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -67,7 +67,7 @@ public class DetalheAdocao extends Tela {
 		JScrollPane scrollCand = new JScrollPane(cand);
 		add(BorderLayout.WEST, scrollAnim);
 		add(BorderLayout.CENTER, scrollCand);
-		add(BorderLayout.SOUTH,bot);
+		add(BorderLayout.SOUTH, bot);
 
 		setVisible(true);
 	}

@@ -20,7 +20,7 @@ import view.CadastroAnimal;
 import view.CadastroCandidato;
 import view.ListaAnimais;
 import view.ListaAnimais;
-import view.ListaCandidato;
+import view.ListaCandidatos;
 import view.Menu;
 import view.TelaAdocoes;
 
@@ -76,19 +76,16 @@ public class ControllerMenu implements ActionListener {
 
 		} else if (e.getSource() == menu.getVisualizarAnimais()) {
 			menu.setTelaListarAnimal(new ListaAnimais());
-			menu.getTelaListarAnimal().setLocation(350, 20);
-			menu.getTelaListarAnimal().setSize(400, 500);
 			menu.getTelaListarAnimal().setVisible(true);
-			menu.getDesktop().add(menu.getTelaListarAnimal());
 
 		} else if (e.getSource() == menu.getVisualizarCandidatos()) {
-			menu.setTelaListarCandidato(new ListaCandidato());
+			menu.setTelaListarCandidato(new ListaCandidatos());
 			menu.getTelaListarCandidato().setVisible(true);
 			menu.getDesktop().add(menu.getTelaListarCandidato());
 		}
 
 		else if (e.getSource() == menu.getVisualizarAdocoes()) {
-			menu.setTa(new TelaAdocoes("Adoções", 550, 500));
+			menu.setTa(new TelaAdocoes());
 			menu.getTa().setVisible(true);
 			menu.getDesktop().add(menu.getTa());
 		}

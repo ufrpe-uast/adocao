@@ -9,8 +9,7 @@ public class Candidato {
 	private Endereco endereco;
 	private String telefone;
 
-	public Candidato(String nome, String CPF, String email, String telefone,
-			Endereco endereco) {
+	public Candidato(String nome, String CPF, String email, String telefone, Endereco endereco) {
 		super();
 		this.nome = nome;
 		this.CPF = CPF;
@@ -76,6 +75,14 @@ public class Candidato {
 
 	public void setCPF(String cPF) {
 		CPF = cPF;
+	}
+
+	public String toString() {
+		return new String("<html>" + "<p> Nome: " + getNome() + "</p>" + "<p> CPF: " + getCPF() + "</p>" + "<p> Email: "
+				+ getEmail() + "</p>" + "<p> Fone: " + getTelefone() + "</p>" + "<p> Endereço: "
+				+ getEndereco().getRua() + "," + getEndereco().getNumero() + "-" + getEndereco().getComplemento()
+				+ " </p>" + "<p>" + getEndereco().getBairro() + "/" + getEndereco().getCidade() + "-"
+				+ getEndereco().getEstado() + "</p>" + "<p>" + getEndereco().getCep() + "</p>" + "</html>");
 	}
 
 }

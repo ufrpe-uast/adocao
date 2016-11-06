@@ -2,8 +2,8 @@ package view;
 
 import javax.swing.JFrame;
 
-public class Tela extends JFrame {
-	public Tela(String titulo, int Largura, int Altura) {
+public class TelaPadrao extends JFrame {
+	public TelaPadrao(String titulo, int Largura, int Altura) {
 		super(titulo);
 		editarJanela(Largura, Altura);
 	}

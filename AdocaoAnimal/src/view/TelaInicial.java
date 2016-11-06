@@ -20,7 +20,7 @@ import model.Administrador;
 import model.BancoDados;
 import model.Candidato;
 
-public class TelaInicial extends Tela {
+public class TelaInicial extends TelaPadrao {
 	private JLabel labelLogo, login, senha, recuperar;
 	private JTextField imputLogin;
 	private JPasswordField imputSenha;

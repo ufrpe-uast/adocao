@@ -15,10 +15,10 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.text.MaskFormatter;
-import controller.ControllerForm;
+import controller.ControllerCandidato;
 import model.Animal;
 
-public class CadastroCandidato extends Tela {
+public class CadastroCandidato extends TelaInterna {
 	private JLabel titulo, nome, cpf, email, fone;
 	private JLabel cep, estado, cidade, bairro, rua, numero, complemento;
 	private JTextField imputNome, imputEmail;
@@ -30,7 +30,7 @@ public class CadastroCandidato extends Tela {
 	private JPanel painelImputs;
 	private JPanel painelBotoes;
 	private JButton enviarForm, alterar, limparDados;
-	private ControllerForm controllerForm;
+	private ControllerCandidato controllerForm;
 
 	private Animal animal;
 
@@ -39,15 +39,14 @@ public class CadastroCandidato extends Tela {
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLayout(new BorderLayout(50, 10));
-		controllerForm = new ControllerForm(this);
+		controllerForm = new ControllerCandidato(this);
 		init();
 		addComponents();
 		add(BorderLayout.NORTH, titulo);
 		add(BorderLayout.WEST, painelLabels);
 		add(BorderLayout.CENTER, painelImputs);
 		add(BorderLayout.SOUTH, painelBotoes);
-		setLocationRelativeTo(null);
-		setVisible(true);
+		setLocation(310, 100);
 	}
 
 	public void init() {

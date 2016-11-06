@@ -3,6 +3,7 @@ package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 import model.Animal;
@@ -24,37 +25,35 @@ public class ControllerAnimal implements ActionListener {
 			try {
 				int idade = Integer.parseInt(ca.getImputIdade().getText());
 				float peso = Float.parseFloat(ca.getImputPeso().getText());
-
-				Animal anim = new Animal(Integer.parseInt(ca.getImputId().getText()), ca.getImputNome().getText(),
-						ca.getImputRaca().getText(), ca.getSexoOption().getSelectedItem().toString(), idade, peso,
-						ca.getImputDescricao().getText(),ca.getNomeImagem());
-				System.out.println(anim.getId());
-				bd.getAnimais().add(anim);
+				if (ca.isAddFoto()) {
+					Animal anim = new Animal(Integer.parseInt(ca.getImputId().getText()), ca.getImputNome().getText(),
+							ca.getImputRaca().getText(), ca.getSexoOption().getSelectedItem().toString(), idade, peso,
+							ca.getImputDescricao().getText(), ca.getImagemAnimal());
+					System.out.println(anim.getId());
+					bd.getAnimais().add(anim);
+					JOptionPane.showMessageDialog(ca, "Animal Cadastrado com Sucesso");
+					ca.limparDados();
+					ca.setContatorCadastro(1);
+					ca.getImputId().setText(Integer.toString(ca.getContatorCadastro()));
+					ca.setAddFoto(false);
+				} else {
+					JOptionPane.showMessageDialog(ca, "Falha no Cadastro, Adicione uma foto para o Animal");
+				}
 
 			} catch (NumberFormatException e1) {
 				e1.printStackTrace();
-				JOptionPane.showMessageDialog(null, "O campo idade deve conter um número inteiro.\n"
-						+ "O campo peso deve conter um número inteiro ou real.");
+				JOptionPane.showMessageDialog(null,
+						"O campo idade deve conter um número inteiro.\n"
+								+ "O campo peso deve conter um número inteiro ou real.\n"
+								+ "Selecione uma Foto para este Animal");
 			}
-
-			System.out.println(bd.getAnimais().get(0).getNome());
-			System.out.println(bd.getAnimais().get(0).getRaca());
-			System.out.println(bd.getAnimais().get(0).getSexo());
-			System.out.println(bd.getAnimais().get(0).getIdade());
-			System.out.println(bd.getAnimais().get(0).getPeso());
-			System.out.println(bd.getAnimais().get(0).getDescricao());
-
-			JOptionPane.showMessageDialog(null, "Animal Cadastrado com Sucesso");
-			ca.limparDados();
-			ca.setContatorCadastro(1);
-			ca.getImputId().setText(Integer.toString(ca.getContatorCadastro()));
 
 		} else if (e.getSource() == ca.getAlterar()) {
 
 			int index = Integer.parseInt(ca.getImputId().getText());
 			Animal anim = BancoDados.animais.get(index - 1);
 			try {
-				
+
 				int idade = Integer.parseInt(ca.getImputIdade().getText());
 				float peso = Float.parseFloat(ca.getImputPeso().getText());
 				// Alteração dos Dados
@@ -64,11 +63,10 @@ public class ControllerAnimal implements ActionListener {
 				anim.setIdade(idade);
 				anim.setPeso(peso);
 				anim.setDescricao(ca.getImputDescricao().getText());
-				anim.setNomeImagem(ca.getNomeImagem());
 				anim.setId(Integer.parseInt(ca.getImputId().getText()));
 				JOptionPane.showMessageDialog(null, "Dados Alterados com Sucesso!!");
 				ca.limparDados();
-				
+
 			} catch (NumberFormatException e2) {
 				e2.printStackTrace();
 				JOptionPane.showMessageDialog(null,

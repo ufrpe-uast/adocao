@@ -23,7 +23,7 @@ import model.Adocao;
 import model.BancoDados;
 import model.Sessao;
 
-public class Menu extends Tela {
+public class Menu extends TelaPadrao {
 	private JMenuBar menu;
 	private JMenu sistema;
 	private JMenu editar;
@@ -45,7 +45,7 @@ public class Menu extends Tela {
 	private CadastroCandidato telaCadCandidato;
 	private CadastroAdministrador telaCadAdm;
 	private ListaAnimais telaListarAnimal;
-	private ListaCandidato telaListarCandidato;
+	private ListaCandidatos telaListarCandidato;
 	private JDesktopPane desktop;
 	private TelaInicial telaInicial;
 	// public static Sessao sessao = new Sessao(adm);
@@ -295,11 +295,11 @@ public class Menu extends Tela {
 		this.telaListarAnimal = telaListarAnimal;
 	}
 
-	public ListaCandidato getTelaListarCandidato() {
+	public ListaCandidatos getTelaListarCandidato() {
 		return telaListarCandidato;
 	}
 
-	public void setTelaListarCandidato(ListaCandidato telaListarCandidato) {
+	public void setTelaListarCandidato(ListaCandidatos telaListarCandidato) {
 		this.telaListarCandidato = telaListarCandidato;
 	}
 

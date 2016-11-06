@@ -61,7 +61,7 @@ public class AnimalRenderer extends JPanel implements ListCellRenderer<Animal> {
 	@Override
 	public Component getListCellRendererComponent(JList<? extends Animal> listAnimal, Animal animal, int index,
 			boolean isSelected, boolean elementoFocalizado) {
-		ImageIcon imagem = new ImageIcon("resource/" + animal.getNomeImagem());
+		ImageIcon imagem = animal.getNomeImagem();
 		ImageIcon imagemRedimensionada = new ImageIcon(
 				imagem.getImage().getScaledInstance(100, 80, Image.SCALE_DEFAULT));
 		lbIcon.setIcon(imagemRedimensionada);

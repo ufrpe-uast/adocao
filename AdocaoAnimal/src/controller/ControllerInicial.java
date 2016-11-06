@@ -78,8 +78,6 @@ public class ControllerInicial implements MouseListener, ActionListener {
 		if (e.getSource() == telaInicial.getConsultarAnimais()) {
 			telaInicial.setListaAnimais(new ListaAnimais());
 			telaInicial.getListaAnimais().setVisible(true);
-			telaInicial.getDesktop().add(telaInicial.getListaAnimais());
-
 		}
 
 	}

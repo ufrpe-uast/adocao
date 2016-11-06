@@ -4,37 +4,29 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JList;
 import javax.swing.JOptionPane;
 
-import model.Animal;
-import model.BancoDados;
-import view.CadastroCandidato;
-import view.ListaAnimais;
-import view.ListaAnimais;
+import model.Adocao;
+import view.DetalheAdocao;
+import view.TelaAdocoes;
 
 public class ControllerAdocao implements ActionListener {
-	private ListaAnimais listAnimais;
-	private JList<Animal> animais;
+	private TelaAdocoes tAdocao;
 
-	public ControllerAdocao(ListaAnimais listAnimais) {
-		this.listAnimais = listAnimais;
-
+	public ControllerAdocao(TelaAdocoes tAdocao) {
+		this.tAdocao = tAdocao;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getSource() == listAnimais.getAdotarAnimal()) {
-			if (listAnimais.getAnimalRenderer().isCondition()) {
-				CadastroCandidato cadastroCandExterno = new CadastroCandidato();
-				cadastroCandExterno.setAnimal(
-						listAnimais.getAnimalRenderer().getAnimalSelecionado());
-				cadastroCandExterno.setVisible(true);
-				listAnimais.setVisible(false);
+		if (e.getSource() == tAdocao.getVerCadastro()) {
+			if (!tAdocao.getAdocoes().isSelectionEmpty()) {
+				DetalheAdocao dAdocao = new DetalheAdocao(tAdocao.getAdocoes().getSelectedValue());
+				dAdocao.setVisible(true);
 			} else {
-				JOptionPane.showMessageDialog(listAnimais, "Error Nenhum Animal Selecionado!");
+				JOptionPane.showMessageDialog(tAdocao, "Selecione um Cadastro de Adoção na Lista ");
 			}
 		}
-	}
 
+	}
 }

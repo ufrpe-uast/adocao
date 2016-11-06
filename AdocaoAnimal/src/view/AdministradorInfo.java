@@ -13,7 +13,7 @@ import model.Administrador;
 import model.BancoDados;
 import model.Sessao;
 
-public class AdministradorInfo extends Tela {
+public class AdministradorInfo extends TelaPadrao {
 	
 	Administrador admLogado;
 	

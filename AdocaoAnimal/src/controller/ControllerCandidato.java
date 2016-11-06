@@ -12,12 +12,12 @@ import model.Candidato;
 import model.Endereco;
 import view.CadastroCandidato;
 
-public class ControllerForm implements ActionListener {
+public class ControllerCandidato implements ActionListener {
 
 	private CadastroCandidato cce;
 	private Animal animal;
 
-	public ControllerForm(CadastroCandidato cce) {
+	public ControllerCandidato(CadastroCandidato cce) {
 		this.cce = cce;
 		this.animal = animal;
 	}

@@ -11,26 +11,26 @@ import javax.swing.JScrollPane;
 import javax.swing.ListSelectionModel;
 import javax.swing.border.EmptyBorder;
 
-import controller.ControllerAdocao;
+import controller.ControllerListaAnimal;
 import model.Animal;
 import model.BancoDados;
 
-public class ListaAnimais extends TelaInterna {
+public class ListaAnimais extends TelaPadrao {
 	private JList<Animal> listAnimal;
 	private JButton adotarAnimal;
-	private ControllerAdocao ca;
+	private ControllerListaAnimal ca;
 	private AnimalRenderer animalRenderer;
-	
+
 	public ListaAnimais() {
-		super("Animais Cadastrados", 320, 470);
+		super("Animais Cadastrados", 450, 500);
 		animalRenderer = new AnimalRenderer();
 		setLayout(new BorderLayout());
 		add(createMainPanel(), BorderLayout.CENTER);
-		ca = new ControllerAdocao(this);
+		ca = new ControllerListaAnimal(this);
 		adotarAnimal = new JButton("Adotar Animal");
 		adotarAnimal.addActionListener(ca);
 		add(adotarAnimal, BorderLayout.SOUTH);
-		setLocation(700, 20);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
 	}
 
