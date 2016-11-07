@@ -1,23 +1,28 @@
 package controller;
 
+import java.awt.HeadlessException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.ParseException;
+import java.util.Formatter;
 
+import javax.swing.JFormattedTextField;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import javax.swing.text.MaskFormatter;
 
 import model.Administrador;
 import model.Animal;
 import model.BancoDados;
 import model.Candidato;
-import view.AdministradorInfo;
 import view.CadastroAdministrador;
 import view.CadastroAnimal;
 import view.CadastroCandidato;
+import view.DadosAdministrador;
 import view.ListaAnimais;
 import view.ListaAnimais;
 import view.ListaCandidatos;
@@ -52,17 +57,18 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getSair()) {
-			int sair = JOptionPane.showConfirmDialog(null, "Deseja realmente sair?");
+			int sair = JOptionPane.showConfirmDialog(menu, "Deseja realmente sair?");
 			if (sair == 0) {
 				// salvamento de dados
-				salvarDados();
+				// salvarDados();
 				menu.getTelaInicial().setVisible(true);
 				menu.dispose();
 				setMenu(null);
 			}
 
 		} else if (e.getSource() == menu.getConta()) {
-			System.out.println("Login: admin\n" + "Senha:admin");
+			menu.setdAdm(new DadosAdministrador(menu.getSessao().getUsuarioLogado()));
+			menu.getdAdm().setVisible(true);
 
 		} else if (e.getSource() == menu.getCadastrarAdministrador()) {
 			if (menu.getTelaCadAdm() == null) {
@@ -139,40 +145,46 @@ public class ControllerMenu implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Nenhum Candidato foi Cadastrado.");
 				return;
 			} else {
+				try {
+					identifica = JOptionPane.showInputDialog(menu, "Digite o CPF do Candidato:");
+					int cont = 0;
+					for (int i = 0; i < BancoDados.candidatos.size(); i++) {
+						Candidato cand = BancoDados.candidatos.get(i);
+						String cpf = menu.getTelaCadCandidato().retiraCaracteres(cand.getCPF());
+						if (cpf.equalsIgnoreCase(identifica)) {
+							// Mostrar os Dados que foram cadastrados
 
-				identifica = JOptionPane.showInputDialog("Digite o CPF do Candidato:");
-				int cont = 0;
-				for (int i = 0; i < BancoDados.candidatos.size(); i++) {
-					Candidato cand = BancoDados.candidatos.get(i);
-					String cpf = menu.getTelaCadCandidato().retiraCaracteres(cand.getCPF());
-					if (cpf.equalsIgnoreCase(identifica)) {
-						// Mostrar os Dados que foram cadastrados
+							menu.getTelaCadCandidato().getImputNome().setText(cand.getNome());
+							menu.getTelaCadCandidato().getImputCpf().setText(identifica);
+							menu.getTelaCadCandidato().getImputEmail().setText(cand.getEmail());
+							menu.getTelaCadCandidato().getImputFone().setText(cand.getTelefone());
+							menu.getTelaCadCandidato().getEstados().setSelectedItem(cand.getEndereco().getEstado());
+							menu.getTelaCadCandidato().getImputCidade().setText(cand.getEndereco().getCidade());
+							menu.getTelaCadCandidato().getImputBairro().setText(cand.getEndereco().getBairro());
+							menu.getTelaCadCandidato().getImputCep().setText(cand.getEndereco().getCep());
+							menu.getTelaCadCandidato().getImputComplemento()
+									.setText(cand.getEndereco().getComplemento());
+							menu.getTelaCadCandidato().getImputNumero()
+									.setText(Integer.toString(cand.getEndereco().getNumero()));
+							menu.getTelaCadCandidato().getImputRua().setText(cand.getEndereco().getRua());
+							menu.getTelaCadCandidato().getAlterar().setEnabled(true);
+							menu.getTelaCadCandidato().getEnviarForm().setEnabled(false);
+							menu.getTelaCadCandidato().setVisible(true);
+							cont++;
+						}
 
-						menu.getTelaCadCandidato().getImputNome().setText(cand.getNome());
-						menu.getTelaCadCandidato().getImputCpf().setText(identifica);
-						menu.getTelaCadCandidato().getImputEmail().setText(cand.getEmail());
-						menu.getTelaCadCandidato().getImputFone().setText(cand.getTelefone());
-						menu.getTelaCadCandidato().getEstados().setSelectedItem(cand.getEndereco().getEstado());
-						menu.getTelaCadCandidato().getImputCidade().setText(cand.getEndereco().getCidade());
-						menu.getTelaCadCandidato().getImputBairro().setText(cand.getEndereco().getBairro());
-						menu.getTelaCadCandidato().getImputCep().setText(cand.getEndereco().getCep());
-						menu.getTelaCadCandidato().getImputComplemento().setText(cand.getEndereco().getComplemento());
-						menu.getTelaCadCandidato().getImputNumero()
-								.setText(Integer.toString(cand.getEndereco().getNumero()));
-						menu.getTelaCadCandidato().getImputRua().setText(cand.getEndereco().getRua());
-						menu.getTelaCadCandidato().getAlterar().setEnabled(true);
-						menu.getTelaCadCandidato().getEnviarForm().setEnabled(false);
-						menu.getTelaCadCandidato().setVisible(true);
-						menu.getDesktop().add(menu.getTelaCadCandidato());
-						cont++;
 					}
+					if ((cont == 0) && (identifica != null)) {
+						JOptionPane.showMessageDialog(null,
+								"  Candidato não Encontrado! \n Verifique se o Candidato foi Cadastrado.");
+					}
+				} catch (HeadlessException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 
-				}
-				if (cont == 0) {
-					JOptionPane.showMessageDialog(null,
-							"  Candidato não Encontrado! \n Verifique se o Candidato foi Cadastrado.");
-				}
 			}
+
 		}
 	}
 

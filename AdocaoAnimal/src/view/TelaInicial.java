@@ -27,21 +27,17 @@ public class TelaInicial extends TelaPadrao {
 	private JButton entrar, consultarAnimais;
 	private JPanel painel1;
 	private ControllerInicial cInicial;
-	private ListaAnimais listaAnimais;
-	private JDesktopPane desktop;
 
 	public TelaInicial() {
 		super("AdotDog 1.0", 1020, 600);
 		setLayout(null);
-		desktop = new JDesktopPane();
-		setContentPane(desktop);
 		cInicial = new ControllerInicial(this);
 
 		labelLogo = new JLabel(new ImageIcon("resource/logoInicioSistema.png"));
 		labelLogo.setBounds(395, 100, 250, 175);
 
 		recuperar = new JLabel("Esqueceu sua Senha ?");
-		recuperar.setBounds(350, 375, 150, 50);
+		recuperar.setBounds(350, 290, 130, 100);
 		recuperar.setToolTipText("Click para Recuperar sua Senha");
 		recuperar.addMouseListener(cInicial);
 
@@ -50,8 +46,8 @@ public class TelaInicial extends TelaPadrao {
 		consultarAnimais.addActionListener(cInicial);
 
 		painel1 = new JPanel();
-		painel1.setLayout(new GridLayout(3, 3));
-		painel1.setBounds(350, 280, 350, 70);
+		painel1.setLayout(new GridLayout(2, 2));
+		painel1.setBounds(350, 280, 350, 50);
 
 		login = new JLabel("Login:");
 		imputLogin = new JTextField();
@@ -65,13 +61,12 @@ public class TelaInicial extends TelaPadrao {
 		painel1.add(senha);
 		painel1.add(imputLogin);
 		painel1.add(imputSenha);
-		painel1.add(recuperar);
 		getContentPane().setBackground(Color.WHITE);
 		add(consultarAnimais);
 		add(labelLogo);
 		add(painel1);
 		add(entrar);
-		// add(recuperar);
+		add(recuperar);
 		setVisible(true);
 	}
 
@@ -105,18 +100,6 @@ public class TelaInicial extends TelaPadrao {
 
 	public void setImputSenha(JPasswordField imputSenha) {
 		this.imputSenha = imputSenha;
-	}
-
-	public ListaAnimais getListaAnimais() {
-		return listaAnimais;
-	}
-
-	public void setListaAnimais(ListaAnimais listaAnimais) {
-		this.listaAnimais = listaAnimais;
-	}
-
-	public JDesktopPane getDesktop() {
-		return desktop;
 	}
 
 }

@@ -16,11 +16,17 @@ public class App {
 
 	public static void main(String[] args) {
 
-		BancoDados.addAdm(new Administrador("Admin", "admin", "a@admin.com", "admin"));
-		BancoDados.addAdm(new Administrador("João", "joao", "joao@admin.com", "joao"));
-		BancoDados.addAdm(new Administrador("Maria", "maria", "maria@admin.com", "maria"));
-		BancoDados.addAdm(new Administrador("Ana", "ana", "ana@admin.com", "ana"));
-		BancoDados.addAdm(new Administrador("José", "jose", "jose@admin.com", "jose"));
+		Endereco endereco = new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464);
+		BancoDados.addAdm(new Administrador("111.111.111-11", "1.111.111", "Admin", "a@admin.com", "admin", "admin",
+				"(81)9 9321-2428", endereco));
+		BancoDados.addAdm(new Administrador("222.222.222-22", "1.111.111", "João", "joao@admin.com", "joao", "joao",
+				"(81)9 9321-2428", endereco));
+		BancoDados.addAdm(new Administrador("333.333.333-33", "1.111.111", "Maria", "maria@admin.com", "maria", "maria",
+				"(81)9 9321-2428", endereco));
+		BancoDados.addAdm(new Administrador("444.444.444-44", "1.111.111", "Ana", "ana@admin.com", "ana", "ana",
+				"(81)9 9321-2428", endereco));
+		BancoDados.addAdm(new Administrador("555.555.555-55", "1.111.111", "José", "jose@admin.com", "jose", "jose",
+				"(81)9 9321-2428", endereco));
 
 		BancoDados.addAnims(
 				new Animal(1, "Bob", "Vira-lata", "Macho", 5, 7, "Sem descrição", new ImageIcon("resource/1.png")));

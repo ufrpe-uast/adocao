@@ -7,57 +7,52 @@ import javax.swing.JOptionPane;
 
 import model.Administrador;
 import model.BancoDados;
+import model.Endereco;
 import view.CadastroAdministrador;
 
 public class ControllerAdministrador implements ActionListener {
-	
+
 	private CadastroAdministrador ca;
-	
+
 	public ControllerAdministrador(CadastroAdministrador ca) {
 		this.ca = ca;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if(e.getSource() == ca.getCadastrar()) {
+		if (e.getSource() == ca.getCadastrar()) {
 			boolean existe = false;
-			Administrador adm = new Administrador(ca.getNomeTF().getText(), 
-					ca.getUsuarioTF().getText(), ca.getEmailTF().getText(),
-					ca.getSenhaTF().getText());
-			
-			for(Administrador a: BancoDados.adms) {
-				if(a.getUsuario().equalsIgnoreCase(adm.getUsuario()))
+			Endereco endereco = new Endereco(ca.getImputRua().getText(), ca.getImputComplemento().getText(),
+					ca.getImputBairro().getText(), ca.getImputCidade().getText(), ca.getImputCep().getText(),
+					ca.getEstados().getSelectedItem().toString(), Integer.parseInt(ca.getImputNumero().getText()));
+			Administrador adm = new Administrador(ca.getImputCpf().getText(), ca.getImputRg().getText(),
+					ca.getImputNome().getText(), ca.getImputEmail().getText(), ca.getImputUsuario().getText(),
+					ca.getSenhaTF().getText(), ca.getImputFone().getText(), endereco);
+
+			for (Administrador a : BancoDados.adms) {
+				if (a.getUsuario().equalsIgnoreCase(adm.getUsuario()))
 					existe = true;
 				else
-					existe = false;				
+					existe = false;
 			}
-			
-			if(existe) {
+
+			if (existe) {
 				JOptionPane.showMessageDialog(null, "Esse usuário já existe");
 				System.out.println("Usuario ja existe");
-			}
-			else {
+			} else {
 				BancoDados.adms.add(adm);
 				JOptionPane.showMessageDialog(null, "Administrador cadastrado com sucesso!");
-				limpar();
+				ca.limparDados();
 			}
-		}
-		else if(e.getSource() == ca.getLimpar()) {
-			limpar();
+		} else if (e.getSource() == ca.getLimpar()) {
+			ca.limparDados();
 		}
 	}
-	
+
 	public boolean admExiste(Administrador adm) {
-		for(Administrador a: BancoDados.adms) {
+		for (Administrador a : BancoDados.adms) {
 			return (a.getUsuario().equalsIgnoreCase(adm.getUsuario())) ? true : false;
 		}
 		return false;
 	}
-	public void limpar(){
-		ca.getNomeTF().setText(null);
-		ca.getUsuarioTF().setText(null);
-		ca.getEmailTF().setText(null);
-		ca.getSenhaTF().setText(null);
-	}
-
 }

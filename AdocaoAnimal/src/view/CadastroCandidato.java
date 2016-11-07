@@ -18,7 +18,7 @@ import javax.swing.text.MaskFormatter;
 import controller.ControllerCandidato;
 import model.Animal;
 
-public class CadastroCandidato extends TelaInterna {
+public class CadastroCandidato extends TelaPadrao {
 	private JLabel titulo, nome, cpf, email, fone;
 	private JLabel cep, estado, cidade, bairro, rua, numero, complemento;
 	private JTextField imputNome, imputEmail;
@@ -38,6 +38,7 @@ public class CadastroCandidato extends TelaInterna {
 		super("Enviar Proposta", 400, 400);
 
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setLayout(new BorderLayout(50, 10));
 		controllerForm = new ControllerCandidato(this);
 		init();
@@ -46,7 +47,6 @@ public class CadastroCandidato extends TelaInterna {
 		add(BorderLayout.WEST, painelLabels);
 		add(BorderLayout.CENTER, painelImputs);
 		add(BorderLayout.SOUTH, painelBotoes);
-		setLocation(310, 100);
 	}
 
 	public void init() {

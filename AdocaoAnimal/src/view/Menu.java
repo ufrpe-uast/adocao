@@ -48,12 +48,14 @@ public class Menu extends TelaPadrao {
 	private ListaCandidatos telaListarCandidato;
 	private JDesktopPane desktop;
 	private TelaInicial telaInicial;
-	// public static Sessao sessao = new Sessao(adm);
+	private Sessao sessao;
 	private TelaAdocoes ta;
+	private DadosAdministrador dAdm;
 
-	public Menu(TelaInicial telaInicial) {
+	public Menu(TelaInicial telaInicial, Sessao sessao) {
 		super("Bem Vindo", 1020, 600);
 		this.telaInicial = telaInicial;
+		this.sessao = sessao;
 		init();
 		addMenus();
 		setJMenuBar(menu);
@@ -223,8 +225,20 @@ public class Menu extends TelaPadrao {
 		this.sair = sair;
 	}
 
+	public DadosAdministrador getdAdm() {
+		return dAdm;
+	}
+
+	public void setdAdm(DadosAdministrador dAdm) {
+		this.dAdm = dAdm;
+	}
+
 	public void setEditarAnimal(JMenuItem editarAnimal) {
 		this.editarAnimal = editarAnimal;
+	}
+
+	public Sessao getSessao() {
+		return sessao;
 	}
 
 	public void setEditarCandidato(JMenuItem editarCandidato) {

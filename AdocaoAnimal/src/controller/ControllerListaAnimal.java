@@ -27,8 +27,7 @@ public class ControllerListaAnimal implements ActionListener {
 		if (e.getSource() == listAnimais.getAdotarAnimal()) {
 			if (listAnimais.getAnimalRenderer().isCondition()) {
 				CadastroCandidato cadastroCandExterno = new CadastroCandidato();
-				cadastroCandExterno.setAnimal(
-						listAnimais.getAnimalRenderer().getAnimalSelecionado());
+				cadastroCandExterno.setAnimal(listAnimais.getAnimalRenderer().getAnimalSelecionado());
 				cadastroCandExterno.setVisible(true);
 				listAnimais.setVisible(false);
 			} else {
