@@ -19,7 +19,6 @@ public class ControllerCandidato implements ActionListener {
 
 	public ControllerCandidato(CadastroCandidato cce) {
 		this.cce = cce;
-		this.animal = animal;
 	}
 
 	@Override

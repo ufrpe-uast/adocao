@@ -13,7 +13,6 @@ import view.CadastroAnimal;
 public class ControllerAnimal implements ActionListener {
 
 	private CadastroAnimal ca;
-	private BancoDados bd = new BancoDados();
 
 	public ControllerAnimal(CadastroAnimal ca) {
 		this.ca = ca;
@@ -30,7 +29,7 @@ public class ControllerAnimal implements ActionListener {
 							ca.getImputRaca().getText(), ca.getSexoOption().getSelectedItem().toString(), idade, peso,
 							ca.getImputDescricao().getText(), ca.getImagemAnimal());
 					System.out.println(anim.getId());
-					bd.getAnimais().add(anim);
+					BancoDados.animais.add(anim);
 					JOptionPane.showMessageDialog(ca, "Animal Cadastrado com Sucesso");
 					ca.limparDados();
 					ca.setContatorCadastro(1);

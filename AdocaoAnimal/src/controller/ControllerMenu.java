@@ -242,12 +242,6 @@ public class ControllerMenu implements ActionListener {
 				out = new BufferedWriter(new FileWriter(cand));
 				out.write(ca.getNome());
 				out.newLine();
-				out.write(ca.getUsername());
-				out.newLine();
-				out.write(ca.getEmail());
-				out.newLine();
-				out.write(ca.getSenha());
-				out.newLine();
 				out.write(ca.getTelefone());
 				out.newLine();
 				out.write("------");

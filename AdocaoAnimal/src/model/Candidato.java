@@ -4,8 +4,6 @@ public class Candidato {
 	private String nome;
 	private String CPF;
 	private String email;
-	private String username;
-	private String senha;
 	private Endereco endereco;
 	private String telefone;
 
@@ -14,8 +12,6 @@ public class Candidato {
 		this.nome = nome;
 		this.CPF = CPF;
 		this.email = email;
-		this.username = username;
-		this.senha = senha;
 		this.telefone = telefone;
 		this.endereco = endereco;
 
@@ -35,22 +31,6 @@ public class Candidato {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
-
-	public String getSenha() {
-		return senha;
-	}
-
-	public void setSenha(String senha) {
-		this.senha = senha;
 	}
 
 	public Endereco getEndereco() {
