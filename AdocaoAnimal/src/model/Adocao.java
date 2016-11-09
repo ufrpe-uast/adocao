@@ -1,5 +1,9 @@
 package model;
 
+import java.awt.Color;
+
+import javax.swing.border.LineBorder;
+
 public class Adocao {
 
 	private Animal animal;
@@ -27,17 +31,12 @@ public class Adocao {
 	}
 
 	public String toString() {
-		return new String("<html>" + "<p><h3> Informações do Animal" + "</h3></p>" +
-						"<p>ID:" +animal.getId() +"</p>"+
-				        "<p>Nome:" +animal.getNome() +"</p>"+
-				        "<p>Sexo:" +animal.getSexo() +"</p>"+
-				        "<p><h3> Informações do Candidato" + "</h3></p>"+
-				        "<p>CPF:" +candidato.getCPF()+"</p>"+
-				        "<p>Nome:" +candidato.getNome() +"</p>"+
-				        "<p>Email:" +candidato.getEmail() +"</p>"+
-				        "<p>Telefone:" +candidato.getTelefone() +"</p>"+
-				        
-				"</html>");
+		return new String("<html>" + "<p><h3> Informações do Animal" + "</h3></p>" + "<p>ID:" + animal.getId() + "</p>"
+				+ "<p>Nome:" + animal.getNome() + "</p>" + "<p>Sexo:" + animal.getSexo() + "</p>"
+				+ "<p><h3> Informações do Candidato" + "</h3></p>" + "<p>CPF:" + candidato.getCPF() + "</p>"
+				+ "<p>Nome:" + candidato.getNome() + "</p>" + "<p>Email:" + candidato.getEmail() + "</p>"
+				+ "<p>Telefone:" + candidato.getTelefone() + "</p>" + "<p>"
+				+ "_______________________________________________________________________" + "</p>" + "</html>");
 	}
 
 }

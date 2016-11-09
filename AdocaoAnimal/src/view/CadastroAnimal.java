@@ -25,6 +25,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -49,7 +50,7 @@ public class CadastroAnimal extends TelaInterna {
 	private boolean addFoto;
 
 	public CadastroAnimal() {
-		super("Cadastrar Animal", 550, 270);
+		super("Cadastrar Animal", 550, 300);
 
 		controllerAnimal = new ControllerAnimal(this);
 
@@ -71,7 +72,7 @@ public class CadastroAnimal extends TelaInterna {
 		painel.add(peso);
 		painel3.add(imputPeso);
 		painel.add(descricao);
-		painel3.add(imputDescricao);
+		painel3.add(new JScrollPane(imputDescricao));
 		painel2.add(cadastrar);
 		painel2.add(alterar);
 		painel2.add(limpar);
@@ -115,6 +116,7 @@ public class CadastroAnimal extends TelaInterna {
 		imputPeso = new JTextField(20);
 		descricao = new JLabel("Descrição:");
 		imputDescricao = new JTextArea();
+		imputDescricao.setLineWrap(true);
 		imagemAnimal = new ImageIcon();
 		adicionarFoto = new JButton("Adicionar Foto");
 		cadastrar = new JButton("Cadastrar");

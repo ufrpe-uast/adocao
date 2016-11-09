@@ -62,7 +62,8 @@ public class Candidato {
 				+ getEmail() + "</p>" + "<p> Fone: " + getTelefone() + "</p>" + "<p> Endereço: "
 				+ getEndereco().getRua() + "," + getEndereco().getNumero() + "-" + getEndereco().getComplemento()
 				+ " </p>" + "<p>" + getEndereco().getBairro() + "/" + getEndereco().getCidade() + "-"
-				+ getEndereco().getEstado() + "</p>" + "<p>" + getEndereco().getCep() + "</p>" + "</html>");
+				+ getEndereco().getEstado() + "</p>" + "<p>" + getEndereco().getCep() + "</p>"
+				+ "____________________________________________________________________________" + "</p>" + "</html>");
 	}
 
 }

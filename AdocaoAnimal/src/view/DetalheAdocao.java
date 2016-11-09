@@ -30,7 +30,7 @@ public class DetalheAdocao extends TelaPadrao {
 		JPanel cand = new JPanel();
 
 		JButton bot = new JButton("Aprovar Adoção");
-
+		bot.setEnabled(false);
 		JLabel titleAnimal = new JLabel("Animal à ser Adotado:");
 		titleAnimal.setFont(new Font("Arial", Font.BOLD, 18));
 		titleAnimal.setHorizontalAlignment(SwingConstants.CENTER);
@@ -54,7 +54,7 @@ public class DetalheAdocao extends TelaPadrao {
 		cand.add(new JLabel("CPF: " + adocao.getCandidato().getCPF()));
 		cand.add(new JLabel("Email: " + adocao.getCandidato().getEmail()));
 		cand.add(new JLabel("Telefone: " + adocao.getCandidato().getTelefone()));
-		cand.add(new JLabel("<html><h3>Informações de Endereço</h3></html>"));
+		cand.add(new JLabel("<html><h3>Endereço Residencial</h3></html>"));
 		cand.add(new JLabel("Rua: " + adocao.getCandidato().getEndereco().getRua()));
 		cand.add(new JLabel("Número: " + adocao.getCandidato().getEndereco().getNumero()));
 		cand.add(new JLabel("Bairro: " + adocao.getCandidato().getEndereco().getBairro()));

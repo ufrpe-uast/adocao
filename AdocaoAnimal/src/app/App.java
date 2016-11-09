@@ -49,15 +49,15 @@ public class App {
 		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
 				new ImageIcon("resource/10.png")));
 
-		BancoDados.candidatos.add(new Candidato("Danilo", "11111111111", "danilo@", "081993242124",
+		BancoDados.candidatos.add(new Candidato("Danilo", "666.666.666-66", "danilo@", "(87)9 9321-2428",
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
-		BancoDados.candidatos.add(new Candidato("Breno", "22222222222", "daniloMatheus@", "081998128449",
+		BancoDados.candidatos.add(new Candidato("Breno", "777.777.777-77", "daniloMatheus@", "(87)9 9321-2428",
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
-		BancoDados.candidatos.add(new Candidato("João", "33333333333", "daniloMatheus@", "081998128449",
+		BancoDados.candidatos.add(new Candidato("João", "888.888.888-88", "daniloMatheus@", "(87)9 9321-2428",
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
-		BancoDados.candidatos.add(new Candidato("Daniel", "44444444444", "daniloMatheus@", "081998128449",
+		BancoDados.candidatos.add(new Candidato("Daniel", "999.999.999-99", "daniloMatheus@", "(87)9 9321-2428",
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
-		BancoDados.candidatos.add(new Candidato("Matheus", "55555555555", "daniloMatheus@", "081998128449",
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
 
 		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(0), BancoDados.candidatos.get(0)));

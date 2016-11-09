@@ -23,10 +23,10 @@ public class ListaCandidatos extends TelaInterna {
 	private JList<Candidato> candidatos;
 
 	public ListaCandidatos() {
-		super("Candidatos", 900, 500);
+		super("Candidatos", 600, 500);
 		setLayout(new BorderLayout());
 		add(createMainPanel(), BorderLayout.CENTER);
-		setLocation(60, 25);
+		setLocation(210, 25);
 	}
 
 	private JPanel createMainPanel() {

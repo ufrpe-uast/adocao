@@ -1,6 +1,7 @@
 package view;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.Label;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,6 +61,7 @@ public class Menu extends TelaPadrao {
 		addMenus();
 		setJMenuBar(menu);
 		setContentPane(desktop);
+
 		setLayout(null);
 		setVisible(true);
 	}
@@ -72,8 +74,6 @@ public class Menu extends TelaPadrao {
 		editar = new JMenu("Editar");
 		cadastro = new JMenu("Cadastrar");
 		visualizar = new JMenu("Visualizar");
-		// ajuda = new JMenu("Ajuda");
-
 		conta = new JMenuItem("Seus Dados");
 		conta.addActionListener(cMenu);
 		sair = new JMenuItem("Sair do Sistema");

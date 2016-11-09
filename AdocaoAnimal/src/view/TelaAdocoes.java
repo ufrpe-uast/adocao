@@ -45,7 +45,7 @@ public class TelaAdocoes extends TelaInterna {
 
 	private JPanel createMainPanel() {
 		JPanel panel = new JPanel(new BorderLayout());
-		panel.setBorder(new EmptyBorder(20, 20, 20, 20));
+		panel.setBorder(new EmptyBorder(10, 10, 10, 10));
 		panel.add(new JScrollPane(adocoes = createListAdocoes()), BorderLayout.CENTER);
 		return panel;
 	}
