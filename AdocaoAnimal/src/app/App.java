@@ -2,12 +2,19 @@ package app;
 
 import javax.swing.ImageIcon;
 
+import controller.ControllerAdministrador;
 import model.Administrador;
 import model.Adocao;
 import model.Animal;
 import model.BancoDados;
 import model.Candidato;
 import model.Endereco;
+import tests.TestAdocao;
+import tests.TestAnimal;
+import tests.TestCadastroAnimal;
+import tests.TestCadastroCandidato;
+import tests.TestCandidato;
+import tests.TestControllerAdm;
 import view.ListaCandidatos;
 import view.Menu;
 import view.TelaInicial;
@@ -48,6 +55,105 @@ public class App {
 				new Animal(9, "Mabel", "Vira-lata", "Fêmea", 2, 12, "Sem descrição", new ImageIcon("resource/9.png")));
 		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
 				new ImageIcon("resource/10.png")));
+		
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
+		BancoDados.addAnims(new Animal(10, "Madona", "Vira-lata", "Fêmea", 1, 10, "Sem descrição",
+				new ImageIcon("resource/10.png")));
 
 		BancoDados.candidatos.add(new Candidato("Danilo", "666.666.666-66", "danilo@", "(87)9 9321-2428",
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
@@ -59,15 +165,164 @@ public class App {
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
 		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
 				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
+		BancoDados.candidatos.add(new Candidato("Matheus", "101.010.101.01", "daniloMatheus@", "(87)9 9321-2428",
+				new Endereco("31 de Março", "Apt", "Bomba", "Serra Talhada", "55190000", "Pernambuco", 464)));
 
 		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(0), BancoDados.candidatos.get(0)));
 		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(1), BancoDados.candidatos.get(1)));
 		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(2), BancoDados.candidatos.get(2)));
 		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(3), BancoDados.candidatos.get(3)));
 		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		BancoDados.adocoes.add(new Adocao(BancoDados.animais.get(4), BancoDados.candidatos.get(4)));
+		
+		
 		TelaInicial telaInicio = new TelaInicial();
 		ListaCandidatos listCand = new ListaCandidatos();
 		listCand.setVisible(true);
+		
+		/* testes unitarios */
+		/*
+		TestControllerAdm.testAdmExiste();
+		TestAdocao.AdocaoString();
+		TestAnimal.TestAnimal();
+		TestCandidato.TestCandidato();
+		TestCadastroAnimal.TestFile();
+		TestCadastroCandidato.TestRetChars();
+		*/
 	}
 
 }
