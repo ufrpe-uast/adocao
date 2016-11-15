@@ -57,7 +57,7 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getSair()) {
-			int sair = JOptionPane.showConfirmDialog(menu, "Deseja realmente sair?");
+			int sair = JOptionPane.showConfirmDialog(menu, "Deseja realmente sair?", "Aviso",JOptionPane.YES_NO_OPTION);
 			if (sair == 0) {
 				// salvamento de dados
 				// salvarDados();
@@ -105,6 +105,9 @@ public class ControllerMenu implements ActionListener {
 			} else {
 
 				identifica = JOptionPane.showInputDialog("Digite o ID do Animal:");
+				if(identifica.equalsIgnoreCase(""))
+					JOptionPane.showMessageDialog(null, "Você precisa digitar o ID do animal.");
+				
 				int cont = 0;
 				int id = Integer.parseInt(identifica);
 
