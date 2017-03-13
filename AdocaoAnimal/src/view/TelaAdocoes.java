@@ -23,6 +23,7 @@ import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
 import controller.ControllerAdocao;
+import model.Administrador;
 import model.Adocao;
 import model.Animal;
 import model.BancoDados;
@@ -31,9 +32,11 @@ public class TelaAdocoes extends TelaInterna {
 	private JList<Adocao> adocoes;
 	private ControllerAdocao cia;
 	private JButton verCadastro;
+	private Administrador adm;
 
-	public TelaAdocoes() {
+	public TelaAdocoes(Administrador adm) {
 		super("Adoções", 550, 400);
+		this.adm = adm;
 		setLayout(new BorderLayout());
 		cia = new ControllerAdocao(this);
 		verCadastro = new JButton("Visualizar Todas as Informações");
@@ -70,5 +73,9 @@ public class TelaAdocoes extends TelaInterna {
 
 	public JList<Adocao> getAdocoes() {
 		return adocoes;
+	}
+
+	public Administrador getAdm() {
+		return adm;
 	}
 }

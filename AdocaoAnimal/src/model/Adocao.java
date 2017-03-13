@@ -8,10 +8,12 @@ public class Adocao {
 
 	private Animal animal;
 	private Candidato candidato;
+	private String status;
 
 	public Adocao(Animal a, Candidato c) {
 		animal = a;
 		candidato = c;
+		status = "";
 	}
 
 	public Animal getAnimal() {
@@ -36,7 +38,16 @@ public class Adocao {
 				+ "<p><h3> Informações do Candidato" + "</h3></p>" + "<p>CPF:" + candidato.getCPF() + "</p>"
 				+ "<p>Nome:" + candidato.getNome() + "</p>" + "<p>Email:" + candidato.getEmail() + "</p>"
 				+ "<p>Telefone:" + candidato.getTelefone() + "</p>" + "<p>"
+				+ "<p>Status:"+ status+"</p>" + "<p>"
 				+ "_______________________________________________________________________" + "</p>" + "</html>");
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 }

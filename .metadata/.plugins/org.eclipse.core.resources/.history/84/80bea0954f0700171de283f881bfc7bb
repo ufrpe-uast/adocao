@@ -1,0 +1,32 @@
+package controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+
+import model.Adocao;
+import view.DetalheAdocao;
+import view.TelaRelatorioAdocao;
+
+public class ControllerAdocao implements ActionListener {
+	private TelaRelatorioAdocao tAdocao;
+
+	public ControllerAdocao(TelaRelatorioAdocao tAdocao) {
+		this.tAdocao = tAdocao;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == tAdocao.getVerCadastro()) {
+			if (!tAdocao.getAdocoes().isSelectionEmpty()) {
+				DetalheAdocao dAdocao = new DetalheAdocao(tAdocao.getAdocoes().getSelectedValue());
+				dAdocao.setVisible(true);
+			} else {
+				JOptionPane.showMessageDialog(tAdocao, "Selecione um Cadastro de Adoção na Lista ");
+			}
+		}
+
+	}
+}

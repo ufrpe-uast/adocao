@@ -21,7 +21,7 @@ public class ControllerAdocao implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == tAdocao.getVerCadastro()) {
 			if (!tAdocao.getAdocoes().isSelectionEmpty()) {
-				DetalheAdocao dAdocao = new DetalheAdocao(tAdocao.getAdocoes().getSelectedValue());
+				DetalheAdocao dAdocao = new DetalheAdocao(tAdocao.getAdocoes().getSelectedValue(), tAdocao.getAdm());
 				dAdocao.setVisible(true);
 			} else {
 				JOptionPane.showMessageDialog(tAdocao, "Selecione um Cadastro de Adoção na Lista ");

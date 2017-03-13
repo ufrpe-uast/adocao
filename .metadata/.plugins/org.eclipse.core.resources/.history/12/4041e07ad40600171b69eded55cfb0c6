@@ -1,0 +1,34 @@
+package controller;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import view.DetalheAdocao;
+
+public class ControllerDetalheAdocao implements ActionListener {
+	private DetalheAdocao dAdocao;
+
+	public ControllerDetalheAdocao(DetalheAdocao dAdocao) {
+		this.dAdocao = dAdocao;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == dAdocao.getDefinirButton()) {
+			if (dAdocao.getRadioAprovada().isSelected()) {
+				dAdocao.getAdocao().setStatus("Aprovada");
+			} else if (dAdocao.getRadioEmAnalise().isSelected()) {
+				dAdocao.getAdocao().setStatus("EmAnalise");
+			} else if (dAdocao.getRadioReprovada().isSelected()) {
+				dAdocao.getAdocao().setStatus("Reprovada");
+			}
+		}
+	}
+
+	public void statusDefinido() {
+		dAdocao.getRadioAprovada().enable(false);
+		dAdocao.getRadioEmAnalise().enable(false);
+		dAdocao.getRadioReprovada().enable(false);
+	}
+
+}

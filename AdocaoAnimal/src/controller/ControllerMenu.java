@@ -28,6 +28,7 @@ import view.ListaAnimais;
 import view.ListaCandidatos;
 import view.Menu;
 import view.TelaAdocoes;
+import view.TelaRelatorioAdocao;
 
 public class ControllerMenu implements ActionListener {
 	private Menu menu;
@@ -57,7 +58,8 @@ public class ControllerMenu implements ActionListener {
 			}
 
 		} else if (e.getSource() == menu.getSair()) {
-			int sair = JOptionPane.showConfirmDialog(menu, "Deseja realmente sair?", "Aviso",JOptionPane.YES_NO_OPTION);
+			int sair = JOptionPane.showConfirmDialog(menu, "Deseja realmente sair?", "Aviso",
+					JOptionPane.YES_NO_OPTION);
 			if (sair == 0) {
 				// salvamento de dados
 				// salvarDados();
@@ -91,9 +93,16 @@ public class ControllerMenu implements ActionListener {
 		}
 
 		else if (e.getSource() == menu.getVisualizarAdocoes()) {
-			menu.setTa(new TelaAdocoes());
+			menu.setTa(new TelaAdocoes(menu.getSessao().getUsuarioLogado()));
 			menu.getTa().setVisible(true);
 			menu.getDesktop().add(menu.getTa());
+
+		}
+
+		else if (e.getSource() == menu.getVisualizarRelatorio()) {
+			menu.setTelaRelatorioAdocao(new TelaRelatorioAdocao());
+			menu.getTelaRelatorioAdocao().setVisible(true);
+			menu.getDesktop().add(menu.getTelaRelatorioAdocao());
 		}
 
 		else if (e.getSource() == menu.getEditarAnimal()) {
@@ -105,9 +114,9 @@ public class ControllerMenu implements ActionListener {
 			} else {
 
 				identifica = JOptionPane.showInputDialog("Digite o ID do Animal:");
-				if(identifica.equalsIgnoreCase(""))
+				if (identifica.equalsIgnoreCase(""))
 					JOptionPane.showMessageDialog(null, "Você precisa digitar o ID do animal.");
-				
+
 				int cont = 0;
 				int id = Integer.parseInt(identifica);
 

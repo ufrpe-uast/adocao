@@ -1,0 +1,46 @@
+package view;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.JTable;
+import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
+
+public class TelaRelatorios extends TelaPadrao {
+	JPanel panelAprovadas, panelReprovadas, panelEmAnalise;
+	JTabbedPane pane;
+
+	public TelaRelatorios() {
+		super("Relatório das Adoções", 500, 500);
+		pane = new JTabbedPane();
+		panelAprovadas = new JPanel();
+		panelReprovadas = new JPanel();
+		panelEmAnalise = new JPanel();
+		pane.add(panelAprovadas, "Aprovadas");
+		pane.add(panelEmAnalise, "Em Analíse");
+		pane.add(panelReprovadas, "Reprovadas");
+		TableModel dataModel = new AbstractTableModel() {
+			public int getColumnCount() {
+				return 10;
+			}
+
+			public int getRowCount() {
+				return 10;
+			}
+
+			public Object getValueAt(int row, int col) {
+				return new Integer(row * col);
+			}
+		};
+		JTable table = new JTable(dataModel);
+		JScrollPane scrollpane = new JScrollPane(table);
+		panelAprovadas.add(table);
+		add(pane);
+	}
+
+	public static void main(String[] args) {
+		new TelaRelatorios();
+	}
+
+}

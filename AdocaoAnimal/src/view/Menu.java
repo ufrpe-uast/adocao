@@ -26,21 +26,9 @@ import model.Sessao;
 
 public class Menu extends TelaPadrao {
 	private JMenuBar menu;
-	private JMenu sistema;
-	private JMenu editar;
-	private JMenu cadastro;
-	private JMenu visualizar;
-	private JMenu ajuda;
-	private JMenuItem conta;
-	private JMenuItem sair;
-	private JMenuItem editarAnimal;
-	private JMenuItem editarCandidato;
-	private JMenuItem cadastrarAnimal;
-	private JMenuItem cadastrarAdministrador;
-	private JMenuItem cadastrarCandidato;
-	private JMenuItem visualizarAnimais;
-	private JMenuItem visualizarCandidatos;
-	private JMenuItem visualizarAdocoes;
+	private JMenu sistema, editar, cadastro, visualizar, ajuda;
+	private JMenuItem conta, sair, editarAnimal, editarCandidato, cadastrarAnimal, cadastrarAdministrador,
+			cadastrarCandidato, visualizarAnimais, visualizarCandidatos, visualizarAdocoes, visualizarRelatorio;
 	private ControllerMenu cMenu;
 	private CadastroAnimal telaCadAnimal;
 	private CadastroCandidato telaCadCandidato;
@@ -52,6 +40,7 @@ public class Menu extends TelaPadrao {
 	private Sessao sessao;
 	private TelaAdocoes ta;
 	private DadosAdministrador dAdm;
+	private TelaRelatorioAdocao telaRelatorioAdocao;
 
 	public Menu(TelaInicial telaInicial, Sessao sessao) {
 		super("Bem Vindo", 1020, 600);
@@ -61,7 +50,6 @@ public class Menu extends TelaPadrao {
 		addMenus();
 		setJMenuBar(menu);
 		setContentPane(desktop);
-
 		setLayout(null);
 		setVisible(true);
 	}
@@ -97,6 +85,8 @@ public class Menu extends TelaPadrao {
 		visualizarCandidatos.addActionListener(cMenu);
 		visualizarAdocoes = new JMenuItem("Adoções");
 		visualizarAdocoes.addActionListener(cMenu);
+		visualizarRelatorio = new JMenuItem("Relatório");
+		visualizarRelatorio.addActionListener(cMenu);
 	}
 
 	public void addMenus() {
@@ -109,6 +99,7 @@ public class Menu extends TelaPadrao {
 		visualizar.add(visualizarAnimais);
 		visualizar.add(visualizarCandidatos);
 		visualizar.add(visualizarAdocoes);
+		visualizar.add(visualizarRelatorio);
 
 		cadastro.add(cadastrarAnimal);
 		cadastro.add(cadastrarAdministrador);
@@ -225,6 +216,14 @@ public class Menu extends TelaPadrao {
 		this.sair = sair;
 	}
 
+	public TelaRelatorioAdocao getTelaRelatorioAdocao() {
+		return telaRelatorioAdocao;
+	}
+
+	public void setTelaRelatorioAdocao(TelaRelatorioAdocao telaRelatorioAdocao) {
+		this.telaRelatorioAdocao = telaRelatorioAdocao;
+	}
+
 	public DadosAdministrador getdAdm() {
 		return dAdm;
 	}
@@ -331,5 +330,13 @@ public class Menu extends TelaPadrao {
 
 	public void setTa(TelaAdocoes ta) {
 		this.ta = ta;
+	}
+
+	public JMenuItem getVisualizarRelatorio() {
+		return visualizarRelatorio;
+	}
+
+	public void setVisualizarRelatorio(JMenuItem visualizarRelatorio) {
+		this.visualizarRelatorio = visualizarRelatorio;
 	}
 }

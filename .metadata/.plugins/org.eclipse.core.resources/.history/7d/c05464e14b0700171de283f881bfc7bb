@@ -1,0 +1,77 @@
+package view;
+
+import java.awt.BorderLayout;
+
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JList;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTabbedPane;
+import javax.swing.ListSelectionModel;
+import javax.swing.border.EmptyBorder;
+
+import controller.ControllerAdocao;
+import model.Adocao;
+import model.BancoDados;
+
+public class TelaRelatorioAdocao extends TelaInterna {
+	JPanel panelAprovadas, panelReprovadas, panelEmAnalise;
+	JTabbedPane pane;
+	private JList<Adocao> adocoes;
+	private ControllerAdocao cia;
+	private JButton verCadastro;
+
+	public TelaRelatorioAdocao() {
+		super("Adoções", 550, 400);
+		setLayout(new BorderLayout());
+		pane = new JTabbedPane();
+		panelAprovadas = new JPanel();
+		panelReprovadas = new JPanel();
+		panelEmAnalise = new JPanel();
+		pane.add(panelAprovadas, "Aprovadas");
+		pane.add(panelEmAnalise, "Em Analíse");
+		pane.add(panelReprovadas, "Reprovadas");
+		add(pane);
+		// cia = new ControllerAdocao(this);
+		verCadastro = new JButton("Visualizar Todas as Informações");
+		verCadastro.addActionListener(cia);
+		add(createMainPanel(), BorderLayout.CENTER);
+		add(verCadastro, BorderLayout.SOUTH);
+		setLocation(230, 20);
+
+	}
+
+	private JPanel createMainPanel() {
+		panelAprovadas = new JPanel(new BorderLayout());
+		panelAprovadas.setBorder(new EmptyBorder(10, 10, 10, 10));
+		panelAprovadas.add(new JScrollPane(adocoes = createListAdocoes()), BorderLayout.CENTER);
+		return panelAprovadas;
+	}
+
+	public JList<Adocao> createListAdocoes() {
+		DefaultListModel<Adocao> model = new DefaultListModel<>();
+		for (Adocao adocao : BancoDados.adocoes) {
+			model.addElement(adocao);
+		}
+		JList<Adocao> list = new JList<Adocao>(model);
+		list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		return list;
+	}
+
+	public JButton getVerCadastro() {
+		return verCadastro;
+	}
+
+	public void setVerCadastro(JButton verCadastro) {
+		this.verCadastro = verCadastro;
+	}
+
+	public JList<Adocao> getAdocoes() {
+		return adocoes;
+	}
+
+	public static void main(String[] args) {
+		new TelaRelatorioAdocao();
+	}
+}

@@ -1,0 +1,56 @@
+package model;
+
+public class Relatorio {
+	private Adocao adocao;
+	private Administrador adm;
+
+	public Relatorio(Adocao adocao, Administrador adm) {
+		super();
+		this.adocao = adocao;
+		this.adm = adm;
+	}
+
+	public Adocao getAdocao() {
+		return adocao;
+	}
+
+	public void setAdocao(Adocao adocao) {
+		this.adocao = adocao;
+	}
+
+	public Administrador getAdm() {
+		return adm;
+	}
+
+	public void setAdm(Administrador adm) {
+		this.adm = adm;
+	}
+
+	/*
+	 * public String toString() { return new String("<html>" +
+	 * "<p><h3> Informações do Animal" + "</h3></p>" + "<p>ID:" +
+	 * getAdocao().getAnimal().getId() + "</p>" + "<p>Nome:" +
+	 * getAdocao().getAnimal().getNome() + "</p>" + "<p>Sexo:" +
+	 * getAdocao().getAnimal().getSexo() + "</p>" +
+	 * "<p><h3> Informações do Candidato()" + "</h3></p>" + "<p>CPF:" +
+	 * getAdocao().getCandidato().getCPF() + "</p>" + "<p>Nome:" +
+	 * getAdocao().getCandidato().getNome() + "</p>" + "<p>Email:" +
+	 * getAdocao().getCandidato().getEmail() + "</p>" + "<p>Telefone:" +
+	 * getAdocao().getCandidato().getTelefone() + "</p>" +
+	 * "<p><h3> Situação da Adoção()" + "</h3></p>"+"<p>Status:" +
+	 * getAdocao().getStatus()+ "</p>" +"<p>Definida por:" + getAdm().getNome()
+	 * + "</p>" +
+	 * "_______________________________________________________________________"
+	 * + "</p>" + "</html>"); }
+	 */
+	public String toString() {
+		return new String(
+				"<html>" + "<h3> <table width=100><thead><th>ID Animal</th><th>Animal</th><th>CPF</th><th>Nome</th><th>Email</th></thead>"
+						+ "<th>Telefone:</th><th>Status</th><th>Definida por:</th>" + "<tbody><tr><td>"
+						+ getAdocao().getAnimal().getId() + "</td><td>" + getAdocao().getAnimal().getNome()
+						+ "</td><td>" + getAdocao().getCandidato().getCPF() + "</td><td>"
+						+ getAdocao().getCandidato().getNome() + "</td><td>" + getAdocao().getCandidato().getEmail()
+						+ "</td><td>" + getAdocao().getCandidato().getTelefone() + "</td><td>" + getAdocao().getStatus()
+						+ "</td><td>" + getAdm().getNome() + "</td></tr></tbody>" + "</h3>" + "</html>");
+	}
+}

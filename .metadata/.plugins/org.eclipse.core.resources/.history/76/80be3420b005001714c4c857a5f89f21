@@ -1,0 +1,58 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridLayout;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+
+import model.Adocao;
+
+public class TelaStatusAdocao extends TelaPadrao {
+	private JRadioButton radioAprovada, radioReprovada, radioEmAnalise;
+	private JButton definirButton;
+	private ButtonGroup grupoRadio;
+	private JPanel panelInfo;
+	private JPanel panelRadios;
+	private Adocao adocao;
+
+	public TelaStatusAdocao(Adocao adocao) {
+		super("Selecione o Status da Adoção", 500, 170);
+		setLayout(new BorderLayout(10, 10));
+		init();
+		addComp();
+		setVisible(true);
+	}
+
+	public void init() {
+		radioAprovada = new JRadioButton("Aprovada");
+		radioAprovada.setBackground(Color.GREEN);
+		radioReprovada = new JRadioButton("Reprovada");
+		radioReprovada.setBackground(Color.RED);
+		radioEmAnalise = new JRadioButton("Em Análise");
+		radioEmAnalise.setBackground(Color.YELLOW);
+		definirButton = new JButton("Definir Adocão");
+		grupoRadio = new ButtonGroup();
+		panelRadios = new JPanel();
+	}
+
+	public void addComp() {
+		grupoRadio.add(radioAprovada);
+		grupoRadio.add(radioReprovada);
+		grupoRadio.add(radioEmAnalise);
+		panelRadios.setLayout(new GridLayout(1, 3));
+		panelRadios.add(radioAprovada);
+		panelRadios.add(radioEmAnalise);
+		panelRadios.add(radioReprovada);
+		add(panelRadios, BorderLayout.CENTER);
+		add(definirButton, BorderLayout.SOUTH);
+
+	}
+
+	public static void main(String[] args) {
+		new TelaStatusAdocao();
+	}
+}

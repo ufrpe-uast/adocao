@@ -1,0 +1,38 @@
+package model;
+
+public class Relatorio {
+	private Adocao adocao;
+	private Administrador adm;
+
+	public Relatorio(Adocao adocao, Administrador adm) {
+		super();
+		this.adocao = adocao;
+		this.adm = adm;
+	}
+
+	public Adocao getAdocao() {
+		return adocao;
+	}
+
+	public void setAdocao(Adocao adocao) {
+		this.adocao = adocao;
+	}
+
+	public Administrador getAdm() {
+		return adm;
+	}
+
+	public void setAdm(Administrador adm) {
+		this.adm = adm;
+	}
+	public String toString() {
+		return new String(
+				"<html>" + "<table cellspacing=10 cellpadding=10 border=3><thead><th>ID Animal</th><th>Animal</th><th>CPF</th><th>Nome</th><th>Email</th></thead>"
+						+ "<th>Telefone:</th><th>Status</th><th>Definida por:</th><tbody><tr> <td align=center>"
+						+ getAdocao().getAnimal().getId() + "</td> <td align=center>" + getAdocao().getAnimal().getNome()
+						+ "</td> <td align=center>" + getAdocao().getCandidato().getCPF() + "</td> <td align=center>"
+						+ getAdocao().getCandidato().getNome() + "</td> <td align=center>" + getAdocao().getCandidato().getEmail()
+						+ "</td> <td align=center>" + getAdocao().getCandidato().getTelefone() + "</td> <td align=center>" + getAdocao().getStatus()
+						+ "</td> <td align=center>" + getAdm().getNome() + "</td></tr></tbody>" + "</h3>" + "</html>");
+	}
+}
