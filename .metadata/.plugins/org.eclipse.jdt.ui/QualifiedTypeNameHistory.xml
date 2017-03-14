@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="model.Adocao"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
 <fullyQualifiedTypeName name="java.awt.GridLayout"/>
 <fullyQualifiedTypeName name="java.awt.BorderLayout"/>
@@ -8,7 +7,6 @@
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="view.DetalheAdocao"/>
 <fullyQualifiedTypeName name="controller.ControllerDetalheAdocao"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="view.TelaPadrao"/>
 <fullyQualifiedTypeName name="view.TelaRelatorioAdocao"/>
 <fullyQualifiedTypeName name="java.awt.Color"/>
@@ -16,6 +14,8 @@
 <fullyQualifiedTypeName name="model.Relatorio"/>
 <fullyQualifiedTypeName name="view.MainClass"/>
 <fullyQualifiedTypeName name="javax.swing.JTable"/>
-<fullyQualifiedTypeName name="model.BancoDados"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="model.BancoDados"/>
+<fullyQualifiedTypeName name="model.Adocao"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 </qualifiedTypeNameHistroy>
